@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pxml>
+  <map>
+    </key>
+    <key>
+      <name>iw_bundle_identifier</name>
+      <type>java.lang.String</type>
+      <value>com.idega.block.process.webservice</value>
+    </key>
+  </map>
+</pxml>

@@ -1,0 +1,98 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CaseServiceService WSDL service -->
+
+  <service name="CaseService" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="urn:com.idega.block.process.webservice"/>
+      <parameter name="wsdlServiceElement" value="CaseServiceService"/>
+      <parameter name="schemaUnqualified" value="urn:com.idega.block.process.webservice"/>
+      <parameter name="wsdlServicePort" value="CaseService"/>
+      <parameter name="className" value="com.idega.block.process.webservice.server.CaseServiceSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="CaseService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Session"/>
+
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:Contact"
+        type="java:com.idega.block.process.webservice.server.Contact"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:ArrayOfItem"
+        type="java:com.idega.block.process.webservice.server.Item[]"
+        innerType="cmp-ns:Item" xmlns:cmp-ns="urn:com.idega.block.process.webservice"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:Recipient"
+        type="java:com.idega.block.process.webservice.server.Recipient"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:Owner"
+        type="java:com.idega.block.process.webservice.server.Owner"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:CaseEntry"
+        type="java:com.idega.block.process.webservice.server.CaseEntry"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:Handler"
+        type="java:com.idega.block.process.webservice.server.Handler"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:CaseResult"
+        type="java:com.idega.block.process.webservice.server.CaseResult"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:Item"
+        type="java:com.idega.block.process.webservice.server.Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:com.idega.block.process.webservice"
+        qname="ns:Organization"
+        type="java:com.idega.block.process.webservice.server.Organization"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+</deployment>
