@@ -1,21 +1,22 @@
 import java.net.URL;
 
-import com.idega.block.process.wsclient.Contact;
-import com.idega.block.process.wsclient.CreateNewCaseLocator;
-import com.idega.block.process.wsclient.Handler;
-import com.idega.block.process.wsclient.Item;
-import com.idega.block.process.wsclient.NewCasePort;
-import com.idega.block.process.wsclient.Owner;
+import com.idega.block.process.webservice.server.CaseEntry;
+import com.idega.block.process.webservice.server.CaseResult;
+import com.idega.block.process.webservice.server.CaseService;
+import com.idega.block.process.webservice.server.CaseServiceServiceLocator;
+import com.idega.block.process.webservice.server.Contact;
+import com.idega.block.process.webservice.server.Handler;
+import com.idega.block.process.webservice.server.Item;
+import com.idega.block.process.webservice.server.Owner;
 import com.idega.block.process.wsclient.WSCaseConstants;
-import com.idega.block.process.wsclient._case;
 import com.idega.util.IWTimestamp;
 
 public class TestClient {
 	public static void main(String[] args) {
 		try {
-			String endpoint = "http://azskjalfandi.skjalfandi.is/services/CreateNewCaseHttp";
+//			String endpoint = "http://azskjalfandi.skjalfandi.is/services/CreateNewCaseHttp";
 //			String endpoint = "http://213.167.155.187:6580/GoProHusavik.nsf/webservicenewcase?OpenAgent";
-//			String endpoint = "http://localhost:8080/GoProHusavik.nsf/webservicenewcase?OpenAgent";
+			String endpoint = "http://localhost:9696/rvk/services/CaseService";
 //			String endpoint = "http://157.157.136.149:8080/axis/services/CreateNewCaseHttp";
 /*			Service service = new Service();
 			Call call = (Call) service.createCall();
@@ -65,14 +66,14 @@ public class TestClient {
 			owner.setContact(contact);
 			handler.setContact(contact);
 			
-			_case wsCase = new _case();
+			CaseEntry wsCase = new CaseEntry();
 			wsCase.setId("-1");
 			wsCase.setBody("Thetta er body");
 			wsCase.setStatus(WSCaseConstants.STATUS_CLOSED);
 			wsCase.setCode("MBARN");
 			wsCase.setCreated(IWTimestamp.RightNow().toSQLDateString());
 			wsCase.setModified(IWTimestamp.RightNow().toSQLDateString());
-			wsCase.setExternal_case_id("12345");
+			wsCase.setExternalCase_id("12345");
 			wsCase.setSubject("Test subject");
 			wsCase.setBody("Test body");
 			
@@ -89,16 +90,16 @@ public class TestClient {
 			
 //			String ret = (String) call.invoke(new Object[] { wsCase });
 	        // Make a service
-	        CreateNewCaseLocator service = new CreateNewCaseLocator();
+	        CaseServiceServiceLocator service = new CaseServiceServiceLocator();
 	 
 	        // Now use the service to get a stub which implements the SDI.
-	        NewCasePort port = service.getCreateNewCaseHttp(new URL(endpoint));
+	        CaseService port = service.getCaseService(new URL(endpoint));
 //	        NewCasePort port = service.getCreateNewCaseHttp();
 	        
-	        String ret = port.createNewCase(wsCase);
+	        CaseResult ret = port.createOrUpdateCase(wsCase);
 	 
 
-			System.out.println("Sent 'Hello!', got '" + ret + "'");
+			System.out.println("Sent 'Hello!', got operation='" + ret.getOperation() + "' and id="+ret.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
