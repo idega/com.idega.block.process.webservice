@@ -2,7 +2,6 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.params.HttpMethodParams;
 
 import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.util.IWTimestamp;
@@ -210,12 +209,11 @@ public class TestClientOS {
 	private void sendFile(String xml, String URL) {
 		PostMethod authpost = new PostMethod(URL);
 
-		authpost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE, true);
+		//authpost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE, true);
 		try {
 
 			HttpClient client = new HttpClient();
-			client.getHttpConnectionManager().getParams().setConnectionTimeout(
-					5000);
+			//client.getHttpConnectionManager().getParams().setConnectionTimeout(5000);
 
 			// Prepare login parameters
 			NameValuePair file = new NameValuePair("xmldata", xml);
