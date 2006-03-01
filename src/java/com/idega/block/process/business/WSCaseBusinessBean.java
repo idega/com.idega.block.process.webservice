@@ -176,7 +176,6 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 					}
 				}
 				catch (CreateException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
