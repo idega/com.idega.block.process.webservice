@@ -4,8 +4,6 @@ import com.idega.block.process.webservice.server.CaseEntry;
 import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.CaseService;
 import com.idega.block.process.webservice.server.CaseServiceServiceLocator;
-import com.idega.block.process.webservice.server.Contact;
-import com.idega.block.process.webservice.server.Handler;
 import com.idega.block.process.webservice.server.Item;
 import com.idega.block.process.webservice.server.Owner;
 import com.idega.block.process.wsclient.WSCaseConstants;
@@ -92,7 +90,7 @@ public class TestClient {
 	 * TODO tryggvil describe method testDummy
 	 * </p>
 	 */
-	private static void testDummy() {
+	/*private static void testDummy() {
 		try {
 //			String endpoint = "http://azskjalfandi.skjalfandi.is/services/CreateNewCaseHttp";
 //			String endpoint = "http://213.167.155.187:6580/GoProHusavik.nsf/webservicenewcase?OpenAgent";
@@ -104,7 +102,7 @@ public class TestClient {
 			call.setTargetEndpointAddress(new java.net.URL(endpoint));
 			call.setOperationName(new QName("", "createNewCase"));*/
 
-			Owner owner = new Owner();
+			/*Owner owner = new Owner();
 			owner.setAddress("Galtalind 13");
 			owner.setCase_role("Jolasveinn");
 			owner.setCity("Kopavogur");
@@ -183,5 +181,5 @@ public class TestClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

@@ -7,25 +7,9 @@
 
 package com.idega.block.process.webservice.server;
 
-import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.Iterator;
-import javax.ejb.CreateException;
-import javax.ejb.FinderException;
-import com.idega.block.process.business.CaseBusiness;
 import com.idega.block.process.business.WSCaseBusiness;
 import com.idega.block.process.business.WSCaseBusinessBean;
 import com.idega.block.process.data.Case;
-import com.idega.business.IBOLookup;
-import com.idega.business.IBOLookupException;
-import com.idega.core.contact.data.Email;
-import com.idega.core.contact.data.EmailHome;
-import com.idega.data.IDOAddRelationshipException;
-import com.idega.user.data.UserHome;
-import com.idega.idegaweb.IWApplicationContext;
-import com.idega.idegaweb.IWMainApplication;
-import com.idega.user.business.UserBusiness;
-import com.idega.user.data.User;
 
 public class CaseServiceSoapBindingImpl implements com.idega.block.process.webservice.server.CaseService{
     public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
@@ -81,7 +65,7 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 	 * </p>
 	 * @param owner
 	 */
-	private void updateOwnerInfo(Owner owner) {
+	/*private void updateOwnerInfo(Owner owner) {
 		
 		
 		String personalId = owner.getSocialsecurity();
@@ -126,11 +110,8 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 		catch (IDOAddRelationshipException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error updating info for user with socialsecurity='"+personalId+"'");
-
 		}
-
-		
-	}
+	}*/
 
 	/**
 	 * <p>
@@ -138,10 +119,10 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 	 * </p>
 	 * @return
 	 */
-	private EmailHome getEmailHome() {
+	/*private EmailHome getEmailHome() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 	/**
 	 * <p>
@@ -149,26 +130,8 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 	 * </p>
 	 * @return
 	 */
-	private UserHome getUserHome() {
+	/*private UserHome getUserHome() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	/**
-	 * <p>
-	 * TODO tryggvil describe method getUserBusiness
-	 * </p>
-	 * @return
-	 */
-	private UserBusiness getUserBusiness() {
-		IWApplicationContext iwac = IWMainApplication.getDefaultIWApplicationContext();
-		UserBusiness business;
-		try {
-			business = (UserBusiness) IBOLookup.getServiceInstance(iwac,UserBusiness.class);
-		}
-		catch (IBOLookupException e) {
-			throw new RuntimeException(e);
-		}
-		return business;
-	}
+	}*/
 }

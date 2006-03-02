@@ -36,7 +36,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 	public Case createOrUpdateCase(CaseEntry wsCase) throws Exception {
 		
-		boolean isUpdate=false;
+		//boolean isUpdate=false;
 		
 		String status = wsCase.getStatus();
 		String caseCode = wsCase.getCode();
@@ -68,7 +68,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 				theCase = getCaseHome().findCaseByExternalId(externalId);
 				log("[CaseBusiness : craeteOrUpdateCase] updating");
 				changeCaseStatus(theCase, newCaseStatus, null,msgUpdateText);
-				isUpdate=true;
+				//isUpdate=true;
 			}
 			catch(FinderException e){
 
@@ -79,7 +79,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			theCase.setCaseStatus(newCaseStatus);
 		} else {
 			System.out.println("[CaseBusiness : craeteOrUpdateCase] updating case with id='"+id+"'");
-			isUpdate=true;
+			//isUpdate=true;
 			theCase = getCaseHome().findCaseByUniqueId(id);
 			changeCaseStatus(theCase, newCaseStatus, null,msgUpdateText);
 		}
@@ -165,7 +165,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}
 			if(!emailFound){
 				try {
-					Email newEmail = (Email) getEmailHome().create();
+					Email newEmail = getEmailHome().create();
 					newEmail.setEmailAddress(sEmail);
 					try {
 						user.addEmail(newEmail);
