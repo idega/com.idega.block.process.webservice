@@ -10,10 +10,11 @@ package com.idega.block.process.webservice.server;
 import com.idega.block.process.business.WSCaseBusiness;
 import com.idega.block.process.business.WSCaseBusinessBean;
 import com.idega.block.process.data.Case;
+import com.idega.util.IWTimestamp;
 
 public class CaseServiceSoapBindingImpl implements com.idega.block.process.webservice.server.CaseService{
     public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
-    		System.out.println("[NewCaseBindingImpl (WebService)] method is called");
+    		System.out.println(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss") + " : [NewCaseBindingImpl (WebService)] method is called");
 		CaseResult res = new CaseResult();
 		//WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
 		WSCaseBusiness bus1 = new WSCaseBusinessBean();
@@ -24,6 +25,8 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 		catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			res.setId("-1");
+			res.setOperation("create/update failed");
 		}
 		
 		/*try {
