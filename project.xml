@@ -107,6 +107,13 @@
       <type>jar</type>
       <url>http://ws.apache.org/axis</url>
     </dependency>
+    <dependency>
+      <groupId>itextpdf</groupId>
+      <artifactId>itext-paulo</artifactId>
+      <version>139</version>
+      <type>jar</type>
+      <url>http://ws.apache.org/axis</url>
+    </dependency>
     
   </dependencies>
 </project>

@@ -17,6 +17,8 @@
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/commons-httpclient/jars/commons-httpclient-2.0.2.jar">
   </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/itextpdf/jars/itext-paulo-139.jar">
+  </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/jdom/jars/jdom-1.0.jar">
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/jai/jars/jai-1.0.jar">
@@ -28,8 +30,6 @@
   <classpathentry kind="var" path="MAVEN_REPO/jaf/jars/jaf-1.0.2.jar">
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/servlets.com/jars/cos-05Nov2002.jar">
-  </classpathentry>
-  <classpathentry kind="var" path="MAVEN_REPO/itextpdf/jars/itext-paulo-139.jar">
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/servletapi/jars/servletapi-2.4.jar">
   </classpathentry>

@@ -1,5 +1,5 @@
 /**
- * Contact.java
+ * Case_requestHandlerContact.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
@@ -7,10 +7,10 @@
 
 package com.idega.block.process.wsclient;
 
-public class Contact  implements java.io.Serializable {
+public class Case_requestHandlerContact  implements java.io.Serializable {
     private java.lang.String name;
 
-    private java.lang.String socialsecurity;
+    private java.lang.String social_security;
 
     private java.lang.String address;
 
@@ -30,12 +30,12 @@ public class Contact  implements java.io.Serializable {
 
     private java.lang.String case_role;
 
-    public Contact() {
+    public Case_requestHandlerContact() {
     }
 
-    public Contact(
+    public Case_requestHandlerContact(
            java.lang.String name,
-           java.lang.String socialsecurity,
+           java.lang.String social_security,
            java.lang.String address,
            java.lang.String city,
            java.lang.String postalcode,
@@ -46,7 +46,7 @@ public class Contact  implements java.io.Serializable {
            java.lang.String department,
            java.lang.String case_role) {
            this.name = name;
-           this.socialsecurity = socialsecurity;
+           this.social_security = social_security;
            this.address = address;
            this.city = city;
            this.postalcode = postalcode;
@@ -60,7 +60,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the name value for this Contact.
+     * Gets the name value for this Case_requestHandlerContact.
      * 
      * @return name
      */
@@ -70,7 +70,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the name value for this Contact.
+     * Sets the name value for this Case_requestHandlerContact.
      * 
      * @param name
      */
@@ -80,27 +80,27 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the socialsecurity value for this Contact.
+     * Gets the social_security value for this Case_requestHandlerContact.
      * 
-     * @return socialsecurity
+     * @return social_security
      */
-    public java.lang.String getSocialsecurity() {
-        return socialsecurity;
+    public java.lang.String getSocial_security() {
+        return social_security;
     }
 
 
     /**
-     * Sets the socialsecurity value for this Contact.
+     * Sets the social_security value for this Case_requestHandlerContact.
      * 
-     * @param socialsecurity
+     * @param social_security
      */
-    public void setSocialsecurity(java.lang.String socialsecurity) {
-        this.socialsecurity = socialsecurity;
+    public void setSocial_security(java.lang.String social_security) {
+        this.social_security = social_security;
     }
 
 
     /**
-     * Gets the address value for this Contact.
+     * Gets the address value for this Case_requestHandlerContact.
      * 
      * @return address
      */
@@ -110,7 +110,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the address value for this Contact.
+     * Sets the address value for this Case_requestHandlerContact.
      * 
      * @param address
      */
@@ -120,7 +120,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the city value for this Contact.
+     * Gets the city value for this Case_requestHandlerContact.
      * 
      * @return city
      */
@@ -130,7 +130,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the city value for this Contact.
+     * Sets the city value for this Case_requestHandlerContact.
      * 
      * @param city
      */
@@ -140,7 +140,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the postalcode value for this Contact.
+     * Gets the postalcode value for this Case_requestHandlerContact.
      * 
      * @return postalcode
      */
@@ -150,7 +150,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the postalcode value for this Contact.
+     * Sets the postalcode value for this Case_requestHandlerContact.
      * 
      * @param postalcode
      */
@@ -160,7 +160,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the phone value for this Contact.
+     * Gets the phone value for this Case_requestHandlerContact.
      * 
      * @return phone
      */
@@ -170,7 +170,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the phone value for this Contact.
+     * Sets the phone value for this Case_requestHandlerContact.
      * 
      * @param phone
      */
@@ -180,7 +180,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the gsm value for this Contact.
+     * Gets the gsm value for this Case_requestHandlerContact.
      * 
      * @return gsm
      */
@@ -190,7 +190,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the gsm value for this Contact.
+     * Sets the gsm value for this Case_requestHandlerContact.
      * 
      * @param gsm
      */
@@ -200,7 +200,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the email value for this Contact.
+     * Gets the email value for this Case_requestHandlerContact.
      * 
      * @return email
      */
@@ -210,7 +210,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the email value for this Contact.
+     * Sets the email value for this Case_requestHandlerContact.
      * 
      * @param email
      */
@@ -220,7 +220,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the title value for this Contact.
+     * Gets the title value for this Case_requestHandlerContact.
      * 
      * @return title
      */
@@ -230,7 +230,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the title value for this Contact.
+     * Sets the title value for this Case_requestHandlerContact.
      * 
      * @param title
      */
@@ -240,7 +240,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the department value for this Contact.
+     * Gets the department value for this Case_requestHandlerContact.
      * 
      * @return department
      */
@@ -250,7 +250,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the department value for this Contact.
+     * Sets the department value for this Case_requestHandlerContact.
      * 
      * @param department
      */
@@ -260,7 +260,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Gets the case_role value for this Contact.
+     * Gets the case_role value for this Case_requestHandlerContact.
      * 
      * @return case_role
      */
@@ -270,7 +270,7 @@ public class Contact  implements java.io.Serializable {
 
 
     /**
-     * Sets the case_role value for this Contact.
+     * Sets the case_role value for this Case_requestHandlerContact.
      * 
      * @param case_role
      */
@@ -280,8 +280,8 @@ public class Contact  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Contact)) return false;
-        Contact other = (Contact) obj;
+        if (!(obj instanceof Case_requestHandlerContact)) return false;
+        Case_requestHandlerContact other = (Case_requestHandlerContact) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -293,9 +293,9 @@ public class Contact  implements java.io.Serializable {
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
-            ((this.socialsecurity==null && other.getSocialsecurity()==null) || 
-             (this.socialsecurity!=null &&
-              this.socialsecurity.equals(other.getSocialsecurity()))) &&
+            ((this.social_security==null && other.getSocial_security()==null) || 
+             (this.social_security!=null &&
+              this.social_security.equals(other.getSocial_security()))) &&
             ((this.address==null && other.getAddress()==null) || 
              (this.address!=null &&
               this.address.equals(other.getAddress()))) &&
@@ -337,8 +337,8 @@ public class Contact  implements java.io.Serializable {
         if (getName() != null) {
             _hashCode += getName().hashCode();
         }
-        if (getSocialsecurity() != null) {
-            _hashCode += getSocialsecurity().hashCode();
+        if (getSocial_security() != null) {
+            _hashCode += getSocial_security().hashCode();
         }
         if (getAddress() != null) {
             _hashCode += getAddress().hashCode();
@@ -373,79 +373,83 @@ public class Contact  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Contact.class, true);
+        new org.apache.axis.description.TypeDesc(Case_requestHandlerContact.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("schema.request", ">contact"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_requestHandlerContact"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("socialsecurity");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "socialsecurity"));
+        elemField.setFieldName("social_security");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "social_security"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("address");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "address"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "address"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("city");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "city"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "city"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("postalcode");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "postalcode"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "postalcode"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("phone");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "phone"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "phone"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("gsm");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "gsm"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "gsm"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("email");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "email"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "email"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("title");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "title"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "title"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("department");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "department"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "department"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("case_role");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "case_role"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "case_role"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

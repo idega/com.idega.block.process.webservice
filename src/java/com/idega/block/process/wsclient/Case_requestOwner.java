@@ -1,5 +1,5 @@
 /**
- * Owner.java
+ * Case_requestOwner.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
@@ -7,7 +7,7 @@
 
 package com.idega.block.process.wsclient;
 
-public class Owner  implements java.io.Serializable {
+public class Case_requestOwner  implements java.io.Serializable {
     private java.lang.String name;
 
     private java.lang.String socialsecurity;
@@ -30,12 +30,12 @@ public class Owner  implements java.io.Serializable {
 
     private java.lang.String case_role;
 
-    private Contact contact;
+    private com.idega.block.process.wsclient.Case_requestOwnerContact contact;
 
-    public Owner() {
+    public Case_requestOwner() {
     }
 
-    public Owner(
+    public Case_requestOwner(
            java.lang.String name,
            java.lang.String socialsecurity,
            java.lang.String address,
@@ -47,7 +47,7 @@ public class Owner  implements java.io.Serializable {
            java.lang.String title,
            java.lang.String department,
            java.lang.String case_role,
-           Contact contact) {
+           com.idega.block.process.wsclient.Case_requestOwnerContact contact) {
            this.name = name;
            this.socialsecurity = socialsecurity;
            this.address = address;
@@ -64,7 +64,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the name value for this Owner.
+     * Gets the name value for this Case_requestOwner.
      * 
      * @return name
      */
@@ -74,7 +74,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the name value for this Owner.
+     * Sets the name value for this Case_requestOwner.
      * 
      * @param name
      */
@@ -84,7 +84,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the socialsecurity value for this Owner.
+     * Gets the socialsecurity value for this Case_requestOwner.
      * 
      * @return socialsecurity
      */
@@ -94,7 +94,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the socialsecurity value for this Owner.
+     * Sets the socialsecurity value for this Case_requestOwner.
      * 
      * @param socialsecurity
      */
@@ -104,7 +104,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the address value for this Owner.
+     * Gets the address value for this Case_requestOwner.
      * 
      * @return address
      */
@@ -114,7 +114,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the address value for this Owner.
+     * Sets the address value for this Case_requestOwner.
      * 
      * @param address
      */
@@ -124,7 +124,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the city value for this Owner.
+     * Gets the city value for this Case_requestOwner.
      * 
      * @return city
      */
@@ -134,7 +134,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the city value for this Owner.
+     * Sets the city value for this Case_requestOwner.
      * 
      * @param city
      */
@@ -144,7 +144,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the postalcode value for this Owner.
+     * Gets the postalcode value for this Case_requestOwner.
      * 
      * @return postalcode
      */
@@ -154,7 +154,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the postalcode value for this Owner.
+     * Sets the postalcode value for this Case_requestOwner.
      * 
      * @param postalcode
      */
@@ -164,7 +164,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the phone value for this Owner.
+     * Gets the phone value for this Case_requestOwner.
      * 
      * @return phone
      */
@@ -174,7 +174,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the phone value for this Owner.
+     * Sets the phone value for this Case_requestOwner.
      * 
      * @param phone
      */
@@ -184,7 +184,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the gsm value for this Owner.
+     * Gets the gsm value for this Case_requestOwner.
      * 
      * @return gsm
      */
@@ -194,7 +194,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the gsm value for this Owner.
+     * Sets the gsm value for this Case_requestOwner.
      * 
      * @param gsm
      */
@@ -204,7 +204,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the email value for this Owner.
+     * Gets the email value for this Case_requestOwner.
      * 
      * @return email
      */
@@ -214,7 +214,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the email value for this Owner.
+     * Sets the email value for this Case_requestOwner.
      * 
      * @param email
      */
@@ -224,7 +224,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the title value for this Owner.
+     * Gets the title value for this Case_requestOwner.
      * 
      * @return title
      */
@@ -234,7 +234,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the title value for this Owner.
+     * Sets the title value for this Case_requestOwner.
      * 
      * @param title
      */
@@ -244,7 +244,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the department value for this Owner.
+     * Gets the department value for this Case_requestOwner.
      * 
      * @return department
      */
@@ -254,7 +254,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the department value for this Owner.
+     * Sets the department value for this Case_requestOwner.
      * 
      * @param department
      */
@@ -264,7 +264,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the case_role value for this Owner.
+     * Gets the case_role value for this Case_requestOwner.
      * 
      * @return case_role
      */
@@ -274,7 +274,7 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Sets the case_role value for this Owner.
+     * Sets the case_role value for this Case_requestOwner.
      * 
      * @param case_role
      */
@@ -284,28 +284,28 @@ public class Owner  implements java.io.Serializable {
 
 
     /**
-     * Gets the contact value for this Owner.
+     * Gets the contact value for this Case_requestOwner.
      * 
      * @return contact
      */
-    public Contact getContact() {
+    public com.idega.block.process.wsclient.Case_requestOwnerContact getContact() {
         return contact;
     }
 
 
     /**
-     * Sets the contact value for this Owner.
+     * Sets the contact value for this Case_requestOwner.
      * 
      * @param contact
      */
-    public void setContact(Contact contact) {
+    public void setContact(com.idega.block.process.wsclient.Case_requestOwnerContact contact) {
         this.contact = contact;
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Owner)) return false;
-        Owner other = (Owner) obj;
+        if (!(obj instanceof Case_requestOwner)) return false;
+        Case_requestOwner other = (Case_requestOwner) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -403,84 +403,91 @@ public class Owner  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Owner.class, true);
+        new org.apache.axis.description.TypeDesc(Case_requestOwner.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("schema.request", ">owner"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_requestOwner"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("socialsecurity");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "socialsecurity"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "socialsecurity"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("address");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "address"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "address"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("city");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "city"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "city"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("postalcode");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "postalcode"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "postalcode"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("phone");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "phone"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "phone"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("gsm");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "gsm"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "gsm"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("email");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "email"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "email"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("title");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "title"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "title"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("department");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "department"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "department"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("case_role");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "case_role"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "case_role"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("contact");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "contact"));
-        elemField.setXmlType(new javax.xml.namespace.QName("schema.request", ">contact"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "contact"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_requestOwnerContact"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

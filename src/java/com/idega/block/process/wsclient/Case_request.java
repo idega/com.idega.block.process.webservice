@@ -1,5 +1,5 @@
 /**
- * _case.java
+ * Case_request.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
@@ -7,11 +7,12 @@
 
 package com.idega.block.process.wsclient;
 
-
-public class _case  implements java.io.Serializable {
-    private java.lang.String id;
+public class Case_request  implements java.io.Serializable {
+    private java.lang.String case_id;
 
     private java.lang.String external_case_id;
+
+    private int sf_id;
 
     private java.lang.String created;
 
@@ -25,29 +26,31 @@ public class _case  implements java.io.Serializable {
 
     private java.lang.String body;
 
-    private com.idega.block.process.wsclient.Owner owner;
+    private com.idega.block.process.wsclient.Case_requestOwner owner;
 
-    private com.idega.block.process.wsclient.Handler handler;
+    private com.idega.block.process.wsclient.Case_requestHandler handler;
 
-    private com.idega.block.process.wsclient.Item[] metadata;
+    private com.idega.block.process.wsclient.Case_requestItem[] metadata;
 
-    public _case() {
+    public Case_request() {
     }
 
-    public _case(
-           java.lang.String id,
+    public Case_request(
+           java.lang.String case_id,
            java.lang.String external_case_id,
+           int sf_id,
            java.lang.String created,
            java.lang.String code,
            java.lang.String modified,
            java.lang.String status,
            java.lang.String subject,
            java.lang.String body,
-           com.idega.block.process.wsclient.Owner owner,
-           com.idega.block.process.wsclient.Handler handler,
-           com.idega.block.process.wsclient.Item[] metadata) {
-           this.id = id;
+           com.idega.block.process.wsclient.Case_requestOwner owner,
+           com.idega.block.process.wsclient.Case_requestHandler handler,
+           com.idega.block.process.wsclient.Case_requestItem[] metadata) {
+           this.case_id = case_id;
            this.external_case_id = external_case_id;
+           this.sf_id = sf_id;
            this.created = created;
            this.code = code;
            this.modified = modified;
@@ -61,27 +64,27 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the id value for this _case.
+     * Gets the case_id value for this Case_request.
      * 
-     * @return id
+     * @return case_id
      */
-    public java.lang.String getId() {
-        return id;
+    public java.lang.String getCase_id() {
+        return case_id;
     }
 
 
     /**
-     * Sets the id value for this _case.
+     * Sets the case_id value for this Case_request.
      * 
-     * @param id
+     * @param case_id
      */
-    public void setId(java.lang.String id) {
-        this.id = id;
+    public void setCase_id(java.lang.String case_id) {
+        this.case_id = case_id;
     }
 
 
     /**
-     * Gets the external_case_id value for this _case.
+     * Gets the external_case_id value for this Case_request.
      * 
      * @return external_case_id
      */
@@ -91,7 +94,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the external_case_id value for this _case.
+     * Sets the external_case_id value for this Case_request.
      * 
      * @param external_case_id
      */
@@ -101,7 +104,27 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the created value for this _case.
+     * Gets the sf_id value for this Case_request.
+     * 
+     * @return sf_id
+     */
+    public int getSf_id() {
+        return sf_id;
+    }
+
+
+    /**
+     * Sets the sf_id value for this Case_request.
+     * 
+     * @param sf_id
+     */
+    public void setSf_id(int sf_id) {
+        this.sf_id = sf_id;
+    }
+
+
+    /**
+     * Gets the created value for this Case_request.
      * 
      * @return created
      */
@@ -111,7 +134,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the created value for this _case.
+     * Sets the created value for this Case_request.
      * 
      * @param created
      */
@@ -121,7 +144,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the code value for this _case.
+     * Gets the code value for this Case_request.
      * 
      * @return code
      */
@@ -131,7 +154,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the code value for this _case.
+     * Sets the code value for this Case_request.
      * 
      * @param code
      */
@@ -141,7 +164,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the modified value for this _case.
+     * Gets the modified value for this Case_request.
      * 
      * @return modified
      */
@@ -151,7 +174,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the modified value for this _case.
+     * Sets the modified value for this Case_request.
      * 
      * @param modified
      */
@@ -161,7 +184,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the status value for this _case.
+     * Gets the status value for this Case_request.
      * 
      * @return status
      */
@@ -171,7 +194,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the status value for this _case.
+     * Sets the status value for this Case_request.
      * 
      * @param status
      */
@@ -181,7 +204,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the subject value for this _case.
+     * Gets the subject value for this Case_request.
      * 
      * @return subject
      */
@@ -191,7 +214,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the subject value for this _case.
+     * Sets the subject value for this Case_request.
      * 
      * @param subject
      */
@@ -201,7 +224,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the body value for this _case.
+     * Gets the body value for this Case_request.
      * 
      * @return body
      */
@@ -211,7 +234,7 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Sets the body value for this _case.
+     * Sets the body value for this Case_request.
      * 
      * @param body
      */
@@ -221,68 +244,68 @@ public class _case  implements java.io.Serializable {
 
 
     /**
-     * Gets the owner value for this _case.
+     * Gets the owner value for this Case_request.
      * 
      * @return owner
      */
-    public com.idega.block.process.wsclient.Owner getOwner() {
+    public com.idega.block.process.wsclient.Case_requestOwner getOwner() {
         return owner;
     }
 
 
     /**
-     * Sets the owner value for this _case.
+     * Sets the owner value for this Case_request.
      * 
      * @param owner
      */
-    public void setOwner(com.idega.block.process.wsclient.Owner owner) {
+    public void setOwner(com.idega.block.process.wsclient.Case_requestOwner owner) {
         this.owner = owner;
     }
 
 
     /**
-     * Gets the handler value for this _case.
+     * Gets the handler value for this Case_request.
      * 
      * @return handler
      */
-    public com.idega.block.process.wsclient.Handler getHandler() {
+    public com.idega.block.process.wsclient.Case_requestHandler getHandler() {
         return handler;
     }
 
 
     /**
-     * Sets the handler value for this _case.
+     * Sets the handler value for this Case_request.
      * 
      * @param handler
      */
-    public void setHandler(com.idega.block.process.wsclient.Handler handler) {
+    public void setHandler(com.idega.block.process.wsclient.Case_requestHandler handler) {
         this.handler = handler;
     }
 
 
     /**
-     * Gets the metadata value for this _case.
+     * Gets the metadata value for this Case_request.
      * 
      * @return metadata
      */
-    public com.idega.block.process.wsclient.Item[] getMetadata() {
+    public com.idega.block.process.wsclient.Case_requestItem[] getMetadata() {
         return metadata;
     }
 
 
     /**
-     * Sets the metadata value for this _case.
+     * Sets the metadata value for this Case_request.
      * 
      * @param metadata
      */
-    public void setMetadata(com.idega.block.process.wsclient.Item[] metadata) {
+    public void setMetadata(com.idega.block.process.wsclient.Case_requestItem[] metadata) {
         this.metadata = metadata;
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof _case)) return false;
-        _case other = (_case) obj;
+        if (!(obj instanceof Case_request)) return false;
+        Case_request other = (Case_request) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -291,12 +314,13 @@ public class _case  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.id==null && other.getId()==null) || 
-             (this.id!=null &&
-              this.id.equals(other.getId()))) &&
+            ((this.case_id==null && other.getCase_id()==null) || 
+             (this.case_id!=null &&
+              this.case_id.equals(other.getCase_id()))) &&
             ((this.external_case_id==null && other.getExternal_case_id()==null) || 
              (this.external_case_id!=null &&
               this.external_case_id.equals(other.getExternal_case_id()))) &&
+            this.sf_id == other.getSf_id() &&
             ((this.created==null && other.getCreated()==null) || 
              (this.created!=null &&
               this.created.equals(other.getCreated()))) &&
@@ -335,12 +359,13 @@ public class _case  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getId() != null) {
-            _hashCode += getId().hashCode();
+        if (getCase_id() != null) {
+            _hashCode += getCase_id().hashCode();
         }
         if (getExternal_case_id() != null) {
             _hashCode += getExternal_case_id().hashCode();
         }
+        _hashCode += getSf_id();
         if (getCreated() != null) {
             _hashCode += getCreated().hashCode();
         }
@@ -382,76 +407,93 @@ public class _case  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(_case.class, true);
+        new org.apache.axis.description.TypeDesc(Case_request.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("schema.request", ">case"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_request"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("id");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "id"));
+        elemField.setFieldName("case_id");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "case_id"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("external_case_id");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "external_case_id"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "external_case_id"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sf_id");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "sf_id"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("created");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "created"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "created"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("code");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "code"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "code"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("modified");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "modified"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "modified"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("status");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "status"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "status"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("subject");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "subject"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "subject"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("body");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "body"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "body"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("owner");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "owner"));
-        elemField.setXmlType(new javax.xml.namespace.QName("schema.request", ">owner"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "owner"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_requestOwner"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("handler");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "handler"));
-        elemField.setXmlType(new javax.xml.namespace.QName("schema.request", ">handler"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "handler"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_requestHandler"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("metadata");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "metadata"));
-        elemField.setXmlType(new javax.xml.namespace.QName("schema.request", ">metadata"));
+        elemField.setXmlName(new javax.xml.namespace.QName("", "metadata"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://Case.case", "case_requestItem"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://Case.case", "item"));
         typeDesc.addFieldDesc(elemField);
     }
 

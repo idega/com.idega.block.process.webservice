@@ -1,5 +1,5 @@
 /**
- * Item.java
+ * Case_response.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
@@ -7,65 +7,41 @@
 
 package com.idega.block.process.wsclient;
 
-public class Item  implements java.io.Serializable {
-    private java.lang.String key;
+public class Case_response  implements java.io.Serializable {
+    private java.lang.String external_case_id;
 
-    private java.lang.String value;
-
-    public Item() {
+    public Case_response() {
     }
 
-    public Item(
-           java.lang.String key,
-           java.lang.String value) {
-           this.key = key;
-           this.value = value;
+    public Case_response(
+           java.lang.String external_case_id) {
+           this.external_case_id = external_case_id;
     }
 
 
     /**
-     * Gets the key value for this Item.
+     * Gets the external_case_id value for this Case_response.
      * 
-     * @return key
+     * @return external_case_id
      */
-    public java.lang.String getKey() {
-        return key;
+    public java.lang.String getExternal_case_id() {
+        return external_case_id;
     }
 
 
     /**
-     * Sets the key value for this Item.
+     * Sets the external_case_id value for this Case_response.
      * 
-     * @param key
+     * @param external_case_id
      */
-    public void setKey(java.lang.String key) {
-        this.key = key;
-    }
-
-
-    /**
-     * Gets the value value for this Item.
-     * 
-     * @return value
-     */
-    public java.lang.String getValue() {
-        return value;
-    }
-
-
-    /**
-     * Sets the value value for this Item.
-     * 
-     * @param value
-     */
-    public void setValue(java.lang.String value) {
-        this.value = value;
+    public void setExternal_case_id(java.lang.String external_case_id) {
+        this.external_case_id = external_case_id;
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Item)) return false;
-        Item other = (Item) obj;
+        if (!(obj instanceof Case_response)) return false;
+        Case_response other = (Case_response) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -74,12 +50,9 @@ public class Item  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.key==null && other.getKey()==null) || 
-             (this.key!=null &&
-              this.key.equals(other.getKey()))) &&
-            ((this.value==null && other.getValue()==null) || 
-             (this.value!=null &&
-              this.value.equals(other.getValue())));
+            ((this.external_case_id==null && other.getExternal_case_id()==null) || 
+             (this.external_case_id!=null &&
+              this.external_case_id.equals(other.getExternal_case_id())));
         __equalsCalc = null;
         return _equals;
     }
@@ -91,11 +64,8 @@ public class Item  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getKey() != null) {
-            _hashCode += getKey().hashCode();
-        }
-        if (getValue() != null) {
-            _hashCode += getValue().hashCode();
+        if (getExternal_case_id() != null) {
+            _hashCode += getExternal_case_id().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -103,20 +73,15 @@ public class Item  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Item.class, true);
+        new org.apache.axis.description.TypeDesc(Case_response.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("schema.request", ">item"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://Case.case_response", "case_response"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("key");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "key"));
+        elemField.setFieldName("external_case_id");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "external_case_id"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("value");
-        elemField.setXmlName(new javax.xml.namespace.QName("schema.request", "value"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
