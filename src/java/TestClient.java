@@ -76,7 +76,7 @@ public class TestClient {
 			request.setCreated(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss"));
 			request.setBody("body");
 			request.setExternal_case_id("23456");
-			request.setSf_id(6100);//husavik = 6100, hveragerdi = 8716
+			request.setSf_id(8716);//husavik = 6100, hveragerdi = 8716
 			request.setStatus(WSCaseConstants.STATUS_PENDING);
 			request.setSubject("test case");
 			//request.set
