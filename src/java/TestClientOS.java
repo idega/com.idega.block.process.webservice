@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -71,10 +70,10 @@ public class TestClientOS {
 
 		String outputString = "nothing";
 
-		File xmlFile = null;
+//		File xmlFile = null;
 		try {
-			xmlFile = File.createTempFile("testOS", "xml");
-			xmlFile = File.createTempFile("testOS", ".xml");
+//			xmlFile = File.createTempFile("testOS", "xml");
+//			xmlFile = File.createTempFile("testOS", ".xml");
 
 			Document document = new Document();
 			MemoryFileBuffer buffer = new MemoryFileBuffer();
@@ -139,7 +138,7 @@ public class TestClientOS {
 			owner.addContent(XML_GSM, "11223345");
 			owner.addContent(XML_EMAIL, "steina@idega.is");
 			
-			FileOutputStream out = new FileOutputStream(xmlFile);
+/*			FileOutputStream out = new FileOutputStream(xmlFile);
 
 			XMLOutput output = new XMLOutput(" ", true);
 			output.setLineSeparator(System.getProperty("line.separator"));
@@ -147,10 +146,10 @@ public class TestClientOS {
 			output.setEncoding("UTF-8");
 			output.output(doc, out);
 
-			out.close();
+			out.close();*/
 
 			try {
-				output = new XMLOutput();
+				XMLOutput output = new XMLOutput();
 				output.setLineSeparator(System.getProperty("line.separator"));
 				output.setTextNormalize(true);
 				output.setEncoding("UTF-8");
@@ -159,8 +158,8 @@ public class TestClientOS {
 				e.printStackTrace();
 			}
 
-			com.idega.util.SendMail.send("palli@idega.is", "palli@idega.is",
-					null, null, "mail.idega.is", "test", outputString, xmlFile);
+//			com.idega.util.SendMail.send("palli@idega.is", "palli@idega.is",
+//					null, null, "mail.idega.is", "test", outputString, xmlFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -180,11 +179,9 @@ public class TestClientOS {
 			int status = client.executeMethod(authpost);
 
 			if (status == HttpStatus.SC_OK) {
-				// System.out.println("Submit complete, response="
-				// + authpost.getResponseBodyAsString());
+				System.out.println("Submit complete, response=" + authpost.getResponseBodyAsString());
 			} else {
-				// System.out.println("Submit failed, response="
-				// + HttpStatus.getStatusText(status));
+				System.out.println("Submit failed, response=" + HttpStatus.getStatusText(status));
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
