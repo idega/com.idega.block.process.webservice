@@ -22,7 +22,7 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 		try {
 			Case updatedCase =  bus1.createOrUpdateCase(caseEntry);
 			res.setId(updatedCase.getUniqueId());
-			res.setOperation("success");
+			res.setOperation("success");   
 		}
 		catch (Exception e) {
 			// TODO Auto-generated catch block
