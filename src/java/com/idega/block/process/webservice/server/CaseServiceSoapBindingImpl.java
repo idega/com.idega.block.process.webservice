@@ -8,25 +8,34 @@
 package com.idega.block.process.webservice.server;
 
 import com.idega.block.process.business.WSCaseBusiness;
-import com.idega.block.process.business.WSCaseBusinessBean;
 import com.idega.block.process.data.Case;
+import com.idega.business.IBOLookup;
+import com.idega.idegaweb.IWMainApplication;
 import com.idega.util.IWTimestamp;
 
 public class CaseServiceSoapBindingImpl implements com.idega.block.process.webservice.server.CaseService{
     public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
     		System.out.println(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss") + " : [NewCaseBindingImpl (WebService)] method is called");
 		CaseResult res = new CaseResult();
-		//WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
-		WSCaseBusiness bus1 = new WSCaseBusinessBean();
+		WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
+		//WSCaseBusiness bus1 = new WSCaseBusinessBean();
 		try {
 			Case updatedCase =  bus1.createOrUpdateCase(caseEntry);
 			res.setId(updatedCase.getUniqueId());
+			res.setOperation("success");
 		}
 		catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			String message = e.getMessage();
+			String exceptionName = e.toString();
+			StackTraceElement[] elements = e.getStackTrace();
 			res.setId("-1");
-			res.setOperation("create/update failed");
+			res.setOperation("create/update failed: " + message 
+					+ " " + exceptionName 
+					+ " " + elements[0].toString() 
+					+ " " +	 elements[1].toString() 
+					+ " " + elements[2].toString());
 		}
 		
 		/*try {
