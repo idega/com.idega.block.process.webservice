@@ -231,7 +231,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 
 
 	public void changeCaseStatus(Case theCase, CaseStatus newCaseStatus, User performer,String updateMessage) {
-		changeCaseStatus(theCase, newCaseStatus.getStatus(), performer);	
+		changeCaseStatusDoNotSendUpdates(theCase, newCaseStatus.getStatus(), performer);	
 		if(updateMessage!=null){
 			try {
 				MessageBusiness msgBusiness = (MessageBusiness) getServiceInstance(MessageBusiness.class);
