@@ -1,16 +1,11 @@
 import java.net.URL;
+
 import com.idega.block.process.webservice.server.CaseEntry;
 import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.CaseService;
 import com.idega.block.process.webservice.server.CaseServiceServiceLocator;
 import com.idega.block.process.webservice.server.Item;
 import com.idega.block.process.webservice.server.Owner;
-import com.idega.block.process.wsclient.Case_NewCase_SoapPortLocator;
-import com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_PortType;
-import com.idega.block.process.wsclient.Case_request;
-import com.idega.block.process.wsclient.Case_requestOwner;
-import com.idega.block.process.wsclient.Case_response;
-import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.util.IWTimestamp;
 
 public class TestClient {
@@ -74,7 +69,7 @@ public class TestClient {
 		}
 	}
 
-	private static void testDummy() {
+	/*private static void testDummy() {
 		try {
 			Case_NewCase_SoapPortLocator locator = new Case_NewCase_SoapPortLocator();
 			Case_NewCase_SoapPortSoap_PortType port = locator.getCase_NewCase_SoapPortSoap(new URL(endpoint));
@@ -105,5 +100,5 @@ public class TestClient {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
