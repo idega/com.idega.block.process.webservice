@@ -120,14 +120,16 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			Item[] metaItems = wsCase.getMetadata();
 			//Map caseMeta = theCase.getMetaDataAttributes();
 			theCase.store();
-			
-			for (int i = 0; i < metaItems.length; i++) {
+
+			if (metaItems != null) {
+				for (int i = 0; i < metaItems.length; i++) {
 				Item item = metaItems[i];
 				String key = item.getKey();
 				String value = item.getValue();
 				//caseMeta.put(key,value);
 				theCase.setMetaData(key,value);
 				//theCase.updateMetaData();
+				}
 			}
 			
 			Handler handler = wsCase.getHandler();
