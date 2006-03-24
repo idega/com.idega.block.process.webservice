@@ -7,6 +7,7 @@
 
 package com.idega.block.process.webservice.server;
 
+import org.apache.axis.MessageContext;
 import com.idega.block.process.business.WSCaseBusiness;
 import com.idega.block.process.data.Case;
 import com.idega.business.IBOLookup;
@@ -15,14 +16,17 @@ import com.idega.util.IWTimestamp;
 
 public class CaseServiceSoapBindingImpl implements com.idega.block.process.webservice.server.CaseService{
     public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
-    		System.out.println(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss") + " : [NewCaseBindingImpl (WebService)] method is called");
+    	MessageContext context = MessageContext.getCurrentContext();
+    	String user = context.getUsername();
+    	String password = context.getPassword();
+    	System.out.println(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss") + " : [NewCaseBindingImpl (WebService)] method is called");
 		CaseResult res = new CaseResult();
 		WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
 		//WSCaseBusiness bus1 = new WSCaseBusinessBean();
 		try {
 			Case updatedCase =  bus1.createOrUpdateCase(caseEntry);
 			res.setId(updatedCase.getUniqueId());
-			res.setOperation("success");   
+			res.setOperation("success " + user + " " + password);   
 		}
 		catch (Exception e) {
 			// TODO Auto-generated catch block
