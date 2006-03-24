@@ -1,5 +1,5 @@
 /*
- * $Id: WSCaseBusiness.java,v 1.3 2006/03/17 20:06:05 thomas Exp $
+ * $Id: WSCaseBusiness.java,v 1.4 2006/03/24 15:18:11 thomas Exp $
  * Created on Mar 17, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -19,10 +19,10 @@ import com.idega.user.data.User;
 
 /**
  * 
- *  Last modified: $Date: 2006/03/17 20:06:05 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/03/24 15:18:11 $ by $Author: thomas $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface WSCaseBusiness extends IBOService {
 
@@ -39,6 +39,6 @@ public interface WSCaseBusiness extends IBOService {
 	/**
 	 * @see com.idega.block.process.business.WSCaseBusinessBean#changeCaseStatus
 	 */
-	public void changeCaseStatus(Case theCase, CaseStatus newCaseStatus, User performer, String updateMessage)
+	public void changeCaseStatus(Case theCase, CaseStatus newCaseStatus, User performer, String updateMessageSubject, String updateMessageBody)
 			throws java.rmi.RemoteException;
 }
