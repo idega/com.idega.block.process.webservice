@@ -1,5 +1,5 @@
 /*
- * $Id: WSCaseConstants.java,v 1.1 2006/02/09 11:41:24 palli Exp $
+ * $Id: WSCaseConstants.java,v 1.2 2006/03/24 13:21:37 thomas Exp $
  * Created on Jan 5, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -16,4 +16,8 @@ public class WSCaseConstants {
 	public static final String STATUS_PENDING 		= "PENDING";
 	public static final String STATUS_ARCHIVED 		= "ARCHIVED";
 	public static final String STATUS_LOCKED 		= "LOCKED";
+	
+	public static final String MAIL_MESSAGE_SUBJECT = "MAIL_MESSAGE_SUBJECT";
+	public static final String MAIL_MESSAGE_BODY = "MAIL_MESSAGE_BODY";
+	
 }
