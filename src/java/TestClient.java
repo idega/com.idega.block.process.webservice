@@ -1,11 +1,10 @@
 import java.net.URL;
 import org.apache.axis.client.Stub;
 import com.idega.block.process.webservice.server.CaseEntry;
-import com.idega.block.process.webservice.server.CaseResult;
-import com.idega.block.process.webservice.server.CaseService;
-import com.idega.block.process.webservice.server.CaseServiceServiceLocator;
 import com.idega.block.process.webservice.server.Item;
 import com.idega.block.process.webservice.server.Owner;
+import com.idega.block.process.webservice.server.ticketService.TicketService;
+import com.idega.block.process.webservice.server.ticketService.TicketServiceServiceLocator;
 import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.util.IWTimestamp;
 
@@ -15,7 +14,7 @@ public class TestClient {
 	// "http://azskjalfandi.skjalfandi.is/services/CreateNewCaseHttp";
 	// private static String endpoint =
 	// "http://213.167.155.187:6580/GoProHusavik.nsf/webservicenewcase?OpenAgent";
-	private static String endpoint = "http://localhost:9090/services/CaseService";
+	private static String endpoint = "http://localhost:9090/services/TicketService";
 	// private static String endpoint = "http://rrtest.rvk.is/services/CaseService";
 	// private static String endpoint =
 	// "http://localhost:8090/rvk/services/CaseService";
@@ -66,15 +65,19 @@ public class TestClient {
 			items[3].setKey(WSCaseConstants.MAIL_MESSAGE_BODY);
 			items[3].setValue("Hi Thomas! Hvað segir þú?");
 			wsCase.setMetadata(items);
-			CaseServiceServiceLocator service = new CaseServiceServiceLocator();
+			//CaseServiceServiceLocator service = new CaseServiceServiceLocator();
+			TicketServiceServiceLocator ticketService = new TicketServiceServiceLocator();
 			// Now use the service to get a stub which implements the SDI.
-			CaseService port = service.getCaseService(new URL(endpoint)); //
-			Stub stub = (Stub) port;
+			//CaseService port = service.getCaseService(new URL(endpoint)); //
+			TicketService port2 = ticketService.getTicketService(new URL(endpoint));
+			Stub stub = (Stub) port2;
 			stub.setUsername("Thoma");
 			stub.setPassword("Weser");
 			//NewCasePort port = service.getCreateNewCaseHttp();
-			CaseResult ret = port.createOrUpdateCase(wsCase);
-			System.out.println("Sent 'Hello!', got operation='" + ret.getOperation() + "'and id=" + ret.getId());
+			boolean ret2 = port2.validateTicket("10t1703532189193346C6A4DA9FAB9BDB9E8D170D1FAC");
+			//CaseResult ret = port.createOrUpdateCase(wsCase);
+			System.out.print(ret2);
+			//System.out.println("Sent 'Hello!', got operation='" + ret.getOperation() + "'and id=" + ret.getId());
 		}
 		catch (Exception e) {
 			e.printStackTrace();
