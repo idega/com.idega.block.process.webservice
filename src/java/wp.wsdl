@@ -154,7 +154,7 @@ Built on Oct 05, 2005 (05:23:37 EDT)-->
 
       <wsdl:port binding="impl:CaseServiceSoapBinding" name="CaseService">
 
-         <wsdlsoap:address location="http://azskjalfandi.skjalfandi.is/services/CaseService"/>
+         <wsdlsoap:address location="http://localhost/services/CaseService"/>
 
       </wsdl:port>
 

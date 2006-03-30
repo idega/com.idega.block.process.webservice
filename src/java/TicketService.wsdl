@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:com.idega.block.process.webservice" xmlns:impl="urn:com.idega.block.process.webservice" xmlns:intf="urn:com.idega.block.process.webservice" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<!--WSDL created by Apache Axis version: 1.3
+Built on Oct 05, 2005 (05:23:37 EDT)-->
+
+   <wsdl:message name="validateTicketRequest">
+
+      <wsdl:part name="in0" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateTicketResponse">
+
+      <wsdl:part name="validateTicketReturn" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TicketService">
+
+      <wsdl:operation name="validateTicket" parameterOrder="in0">
+
+         <wsdl:input name="validateTicketRequest" message="impl:validateTicketRequest"/>
+
+         <wsdl:output name="validateTicketResponse" message="impl:validateTicketResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TicketServiceSoapBinding" type="impl:TicketService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="validateTicket">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validateTicketRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:com.idega.block.process.webservice"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validateTicketResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:com.idega.block.process.webservice"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TicketServiceService">
+
+      <wsdl:port name="TicketService" binding="impl:TicketServiceSoapBinding">
+
+         <wsdlsoap:address location="http://localhost/services/TicketService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
