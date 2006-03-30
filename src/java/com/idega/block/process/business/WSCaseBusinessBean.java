@@ -37,6 +37,13 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 	public Case createOrUpdateCase(CaseEntry wsCase) throws Exception {
 		
+		// try to figure out the case code
+		String caseCode = wsCase.getCode();
+		if (! StringHandler.isNotEmpty(caseCode)) {
+			throw new CreateException("No case code");
+		}
+		CaseCode code = getCaseCodeAndInstallIfNotExists(caseCode);
+		
 		// find an existing case
 		Case theCase = findExistingCase(wsCase);
 		boolean caseIsUpdated = theCase != null;
@@ -120,8 +127,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		}
 		
 		// set case code
-		String caseCode = wsCase.getCode();
-		CaseCode code = getCaseCodeAndInstallIfNotExists(caseCode);
+
 		theCase.setCaseCode(code);
 		
 		theCase.setBody(wsCase.getBody());
