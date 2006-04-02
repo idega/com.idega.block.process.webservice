@@ -1,13 +1,13 @@
 import java.net.URL;
+
 import org.apache.axis.client.Stub;
+
 import com.idega.block.process.webservice.server.CaseEntry;
 import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.CaseService;
 import com.idega.block.process.webservice.server.CaseServiceServiceLocator;
 import com.idega.block.process.webservice.server.Item;
 import com.idega.block.process.webservice.server.Owner;
-import com.idega.block.process.webservice.server.ticketService.TicketService;
-import com.idega.block.process.webservice.server.ticketService.TicketServiceServiceLocator;
 import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.util.IWTimestamp;
 
@@ -17,7 +17,7 @@ public class TestClient {
 	// "http://azskjalfandi.skjalfandi.is/services/CreateNewCaseHttp";
 	// private static String endpoint =
 	// "http://213.167.155.187:6580/GoProHusavik.nsf/webservicenewcase?OpenAgent";
-	private static String endpointTicketService = "http://localhost:9090/services/TicketService";
+	//private static String endpointTicketService = "http://localhost:9090/services/TicketService";
 	private static String endpointCaseService =  "http://localhost:9090/services/CaseService";
 	// private static String endpoint =
 	// "http://localhost:8090/rvk/services/CaseService";
@@ -91,7 +91,7 @@ public class TestClient {
 	 * TODO tryggvil describe method testDummy
 	 * </p>
 	 */
-	private static void testVUFTicket() {
+	/*private static void testVUFTicket() {
 		try {
 			Owner owner = new Owner();
 			owner.setAddress("Tjarnarmýri 5");
@@ -141,7 +141,7 @@ public class TestClient {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	/*private static void testDummy() {
 		try {
