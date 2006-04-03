@@ -1,5 +1,5 @@
 /*
- * $Id: WSCaseBusiness.java,v 1.4 2006/03/24 15:18:11 thomas Exp $
+ * $Id: WSCaseBusiness.java,v 1.5 2006/04/03 16:50:30 thomas Exp $
  * Created on Mar 17, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -9,6 +9,7 @@
  */
 package com.idega.block.process.business;
 
+import javax.ejb.CreateException;
 import com.idega.block.process.data.Case;
 import com.idega.block.process.data.CaseStatus;
 import com.idega.block.process.webservice.server.CaseEntry;
@@ -19,10 +20,10 @@ import com.idega.user.data.User;
 
 /**
  * 
- *  Last modified: $Date: 2006/03/24 15:18:11 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/03 16:50:30 $ by $Author: thomas $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public interface WSCaseBusiness extends IBOService {
 
@@ -34,7 +35,7 @@ public interface WSCaseBusiness extends IBOService {
 	/**
 	 * @see com.idega.block.process.business.WSCaseBusinessBean#updateUserInformation
 	 */
-	public void updateUserInformation(User user, Owner owner) throws java.rmi.RemoteException;
+	public void updateUserInformation(User user, Owner owner) throws CreateException,  java.rmi.RemoteException;
 
 	/**
 	 * @see com.idega.block.process.business.WSCaseBusinessBean#changeCaseStatus

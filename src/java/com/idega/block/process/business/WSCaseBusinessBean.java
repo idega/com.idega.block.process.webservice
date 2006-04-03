@@ -1,8 +1,6 @@
 package com.idega.block.process.business;
 
 import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.Iterator;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
@@ -21,7 +19,6 @@ import com.idega.business.IBOLookupException;
 import com.idega.business.IBORuntimeException;
 import com.idega.core.contact.data.Email;
 import com.idega.core.contact.data.EmailHome;
-import com.idega.data.IDOAddRelationshipException;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
 import com.idega.user.business.UserBusiness;
@@ -32,6 +29,7 @@ import com.idega.util.StringHandler;
 public class WSCaseBusinessBean extends CaseBusinessBean implements
 		WSCaseBusiness {
 
+	private UserBusiness userBusiness = null;
 	
 	private boolean autocreateOwner=false;
 	
@@ -81,7 +79,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		// now the uOwner is not null and theCase is not null
 		// but wsOwner could be null
 		if (wsOwner != null) {
-			updateUserInformation(uOwner,wsOwner);
+			updateUserInformation(uOwner, wsOwner);
 		}
 		
 		// prepare the user messages
@@ -145,40 +143,23 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 	
 	
-	public void updateUserInformation(User user,Owner owner){
+	public void updateUserInformation(User user, Owner owner) throws CreateException{
+		
 		//Update emails:
 		String sEmail = owner.getEmail();
-		if(sEmail != null && sEmail.equals("")){
-			Collection emails = user.getEmails();
-			boolean emailFound=false;
-			for (Iterator iter = emails.iterator(); iter.hasNext();) {
-				Email email = (Email) iter.next();
-				if(!email.getEmailAddress().equals(sEmail)){
-					email.setEmailAddress(sEmail);
-					email.store();
-				}
-				emailFound=true;
+		if (StringHandler.isNotEmpty(sEmail)) {
+			try {
+				getUserBusiness().updateUserMail(user, sEmail);
 			}
-			if(!emailFound){
-				try {
-					Email newEmail = getEmailHome().create();
-					newEmail.setEmailAddress(sEmail);
-					try {
-						user.addEmail(newEmail);
-					}
-					catch (IDOAddRelationshipException e) {
-						e.printStackTrace();
-					}
-				}
-				catch (CreateException e) {
-					e.printStackTrace();
-				}
+			catch (RemoteException ex) {
+				throw new IBORuntimeException(); 
 			}
 		}
+
 		//Update phone:
 		
 		String sPhone = owner.getPhone();
-		if(sPhone != null && sPhone.equals("")){
+		if(StringHandler.isNotEmpty(sPhone)) {
 			try {
 				getUserBusiness().updateUserHomePhone(user,sPhone);
 			}
@@ -190,7 +171,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}	
 		}
 		String mobile = owner.getGsm();
-		if(mobile != null && mobile.equals("")){
+		if(StringHandler.isNotEmpty(mobile)){
 			try {
 				getUserBusiness().updateUserMobilePhone(user,mobile);
 			}
@@ -328,12 +309,15 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 	
 	private UserBusiness getUserBusiness(){
-		try {
-			return (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
+		if (userBusiness == null) {
+			try {
+				userBusiness = (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
+			}
+			catch (IBOLookupException e) {
+				throw new RuntimeException(e);
+			}
 		}
-		catch (IBOLookupException e) {
-			throw new RuntimeException(e);
-		}
+		return userBusiness;
 	}
 	
 	private MessageBusiness getMessageBusiness() {
