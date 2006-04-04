@@ -7,7 +7,7 @@ import org.jdom.input.SAXBuilder;
 
 public class TestXMLImport {
 
-	protected static final String INPUT_FILENAME = "/Users/bluebottle/Desktop/testOS2671.xml";
+	protected static final String INPUT_FILENAME = "/Users/bluebottle/Desktop/testOS1928.xml";
 	protected static final String OUTPUT_FILENAME = "/Users/bluebottle/Desktop/kvortun3.pdf";
 
 	/**
