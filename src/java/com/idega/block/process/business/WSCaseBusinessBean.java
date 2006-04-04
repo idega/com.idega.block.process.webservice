@@ -1,9 +1,11 @@
 package com.idega.block.process.business;
 
 import java.rmi.RemoteException;
+
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
+
 import com.idega.block.process.data.Case;
 import com.idega.block.process.data.CaseCode;
 import com.idega.block.process.data.CaseStatus;
@@ -17,10 +19,6 @@ import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBOLookupException;
 import com.idega.business.IBORuntimeException;
-import com.idega.core.contact.data.Email;
-import com.idega.core.contact.data.EmailHome;
-import com.idega.data.IDOLookup;
-import com.idega.data.IDOLookupException;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.User;
 import com.idega.util.IWTimestamp;
@@ -329,14 +327,4 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			throw new IBORuntimeException(e);
 		}
 	}
-	
-	private EmailHome getEmailHome() {
-		try {
-			return (EmailHome) IDOLookup.getHome(Email.class);
-		}
-		catch (IDOLookupException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 }
