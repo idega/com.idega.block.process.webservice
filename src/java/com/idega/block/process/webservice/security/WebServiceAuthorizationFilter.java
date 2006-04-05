@@ -1,5 +1,5 @@
 /*
- * $Id: WebServiceAuthorizationFilter.java,v 1.1 2006/04/04 18:05:59 thomas Exp $
+ * $Id: WebServiceAuthorizationFilter.java,v 1.2 2006/04/05 10:40:39 thomas Exp $
  * Created on Apr 4, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -43,10 +43,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/04 18:05:59 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/05 10:40:39 $ by $Author: thomas $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WebServiceAuthorizationFilter implements Filter {
 	
@@ -56,9 +56,9 @@ public class WebServiceAuthorizationFilter implements Filter {
 	
 	LoginTableHome loginTableHome = null;
 	
-	BASE64Decoder myBase64Decoder = null;
-	
 	UserBusiness userBusiness = null;
+	
+	BASE64Decoder myBase64Decoder = null;
 	
 	/*
 	 * (non-Javadoc)
@@ -100,6 +100,10 @@ public class WebServiceAuthorizationFilter implements Filter {
 	}
 	
 	private boolean checkUserPasswordAndRole(HttpServletRequest myRequest, String name, String password) {
+//     The following code does not work, therefore we are using the own test method
+//		if (myRequest.isUserInRole(WEB_SERVICE_USER_ROLE)) {
+//			System.out.println("user is in role");
+//		}
 		ServletContext myServletContext = myRequest.getSession().getServletContext();
 	   	// getting the application context
     	IWMainApplication mainApplication = IWMainApplication.getIWMainApplication(myServletContext);
