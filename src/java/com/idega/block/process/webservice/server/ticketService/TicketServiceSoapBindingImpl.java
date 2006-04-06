@@ -13,8 +13,14 @@ import com.idega.idegaweb.IWMainApplication;
 
 public class TicketServiceSoapBindingImpl implements com.idega.block.process.webservice.server.ticketService.TicketService{
     public boolean validateTicket(java.lang.String in0) throws java.rmi.RemoteException {
-		TicketBusiness bus1 = (TicketBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), TicketBusiness.class);
-		return bus1.validateTicket(in0);
+    	try {
+    		TicketBusiness bus1 = (TicketBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), TicketBusiness.class);
+    		return bus1.validateTicket(in0);
+    	}
+    	catch (Exception ex) {
+    		ex.printStackTrace();
+    		return false;
+    	}
     }
 
 }

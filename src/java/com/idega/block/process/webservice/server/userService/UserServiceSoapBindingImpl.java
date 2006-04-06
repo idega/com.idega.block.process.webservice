@@ -13,8 +13,16 @@ import com.idega.idegaweb.IWMainApplication;
 
 public class UserServiceSoapBindingImpl implements com.idega.block.process.webservice.server.userService.UserService{
     public com.idega.block.process.webservice.server.userService.UserInfo getUserInfo(java.lang.String in0) throws java.rmi.RemoteException {
-		WSUserBusiness bus1 = (WSUserBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSUserBusiness.class);
-		return bus1.getUserInfo(in0);
+    	try {
+    		WSUserBusiness bus1 = (WSUserBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSUserBusiness.class);
+    		return bus1.getUserInfo(in0);
+    	}
+    	catch (Exception ex) {
+			ex.printStackTrace();
+			UserInfo  userInfo = new UserInfo();
+			userInfo.setError("error");
+			return userInfo;
+    	}
     }
 
 }
