@@ -7,40 +7,60 @@
 
 package com.idega.block.process.webservice.server;
 
-import org.apache.axis.MessageContext;
 import com.idega.block.process.business.WSCaseBusiness;
-import com.idega.block.process.data.Case;
 import com.idega.business.IBOLookup;
 import com.idega.idegaweb.IWMainApplication;
-import com.idega.util.IWTimestamp;
 
 public class CaseServiceSoapBindingImpl implements com.idega.block.process.webservice.server.CaseService{
-    public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
-    	MessageContext context = MessageContext.getCurrentContext();
-    	String user = context.getUsername();
-    	String password = context.getPassword();
-    	System.out.println(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss") + " : [NewCaseBindingImpl (WebService)] method is called");
-		CaseResult res = new CaseResult();
-		WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
-		//WSCaseBusiness bus1 = new WSCaseBusinessBean();
-		try {
-			Case updatedCase =  bus1.createOrUpdateCase(caseEntry);
-			res.setId(updatedCase.getUniqueId());
-			res.setOperation("success " + user + " " + password);   
+	
+	
+   public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
+	   try {
+		   WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
+		   return bus1.createOrUpdateCase(caseEntry);
 		}
-		catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			String message = e.getMessage();
-			String exceptionName = e.toString();
-			StackTraceElement[] elements = e.getStackTrace();
-			res.setId("-1");
-			res.setOperation("create/update failed: " + message 
-					+ " " + exceptionName 
-					+ " " + elements[0].toString() 
-					+ " " +	 elements[1].toString() 
-					+ " " + elements[2].toString());
+		catch (Exception ex) {
+			ex.printStackTrace();
+			CaseResult caseResult = new CaseResult();
+			caseResult.setId("-1");
+			caseResult.setOperation("create/update failed");
+			return caseResult;
 		}
+   }
+			
+
+// 
+//   old method that was used for testing. Returns username password and error stacktrace 
+// 
+//    public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry caseEntry) throws java.rmi.RemoteException {
+//    	MessageContext context = MessageContext.getCurrentContext();
+//    	String user = context.getUsername();
+//    	String password = context.getPassword();
+//    	System.out.println(IWTimestamp.RightNow().getDateString("dd-MM-yyyy hh:mm:ss") + " : [NewCaseBindingImpl (WebService)] method is called");
+//		CaseResult res = new CaseResult();
+//		WSCaseBusiness bus1 = (WSCaseBusiness) IBOLookup.getServiceInstance(IWMainApplication.getDefaultIWApplicationContext(), WSCaseBusiness.class);
+//		//WSCaseBusiness bus1 = new WSCaseBusinessBean();
+//		try {
+//			Case updatedCase =  bus1.createOrUpdateCase(caseEntry);
+//			res.setId(updatedCase.getUniqueId());
+//			res.setOperation("success " + user + " " + password);   
+//		}
+//		catch (Exception e) {
+//			e.printStackTrace();
+//			String message = e.getMessage();
+//			String exceptionName = e.toString();
+//			StackTraceElement[] elements = e.getStackTrace();
+//			res.setId("-1");
+//			res.setOperation("create/update failed: " + message 
+//					+ " " + exceptionName 
+//					+ " " + elements[0].toString() 
+//					+ " " +	 elements[1].toString() 
+//					+ " " + elements[2].toString());
+//		}
+//	return res;
+//}
+		
+		
 		
 		/*try {
 			CaseBusiness business = bus1.getCaseBusiness(caseEntry.getCode());
@@ -71,9 +91,7 @@ public class CaseServiceSoapBindingImpl implements com.idega.block.process.webse
 			res.setOperation(e.getMessage());
 		}
 		*/
-		
-		return res;
-    }
+
 
 	/**
 	 * <p>
