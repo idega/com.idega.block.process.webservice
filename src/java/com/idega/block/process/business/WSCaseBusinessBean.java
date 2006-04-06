@@ -12,6 +12,7 @@ import com.idega.block.process.data.CaseStatus;
 import com.idega.block.process.message.business.MessageBusiness;
 import com.idega.block.process.message.business.MessageValue;
 import com.idega.block.process.webservice.server.CaseEntry;
+import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.Handler;
 import com.idega.block.process.webservice.server.Item;
 import com.idega.block.process.webservice.server.Owner;
@@ -31,18 +32,20 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 	private boolean autocreateOwner=false;
 	
-	public Case createOrUpdateCase(CaseEntry wsCase) throws Exception {
+	public CaseResult createOrUpdateCase(CaseEntry wsCase) throws Exception {
 		
-		// try to figure out the case code
+		// status is needed, case code is needed
+		String newStatus = wsCase.getStatus();
 		String caseCode = wsCase.getCode();
-		if (! StringHandler.isNotEmpty(caseCode)) {
+
+		if (StringHandler.isEmpty(caseCode) || StringHandler.isEmpty(newStatus)) {
 			throw new CreateException("No case code");
 		}
 		CaseCode code = getCaseCodeAndInstallIfNotExists(caseCode);
 		
 		// find an existing case
 		Case theCase = findExistingCase(wsCase);
-		boolean caseIsUpdated = theCase != null;
+		boolean caseIsUpdated = (theCase != null);
 		
 		// try to get an owner (not required in the request)
 		Owner wsOwner = wsCase.getOwner();
@@ -92,8 +95,6 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			body = theCase.getMetaData(WSCaseConstants.MAIL_MESSAGE_BODY);
 		}
 		
-		// set the status
-		String newStatus = wsCase.getStatus();
 		// match to four digits
 		newStatus = convertStatus(newStatus);
 		// create CaseStatus entry if necessary 
@@ -126,8 +127,13 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 
 		theCase.setCaseCode(code);
 		
-		theCase.setBody(wsCase.getBody());
-		theCase.setSubject(wsCase.getSubject());
+		String wsBody = wsCase.getBody();
+		wsBody = (wsBody == null) ? "" : wsBody;
+		theCase.setBody(wsBody);
+		
+		String wsSubject = wsCase.getBody();
+		wsBody = (wsSubject == null) ? "" : wsSubject;
+		theCase.setSubject(wsSubject);
 	
 		// time to store....
 		theCase.store();
@@ -137,7 +143,11 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		System.out.println("[CaseBusiness : craeteOrUpdateCase] Body = "+wsCase.getBody());
 		System.out.println("[CaseBusiness : craeteOrUpdateCase] Subject = "+wsCase.getSubject());
 
-		return theCase;
+		CaseResult caseResult = new CaseResult();
+		caseResult.setId(theCase.getUniqueId());
+		caseResult.setOperation("success");   
+		
+		return caseResult;
 	}
 	
 	
@@ -145,7 +155,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		
 		//Update emails:
 		String sEmail = owner.getEmail();
-		if (StringHandler.isNotEmpty(sEmail)) {
+		if (sEmail != null) {
 			try {
 				getUserBusiness().updateUserMail(user, sEmail);
 			}
@@ -157,7 +167,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		//Update phone:
 		
 		String sPhone = owner.getPhone();
-		if(StringHandler.isNotEmpty(sPhone)) {
+		if(sPhone != null) {
 			try {
 				getUserBusiness().updateUserHomePhone(user,sPhone);
 			}
@@ -169,7 +179,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}	
 		}
 		String mobile = owner.getGsm();
-		if(StringHandler.isNotEmpty(mobile)){
+		if(mobile != null){
 			try {
 				getUserBusiness().updateUserMobilePhone(user,mobile);
 			}
@@ -288,19 +298,19 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 	
 	private String convertStatus(String status) {
-		if (status.equals(WSCaseConstants.STATUS_ARCHIVED)) {
+		if (WSCaseConstants.STATUS_ARCHIVED.equals(status)) {
 			return getCaseHome().getCaseStatusArchived();
 		}
-		if (status.equals(WSCaseConstants.STATUS_CLOSED)) {
+		if (WSCaseConstants.STATUS_CLOSED.equals(status)) {
 			return getCaseHome().getCaseStatusClosed();
 		}
-	    if (status.equals(WSCaseConstants.STATUS_IN_PROCESS)) {
+	    if (WSCaseConstants.STATUS_IN_PROCESS.equals(status)) {
 			return getCaseHome().getCaseStatusInProcess();
 		}
-		if (status.equals(WSCaseConstants.STATUS_LOCKED)) {
+		if (WSCaseConstants.STATUS_LOCKED.equals(status)) {
 			return getCaseHome().getCaseStatusLocked();
 		}
-		if (status.equals(WSCaseConstants.STATUS_PENDING)) {
+		if (WSCaseConstants.STATUS_PENDING.equals(status)) {
 			return getCaseHome().getCaseStatusPending();
 		}
 		return status;

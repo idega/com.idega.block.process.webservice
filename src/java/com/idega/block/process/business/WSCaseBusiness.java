@@ -1,5 +1,5 @@
 /*
- * $Id: WSCaseBusiness.java,v 1.5 2006/04/03 16:50:30 thomas Exp $
+ * $Id: WSCaseBusiness.java,v 1.6 2006/04/06 16:00:53 thomas Exp $
  * Created on Mar 17, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -13,6 +13,7 @@ import javax.ejb.CreateException;
 import com.idega.block.process.data.Case;
 import com.idega.block.process.data.CaseStatus;
 import com.idega.block.process.webservice.server.CaseEntry;
+import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.Owner;
 import com.idega.business.IBOService;
 import com.idega.user.data.User;
@@ -20,17 +21,17 @@ import com.idega.user.data.User;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/03 16:50:30 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/06 16:00:53 $ by $Author: thomas $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public interface WSCaseBusiness extends IBOService {
 
 	/**
 	 * @see com.idega.block.process.business.WSCaseBusinessBean#createOrUpdateCase
 	 */
-	public Case createOrUpdateCase(CaseEntry wsCase) throws Exception, java.rmi.RemoteException;
+	public CaseResult createOrUpdateCase(CaseEntry wsCase) throws Exception, java.rmi.RemoteException;
 
 	/**
 	 * @see com.idega.block.process.business.WSCaseBusinessBean#updateUserInformation
