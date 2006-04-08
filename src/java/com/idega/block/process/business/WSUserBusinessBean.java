@@ -1,5 +1,5 @@
 /*
- * $Id: WSUserBusinessBean.java,v 1.1 2006/04/04 18:01:48 thomas Exp $
+ * $Id: WSUserBusinessBean.java,v 1.2 2006/04/08 12:13:16 laddi Exp $
  * Created on Apr 3, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -30,13 +30,17 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/04 18:01:48 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/08 12:13:16 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusiness{
 	
+	/**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = 2293202816541756736L;
 	private UserBusiness userBusiness = null;
 	
 	public UserInfo getUserInfo(String personalId) {

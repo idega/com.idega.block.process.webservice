@@ -9,7 +9,12 @@ package com.idega.block.process.webservice.server.userService;
 
 public class UserServiceServiceLocator extends org.apache.axis.client.Service implements com.idega.block.process.webservice.server.userService.UserServiceService {
 
-    public UserServiceServiceLocator() {
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = 444338346676513613L;
+
+		public UserServiceServiceLocator() {
     }
 
 

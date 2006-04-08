@@ -8,7 +8,12 @@
 package com.idega.block.process.webservice.server.userService;
 
 public class UserInfo  implements java.io.Serializable {
-    private com.idega.block.process.webservice.server.userService.AddressInfo address;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = 3710023650064261300L;
+
+		private com.idega.block.process.webservice.server.userService.AddressInfo address;
 
     private java.lang.String email;
 
@@ -280,47 +285,53 @@ public class UserInfo  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof UserInfo)) return false;
+        if (!(obj instanceof UserInfo)) {
+					return false;
+				}
         UserInfo other = (UserInfo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+					return false;
+				}
+        if (this == obj) {
+					return true;
+				}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.address==null && other.getAddress()==null) || 
-             (this.address!=null &&
-              this.address.equals(other.getAddress()))) &&
-            ((this.email==null && other.getEmail()==null) || 
-             (this.email!=null &&
-              this.email.equals(other.getEmail()))) &&
-            ((this.error==null && other.getError()==null) || 
-             (this.error!=null &&
-              this.error.equals(other.getError()))) &&
-            ((this.firstName==null && other.getFirstName()==null) || 
-             (this.firstName!=null &&
-              this.firstName.equals(other.getFirstName()))) &&
-            ((this.gsm==null && other.getGsm()==null) || 
-             (this.gsm!=null &&
-              this.gsm.equals(other.getGsm()))) &&
-            ((this.lastName==null && other.getLastName()==null) || 
-             (this.lastName!=null &&
-              this.lastName.equals(other.getLastName()))) &&
-            ((this.middleName==null && other.getMiddleName()==null) || 
-             (this.middleName!=null &&
-              this.middleName.equals(other.getMiddleName()))) &&
-            ((this.phone==null && other.getPhone()==null) || 
-             (this.phone!=null &&
-              this.phone.equals(other.getPhone()))) &&
-            ((this.postalAddress==null && other.getPostalAddress()==null) || 
-             (this.postalAddress!=null &&
-              this.postalAddress.equals(other.getPostalAddress()))) &&
-            ((this.socialsecurity==null && other.getSocialsecurity()==null) || 
-             (this.socialsecurity!=null &&
-              this.socialsecurity.equals(other.getSocialsecurity()))) &&
-            this.valid == other.isValid();
+            ((address==null && other.getAddress()==null) || 
+             (address!=null &&
+              address.equals(other.getAddress()))) &&
+            ((email==null && other.getEmail()==null) || 
+             (email!=null &&
+              email.equals(other.getEmail()))) &&
+            ((error==null && other.getError()==null) || 
+             (error!=null &&
+              error.equals(other.getError()))) &&
+            ((firstName==null && other.getFirstName()==null) || 
+             (firstName!=null &&
+              firstName.equals(other.getFirstName()))) &&
+            ((gsm==null && other.getGsm()==null) || 
+             (gsm!=null &&
+              gsm.equals(other.getGsm()))) &&
+            ((lastName==null && other.getLastName()==null) || 
+             (lastName!=null &&
+              lastName.equals(other.getLastName()))) &&
+            ((middleName==null && other.getMiddleName()==null) || 
+             (middleName!=null &&
+              middleName.equals(other.getMiddleName()))) &&
+            ((phone==null && other.getPhone()==null) || 
+             (phone!=null &&
+              phone.equals(other.getPhone()))) &&
+            ((postalAddress==null && other.getPostalAddress()==null) || 
+             (postalAddress!=null &&
+              postalAddress.equals(other.getPostalAddress()))) &&
+            ((socialsecurity==null && other.getSocialsecurity()==null) || 
+             (socialsecurity!=null &&
+              socialsecurity.equals(other.getSocialsecurity()))) &&
+            valid == other.isValid();
         __equalsCalc = null;
         return _equals;
     }
@@ -445,7 +456,7 @@ public class UserInfo  implements java.io.Serializable {
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
+        return UserInfo.typeDesc;
     }
 
     /**
@@ -457,7 +468,7 @@ public class UserInfo  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, UserInfo.typeDesc);
     }
 
     /**
@@ -469,7 +480,7 @@ public class UserInfo  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, UserInfo.typeDesc);
     }
 
 }

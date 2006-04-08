@@ -35,7 +35,7 @@ public class CaseEntry {
 	 * @param externalCase_id
 	 */
 	public void setExternalCase_id(java.lang.String externalCase_id) {
-		;
+		
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class CaseEntry {
 	 * @param created
 	 */
 	public void setCreated(java.lang.String created) {
-		;
+		
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class CaseEntry {
 	 * @param code
 	 */
 	public void setCode(java.lang.String code) {
-		;
+		
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class CaseEntry {
 	 * @param modified
 	 */
 	public void setModified(java.lang.String modified) {
-		;
+		
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class CaseEntry {
 	 * @param status
 	 */
 	public void setStatus(java.lang.String status) {
-		;
+		
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class CaseEntry {
 	 * @param subject
 	 */
 	public void setSubject(java.lang.String subject) {
-		;
+		
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class CaseEntry {
 	 * @param body
 	 */
 	public void setBody(java.lang.String body) {
-		;
+		
 	}
 
 	/**
@@ -161,7 +161,7 @@ public class CaseEntry {
 	 * @param owner
 	 */
 	public void setOwner(Owner owner) {
-		;
+		
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class CaseEntry {
 	 * @param handler
 	 */
 	public void setHandler(Handler handler) {
-		;
+		
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class CaseEntry {
 	 * @param metadata
 	 */
 	public void setMetadata(Item[] metadata) {
-		;
+		
 	}
 
 	public Recipient getRecipient() {

@@ -1,9 +1,8 @@
 import java.net.URL;
+
 import org.apache.axis.client.Stub;
+
 import com.idega.block.process.webservice.server.CaseEntry;
-import com.idega.block.process.webservice.server.CaseResult;
-import com.idega.block.process.webservice.server.CaseService;
-import com.idega.block.process.webservice.server.CaseServiceServiceLocator;
 import com.idega.block.process.webservice.server.Item;
 import com.idega.block.process.webservice.server.Owner;
 import com.idega.block.process.webservice.server.userService.UserInfo;
@@ -19,7 +18,7 @@ public class TestClient {
 	// private static String endpoint =
 	// "http://213.167.155.187:6580/GoProHusavik.nsf/webservicenewcase?OpenAgent";
 	//private static String endpointTicketService = "http://localhost:9090/services/TicketService";
-	private static String endpointCaseService =  "http://localhost:9090/services/CaseService";
+	//private static String endpointCaseService =  "http://localhost:9090/services/CaseService";
 	private static String endpointUserService =  "http://localhost:9090/services/UserService";
 	// private static String endpoint =
 	// "http://localhost:8090/rvk/services/CaseService";
@@ -30,10 +29,10 @@ public class TestClient {
 	public static void main(String[] args) {
 		// testDummy();
 		//testVUFCreateAndUpdate();
-		testVUFUser();
+		TestClient.testVUFUser();
 	}
 
-	private static void testVUFCreateAndUpdate() {
+	/*private static void testVUFCreateAndUpdate() {
 		try {
 			Owner owner = new Owner();
 			owner.setAddress("Tjarnarmýri 5");
@@ -83,7 +82,7 @@ public class TestClient {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 	/**
 	 * <p>
@@ -133,7 +132,6 @@ public class TestClient {
 			stub.setPassword("8x4vf1");
 			//NewCasePort port = service.getCreateNewCaseHttp();
 			UserInfo ret2 = port2.getUserInfo("1703532189");
-			String error = ret2.getError();
 			//CaseResult ret = port.createOrUpdateCase(wsCase);
 			System.out.print(ret2);
 			//System.out.println("Sent 'Hello!', got operation='" + ret.getOperation() + "'and id=" + ret.getId());

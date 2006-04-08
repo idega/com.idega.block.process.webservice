@@ -9,7 +9,12 @@ package com.idega.block.process.webservice.server;
 
 public class CaseServiceServiceLocator extends org.apache.axis.client.Service implements com.idega.block.process.webservice.server.CaseServiceService {
 
-    public CaseServiceServiceLocator() {
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -4068439105057329256L;
+
+		public CaseServiceServiceLocator() {
     }
 
 

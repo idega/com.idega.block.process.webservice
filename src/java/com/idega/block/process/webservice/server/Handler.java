@@ -8,7 +8,12 @@
 package com.idega.block.process.webservice.server;
 
 public class Handler  implements java.io.Serializable {
-    private java.lang.String address;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -2345025815468221408L;
+
+		private java.lang.String address;
 
     private java.lang.String case_role;
 
@@ -328,55 +333,61 @@ public class Handler  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Handler)) return false;
+        if (!(obj instanceof Handler)) {
+					return false;
+				}
         Handler other = (Handler) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+					return false;
+				}
+        if (this == obj) {
+					return true;
+				}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.address==null && other.getAddress()==null) || 
-             (this.address!=null &&
-              this.address.equals(other.getAddress()))) &&
-            ((this.case_role==null && other.getCase_role()==null) || 
-             (this.case_role!=null &&
-              this.case_role.equals(other.getCase_role()))) &&
-            ((this.city==null && other.getCity()==null) || 
-             (this.city!=null &&
-              this.city.equals(other.getCity()))) &&
-            ((this.contact==null && other.getContact()==null) || 
-             (this.contact!=null &&
-              this.contact.equals(other.getContact()))) &&
-            ((this.department==null && other.getDepartment()==null) || 
-             (this.department!=null &&
-              this.department.equals(other.getDepartment()))) &&
-            ((this.email==null && other.getEmail()==null) || 
-             (this.email!=null &&
-              this.email.equals(other.getEmail()))) &&
-            ((this.gsm==null && other.getGsm()==null) || 
-             (this.gsm!=null &&
-              this.gsm.equals(other.getGsm()))) &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName()))) &&
-            ((this.organization==null && other.getOrganization()==null) || 
-             (this.organization!=null &&
-              this.organization.equals(other.getOrganization()))) &&
-            ((this.phone==null && other.getPhone()==null) || 
-             (this.phone!=null &&
-              this.phone.equals(other.getPhone()))) &&
-            ((this.postalcode==null && other.getPostalcode()==null) || 
-             (this.postalcode!=null &&
-              this.postalcode.equals(other.getPostalcode()))) &&
-            ((this.socialsecurity==null && other.getSocialsecurity()==null) || 
-             (this.socialsecurity!=null &&
-              this.socialsecurity.equals(other.getSocialsecurity()))) &&
-            ((this.title==null && other.getTitle()==null) || 
-             (this.title!=null &&
-              this.title.equals(other.getTitle())));
+            ((address==null && other.getAddress()==null) || 
+             (address!=null &&
+              address.equals(other.getAddress()))) &&
+            ((case_role==null && other.getCase_role()==null) || 
+             (case_role!=null &&
+              case_role.equals(other.getCase_role()))) &&
+            ((city==null && other.getCity()==null) || 
+             (city!=null &&
+              city.equals(other.getCity()))) &&
+            ((contact==null && other.getContact()==null) || 
+             (contact!=null &&
+              contact.equals(other.getContact()))) &&
+            ((department==null && other.getDepartment()==null) || 
+             (department!=null &&
+              department.equals(other.getDepartment()))) &&
+            ((email==null && other.getEmail()==null) || 
+             (email!=null &&
+              email.equals(other.getEmail()))) &&
+            ((gsm==null && other.getGsm()==null) || 
+             (gsm!=null &&
+              gsm.equals(other.getGsm()))) &&
+            ((name==null && other.getName()==null) || 
+             (name!=null &&
+              name.equals(other.getName()))) &&
+            ((organization==null && other.getOrganization()==null) || 
+             (organization!=null &&
+              organization.equals(other.getOrganization()))) &&
+            ((phone==null && other.getPhone()==null) || 
+             (phone!=null &&
+              phone.equals(other.getPhone()))) &&
+            ((postalcode==null && other.getPostalcode()==null) || 
+             (postalcode!=null &&
+              postalcode.equals(other.getPostalcode()))) &&
+            ((socialsecurity==null && other.getSocialsecurity()==null) || 
+             (socialsecurity!=null &&
+              socialsecurity.equals(other.getSocialsecurity()))) &&
+            ((title==null && other.getTitle()==null) || 
+             (title!=null &&
+              title.equals(other.getTitle())));
         __equalsCalc = null;
         return _equals;
     }
@@ -521,7 +532,7 @@ public class Handler  implements java.io.Serializable {
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
+        return Handler.typeDesc;
     }
 
     /**
@@ -533,7 +544,7 @@ public class Handler  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Handler.typeDesc);
     }
 
     /**
@@ -545,7 +556,7 @@ public class Handler  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Handler.typeDesc);
     }
 
 }

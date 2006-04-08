@@ -8,7 +8,12 @@
 package com.idega.block.process.wsclient;
 
 public class Case_requestItem  implements java.io.Serializable {
-    private java.lang.String key;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -8816946390310642893L;
+
+		private java.lang.String key;
 
     private java.lang.String value;
 
@@ -64,22 +69,28 @@ public class Case_requestItem  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Case_requestItem)) return false;
+        if (!(obj instanceof Case_requestItem)) {
+					return false;
+				}
         Case_requestItem other = (Case_requestItem) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+					return false;
+				}
+        if (this == obj) {
+					return true;
+				}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.key==null && other.getKey()==null) || 
-             (this.key!=null &&
-              this.key.equals(other.getKey()))) &&
-            ((this.value==null && other.getValue()==null) || 
-             (this.value!=null &&
-              this.value.equals(other.getValue())));
+            ((key==null && other.getKey()==null) || 
+             (key!=null &&
+              key.equals(other.getKey()))) &&
+            ((value==null && other.getValue()==null) || 
+             (value!=null &&
+              value.equals(other.getValue())));
         __equalsCalc = null;
         return _equals;
     }
@@ -127,7 +138,7 @@ public class Case_requestItem  implements java.io.Serializable {
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
+        return Case_requestItem.typeDesc;
     }
 
     /**
@@ -139,7 +150,7 @@ public class Case_requestItem  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Case_requestItem.typeDesc);
     }
 
     /**
@@ -151,7 +162,7 @@ public class Case_requestItem  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Case_requestItem.typeDesc);
     }
 
 }

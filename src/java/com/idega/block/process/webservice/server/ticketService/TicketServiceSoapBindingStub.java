@@ -16,8 +16,8 @@ public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub im
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[1];
-        _initOperationDesc1();
+        TicketServiceSoapBindingStub._operations = new org.apache.axis.description.OperationDesc[1];
+        TicketServiceSoapBindingStub._initOperationDesc1();
     }
 
     private static void _initOperationDesc1(){
@@ -32,7 +32,7 @@ public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub im
         oper.setReturnQName(new javax.xml.namespace.QName("", "validateTicketReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[0] = oper;
+        TicketServiceSoapBindingStub._operations[0] = oper;
 
     }
 

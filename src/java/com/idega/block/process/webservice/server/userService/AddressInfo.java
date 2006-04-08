@@ -8,7 +8,12 @@
 package com.idega.block.process.webservice.server.userService;
 
 public class AddressInfo  implements java.io.Serializable {
-    private java.lang.String city;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = 4280019496983466925L;
+
+		private java.lang.String city;
 
     private java.lang.String country;
 
@@ -136,31 +141,37 @@ public class AddressInfo  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AddressInfo)) return false;
+        if (!(obj instanceof AddressInfo)) {
+					return false;
+				}
         AddressInfo other = (AddressInfo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+					return false;
+				}
+        if (this == obj) {
+					return true;
+				}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.city==null && other.getCity()==null) || 
-             (this.city!=null &&
-              this.city.equals(other.getCity()))) &&
-            ((this.country==null && other.getCountry()==null) || 
-             (this.country!=null &&
-              this.country.equals(other.getCountry()))) &&
-            ((this.postalcode==null && other.getPostalcode()==null) || 
-             (this.postalcode!=null &&
-              this.postalcode.equals(other.getPostalcode()))) &&
-            ((this.streetName==null && other.getStreetName()==null) || 
-             (this.streetName!=null &&
-              this.streetName.equals(other.getStreetName()))) &&
-            ((this.streetNumber==null && other.getStreetNumber()==null) || 
-             (this.streetNumber!=null &&
-              this.streetNumber.equals(other.getStreetNumber())));
+            ((city==null && other.getCity()==null) || 
+             (city!=null &&
+              city.equals(other.getCity()))) &&
+            ((country==null && other.getCountry()==null) || 
+             (country!=null &&
+              country.equals(other.getCountry()))) &&
+            ((postalcode==null && other.getPostalcode()==null) || 
+             (postalcode!=null &&
+              postalcode.equals(other.getPostalcode()))) &&
+            ((streetName==null && other.getStreetName()==null) || 
+             (streetName!=null &&
+              streetName.equals(other.getStreetName()))) &&
+            ((streetNumber==null && other.getStreetNumber()==null) || 
+             (streetNumber!=null &&
+              streetNumber.equals(other.getStreetNumber())));
         __equalsCalc = null;
         return _equals;
     }
@@ -233,7 +244,7 @@ public class AddressInfo  implements java.io.Serializable {
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
+        return AddressInfo.typeDesc;
     }
 
     /**
@@ -245,7 +256,7 @@ public class AddressInfo  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, AddressInfo.typeDesc);
     }
 
     /**
@@ -257,7 +268,7 @@ public class AddressInfo  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, AddressInfo.typeDesc);
     }
 
 }

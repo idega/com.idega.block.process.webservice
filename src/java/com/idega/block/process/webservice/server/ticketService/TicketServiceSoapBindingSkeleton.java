@@ -8,7 +8,11 @@
 package com.idega.block.process.webservice.server.ticketService;
 
 public class TicketServiceSoapBindingSkeleton implements com.idega.block.process.webservice.server.ticketService.TicketService, org.apache.axis.wsdl.Skeleton {
-    private com.idega.block.process.webservice.server.ticketService.TicketService impl;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -4853733429138034363L;
+		private com.idega.block.process.webservice.server.ticketService.TicketService impl;
     private static java.util.Map _myOperations = new java.util.Hashtable();
     private static java.util.Collection _myOperationsList = new java.util.ArrayList();
 
@@ -23,7 +27,7 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     * Returns Collection of OperationDescs
     */
     public static java.util.Collection getOperationDescs() {
-        return _myOperationsList;
+        return TicketServiceSoapBindingSkeleton._myOperationsList;
     }
 
     static {
@@ -45,7 +49,7 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     }
 
     public TicketServiceSoapBindingSkeleton() {
-        this.impl = new com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingImpl();
+        impl = new com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingImpl();
     }
 
     public TicketServiceSoapBindingSkeleton(com.idega.block.process.webservice.server.ticketService.TicketService impl) {

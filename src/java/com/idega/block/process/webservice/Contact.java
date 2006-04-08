@@ -17,7 +17,7 @@ public class Contact {
 	 * @param name
 	 */
 	public void setName(java.lang.String name) {
-		;
+		
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class Contact {
 	 * @param socialsecurity
 	 */
 	public void setSocialsecurity(java.lang.String socialsecurity) {
-		;
+		
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class Contact {
 	 * @param address
 	 */
 	public void setAddress(java.lang.String address) {
-		;
+		
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class Contact {
 	 * @param city
 	 */
 	public void setCity(java.lang.String city) {
-		;
+		
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class Contact {
 	 * @param postalcode
 	 */
 	public void setPostalcode(java.lang.String postalcode) {
-		;
+		
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class Contact {
 	 * @param phone
 	 */
 	public void setPhone(java.lang.String phone) {
-		;
+		
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class Contact {
 	 * @param gsm
 	 */
 	public void setGsm(java.lang.String gsm) {
-		;
+		
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class Contact {
 	 * @param email
 	 */
 	public void setEmail(java.lang.String email) {
-		;
+		
 	}
 
 	/**
@@ -161,7 +161,7 @@ public class Contact {
 	 * @param title
 	 */
 	public void setTitle(java.lang.String title) {
-		;
+		
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class Contact {
 	 * @param department
 	 */
 	public void setDepartment(java.lang.String department) {
-		;
+		
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class Contact {
 	 * @param case_role
 	 */
 	public void setCase_role(java.lang.String case_role) {
-		;
+		
 	}
 
 }

@@ -16,8 +16,8 @@ public class Case_NewCase_SoapPortSoap_BindingStub extends org.apache.axis.clien
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[1];
-        _initOperationDesc1();
+        Case_NewCase_SoapPortSoap_BindingStub._operations = new org.apache.axis.description.OperationDesc[1];
+        Case_NewCase_SoapPortSoap_BindingStub._initOperationDesc1();
     }
 
     private static void _initOperationDesc1(){
@@ -33,7 +33,7 @@ public class Case_NewCase_SoapPortSoap_BindingStub extends org.apache.axis.clien
         oper.setReturnQName(new javax.xml.namespace.QName("http://Case.case_response", "case_response"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[0] = oper;
+        Case_NewCase_SoapPortSoap_BindingStub._operations[0] = oper;
 
     }
 

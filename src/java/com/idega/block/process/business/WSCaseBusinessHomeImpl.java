@@ -1,5 +1,5 @@
 /*
- * $Id: WSCaseBusinessHomeImpl.java,v 1.1 2006/03/17 20:06:05 thomas Exp $
+ * $Id: WSCaseBusinessHomeImpl.java,v 1.2 2006/04/08 12:13:16 laddi Exp $
  * Created on Mar 17, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -14,12 +14,17 @@ import com.idega.business.IBOHomeImpl;
 
 /**
  * 
- *  Last modified: $Date: 2006/03/17 20:06:05 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/08 12:13:16 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WSCaseBusinessHomeImpl extends IBOHomeImpl implements WSCaseBusinessHome {
+
+	/**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -6003428892268304837L;
 
 	protected Class getBeanInterfaceClass() {
 		return WSCaseBusiness.class;

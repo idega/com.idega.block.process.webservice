@@ -18,7 +18,7 @@ public class Handler {
 	 * @param name
 	 */
 	public void setName(java.lang.String name) {
-		;
+		
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class Handler {
 	 * @param socialsecurity
 	 */
 	public void setSocialsecurity(java.lang.String socialsecurity) {
-		;
+		
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class Handler {
 	 * @param address
 	 */
 	public void setAddress(java.lang.String address) {
-		;
+		
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class Handler {
 	 * @param city
 	 */
 	public void setCity(java.lang.String city) {
-		;
+		
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class Handler {
 	 * @param postalcode
 	 */
 	public void setPostalcode(java.lang.String postalcode) {
-		;
+		
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class Handler {
 	 * @param phone
 	 */
 	public void setPhone(java.lang.String phone) {
-		;
+		
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class Handler {
 	 * @param gsm
 	 */
 	public void setGsm(java.lang.String gsm) {
-		;
+		
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class Handler {
 	 * @param email
 	 */
 	public void setEmail(java.lang.String email) {
-		;
+		
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class Handler {
 	 * @param title
 	 */
 	public void setTitle(java.lang.String title) {
-		;
+		
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class Handler {
 	 * @param department
 	 */
 	public void setDepartment(java.lang.String department) {
-		;
+		
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class Handler {
 	 * @param case_role
 	 */
 	public void setCase_role(java.lang.String case_role) {
-		;
+		
 	}
 
 	/**
@@ -216,7 +216,7 @@ public class Handler {
 	 * @param contact
 	 */
 	public void setContact(Contact contact) {
-		;
+		
 	}
 
 	public Organization getOrganization() {

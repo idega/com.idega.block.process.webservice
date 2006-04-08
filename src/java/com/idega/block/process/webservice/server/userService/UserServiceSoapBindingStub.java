@@ -16,8 +16,8 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[1];
-        _initOperationDesc1();
+        UserServiceSoapBindingStub._operations = new org.apache.axis.description.OperationDesc[1];
+        UserServiceSoapBindingStub._initOperationDesc1();
     }
 
     private static void _initOperationDesc1(){
@@ -32,7 +32,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         oper.setReturnQName(new javax.xml.namespace.QName("", "getUserInfoReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[0] = oper;
+        UserServiceSoapBindingStub._operations[0] = oper;
 
     }
 

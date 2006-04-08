@@ -9,7 +9,12 @@ package com.idega.block.process.webservice.server.ticketService;
 
 public class TicketServiceServiceLocator extends org.apache.axis.client.Service implements com.idega.block.process.webservice.server.ticketService.TicketServiceService {
 
-    public TicketServiceServiceLocator() {
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -5258247386913821831L;
+
+		public TicketServiceServiceLocator() {
     }
 
 

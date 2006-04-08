@@ -8,7 +8,11 @@
 package com.idega.block.process.webservice.server.userService;
 
 public class UserServiceSoapBindingSkeleton implements com.idega.block.process.webservice.server.userService.UserService, org.apache.axis.wsdl.Skeleton {
-    private com.idega.block.process.webservice.server.userService.UserService impl;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -3381428259719910167L;
+		private com.idega.block.process.webservice.server.userService.UserService impl;
     private static java.util.Map _myOperations = new java.util.Hashtable();
     private static java.util.Collection _myOperationsList = new java.util.ArrayList();
 
@@ -23,7 +27,7 @@ public class UserServiceSoapBindingSkeleton implements com.idega.block.process.w
     * Returns Collection of OperationDescs
     */
     public static java.util.Collection getOperationDescs() {
-        return _myOperationsList;
+        return UserServiceSoapBindingSkeleton._myOperationsList;
     }
 
     static {
@@ -45,7 +49,7 @@ public class UserServiceSoapBindingSkeleton implements com.idega.block.process.w
     }
 
     public UserServiceSoapBindingSkeleton() {
-        this.impl = new com.idega.block.process.webservice.server.userService.UserServiceSoapBindingImpl();
+        impl = new com.idega.block.process.webservice.server.userService.UserServiceSoapBindingImpl();
     }
 
     public UserServiceSoapBindingSkeleton(com.idega.block.process.webservice.server.userService.UserService impl) {

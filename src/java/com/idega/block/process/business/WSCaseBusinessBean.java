@@ -28,6 +28,11 @@ import com.idega.util.StringHandler;
 public class WSCaseBusinessBean extends CaseBusinessBean implements
 		WSCaseBusiness {
 
+	/**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -7507655249872022683L;
+
 	private UserBusiness userBusiness = null;
 	
 	private boolean autocreateOwner=false;

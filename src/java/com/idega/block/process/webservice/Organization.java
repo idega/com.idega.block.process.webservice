@@ -2,7 +2,7 @@ package com.idega.block.process.webservice;
 
 public class Organization {
 	public void setId(String id) {
-		;
+		
 	}
 	
 	public String getId() {
@@ -10,7 +10,7 @@ public class Organization {
 	}
 	
 	public void setName(String name) {
-		;
+		
 	}
 	
 	public String getName() {

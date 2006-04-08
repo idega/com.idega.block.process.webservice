@@ -8,7 +8,12 @@
 package com.idega.block.process.webservice.server;
 
 public class Organization  implements java.io.Serializable {
-    private java.lang.String id;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = 425898583495754085L;
+
+		private java.lang.String id;
 
     private java.lang.String name;
 
@@ -64,22 +69,28 @@ public class Organization  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Organization)) return false;
+        if (!(obj instanceof Organization)) {
+					return false;
+				}
         Organization other = (Organization) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+					return false;
+				}
+        if (this == obj) {
+					return true;
+				}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.id==null && other.getId()==null) || 
-             (this.id!=null &&
-              this.id.equals(other.getId()))) &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName())));
+            ((id==null && other.getId()==null) || 
+             (id!=null &&
+              id.equals(other.getId()))) &&
+            ((name==null && other.getName()==null) || 
+             (name!=null &&
+              name.equals(other.getName())));
         __equalsCalc = null;
         return _equals;
     }
@@ -125,7 +136,7 @@ public class Organization  implements java.io.Serializable {
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
+        return Organization.typeDesc;
     }
 
     /**
@@ -137,7 +148,7 @@ public class Organization  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Organization.typeDesc);
     }
 
     /**
@@ -149,7 +160,7 @@ public class Organization  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Organization.typeDesc);
     }
 
 }

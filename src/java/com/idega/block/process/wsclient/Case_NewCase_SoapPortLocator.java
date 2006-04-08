@@ -10,6 +10,11 @@ package com.idega.block.process.wsclient;
 public class Case_NewCase_SoapPortLocator extends org.apache.axis.client.Service implements com.idega.block.process.wsclient.Case_NewCase_SoapPort {
 
 /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -7531024904811134009L;
+
+/**
  * BizTalk assembly "Case, Version=1.0.0.0, Culture=neutral, PublicKeyToken=86d7c3d93827fffd"
  * published web service.
  */

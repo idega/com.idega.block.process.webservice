@@ -54,7 +54,7 @@ public class TestXMLImport {
 
 			byte[] buffer = Base64.decode(base64String);
 
-			FileOutputStream outStream = new FileOutputStream(OUTPUT_FILENAME);
+			FileOutputStream outStream = new FileOutputStream(TestXMLImport.OUTPUT_FILENAME);
 			outStream.write(buffer);
 			outStream.close();
 

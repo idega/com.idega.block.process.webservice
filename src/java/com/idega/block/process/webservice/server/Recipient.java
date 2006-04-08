@@ -8,7 +8,11 @@
 package com.idega.block.process.webservice.server;
 
 public class Recipient  implements java.io.Serializable {
-    private com.idega.block.process.webservice.server.Organization organization;
+    /**
+	 * Comment for <code>serialVersionUID</code>
+	 */
+	private static final long serialVersionUID = -5301873235952993465L;
+		private com.idega.block.process.webservice.server.Organization organization;
 
     public Recipient() {
     }
@@ -40,19 +44,25 @@ public class Recipient  implements java.io.Serializable {
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Recipient)) return false;
+        if (!(obj instanceof Recipient)) {
+					return false;
+				}
         Recipient other = (Recipient) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+					return false;
+				}
+        if (this == obj) {
+					return true;
+				}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.organization==null && other.getOrganization()==null) || 
-             (this.organization!=null &&
-              this.organization.equals(other.getOrganization())));
+            ((organization==null && other.getOrganization()==null) || 
+             (organization!=null &&
+              organization.equals(other.getOrganization())));
         __equalsCalc = null;
         return _equals;
     }
@@ -89,7 +99,7 @@ public class Recipient  implements java.io.Serializable {
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
+        return Recipient.typeDesc;
     }
 
     /**
@@ -101,7 +111,7 @@ public class Recipient  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Recipient.typeDesc);
     }
 
     /**
@@ -113,7 +123,7 @@ public class Recipient  implements java.io.Serializable {
            javax.xml.namespace.QName _xmlType) {
         return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            _javaType, _xmlType, Recipient.typeDesc);
     }
 
 }

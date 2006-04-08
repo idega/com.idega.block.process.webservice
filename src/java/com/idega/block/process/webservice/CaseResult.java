@@ -16,7 +16,7 @@ public class CaseResult {
 	 * @param id
 	 */
 	public void setId(java.lang.String id) {
-		;
+		
 	}
 
 	/**
@@ -34,6 +34,6 @@ public class CaseResult {
 	 * @param operation
 	 */
 	public void setOperation(java.lang.String operation) {
-		;
+		
 	}
 }

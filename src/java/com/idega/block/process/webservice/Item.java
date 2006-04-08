@@ -17,7 +17,7 @@ public class Item {
 	 * @param key
 	 */
 	public void setKey(java.lang.String key) {
-		;
+		
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class Item {
 	 * @param value
 	 */
 	public void setValue(java.lang.String value) {
-		;
+		
 	}
 
 }
