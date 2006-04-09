@@ -1,5 +1,5 @@
 /*
- * $Id: AddressInfo.java,v 1.1 2006/04/04 18:04:16 thomas Exp $
+ * $Id: AddressInfo.java,v 1.2 2006/04/09 11:52:52 laddi Exp $
  * Created on Apr 3, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -12,10 +12,10 @@ package com.idega.block.process.webservice;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/04 18:04:16 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/09 11:52:52 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class AddressInfo {
 	
@@ -34,7 +34,7 @@ public class AddressInfo {
 	 * @return Returns the city.
 	 */
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	
@@ -50,7 +50,7 @@ public class AddressInfo {
 	 * @return Returns the country.
 	 */
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	
@@ -66,7 +66,7 @@ public class AddressInfo {
 	 * @return Returns the postalcode.
 	 */
 	public String getPostalcode() {
-		return postalcode;
+		return this.postalcode;
 	}
 
 	
@@ -82,7 +82,7 @@ public class AddressInfo {
 	 * @return Returns the streetName.
 	 */
 	public String getStreetName() {
-		return streetName;
+		return this.streetName;
 	}
 
 	
@@ -98,7 +98,7 @@ public class AddressInfo {
 	 * @return Returns the streetNumber.
 	 */
 	public String getStreetNumber() {
-		return streetNumber;
+		return this.streetNumber;
 	}
 
 	

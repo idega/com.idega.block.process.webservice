@@ -1,5 +1,5 @@
 /*
- * $Id: WSUserBusinessBean.java,v 1.2 2006/04/08 12:13:16 laddi Exp $
+ * $Id: WSUserBusinessBean.java,v 1.3 2006/04/09 11:52:52 laddi Exp $
  * Created on Apr 3, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -30,10 +30,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/08 12:13:16 $ by $Author: laddi $
+ *  Last modified: $Date: 2006/04/09 11:52:52 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusiness{
 	
@@ -161,15 +161,15 @@ public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusines
 
 	
 	private UserBusiness getUserBusiness() {
-		if (userBusiness == null) {
+		if (this.userBusiness == null) {
 			try {
-				userBusiness = (UserBusiness) IBOLookup.getServiceInstance(getIWApplicationContext(), UserBusiness.class);
+				this.userBusiness = (UserBusiness) IBOLookup.getServiceInstance(getIWApplicationContext(), UserBusiness.class);
 			}
 			catch (IBOLookupException e) {
 				throw new IBORuntimeException(e);
 			}
 		}
-		return userBusiness;
+		return this.userBusiness;
 	}
 	
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: UserInfo.java,v 1.1 2006/04/04 18:04:17 thomas Exp $
+ * $Id: UserInfo.java,v 1.2 2006/04/09 11:52:52 laddi Exp $
  * Created on Mar 31, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -39,7 +39,7 @@ public class UserInfo {
 	 * @return Returns the email.
 	 */
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	
@@ -55,7 +55,7 @@ public class UserInfo {
 	 * @return Returns the firstName.
 	 */
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 
 	
@@ -71,7 +71,7 @@ public class UserInfo {
 	 * @return Returns the gsm.
 	 */
 	public String getGsm() {
-		return gsm;
+		return this.gsm;
 	}
 
 	
@@ -87,7 +87,7 @@ public class UserInfo {
 	 * @return Returns the lastName.
 	 */
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 
 	
@@ -103,7 +103,7 @@ public class UserInfo {
 	 * @return Returns the middleName.
 	 */
 	public String getMiddleName() {
-		return middleName;
+		return this.middleName;
 	}
 
 	
@@ -119,7 +119,7 @@ public class UserInfo {
 	 * @return Returns the phone.
 	 */
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 
 	
@@ -134,7 +134,7 @@ public class UserInfo {
 	 * @return Returns the socialsecurity.
 	 */
 	public String getSocialsecurity() {
-		return socialsecurity;
+		return this.socialsecurity;
 	}
 
 	
@@ -151,7 +151,7 @@ public class UserInfo {
 	 * @return Returns the error.
 	 */
 	public String getError() {
-		return error;
+		return this.error;
 	}
 
 
@@ -169,7 +169,7 @@ public class UserInfo {
 	 * @return Returns the valid.
 	 */
 	public boolean isValid() {
-		return valid;
+		return this.valid;
 	}
 
 
@@ -187,7 +187,7 @@ public class UserInfo {
 	 * @return Returns the address.
 	 */
 	public AddressInfo getAddress() {
-		return address;
+		return this.address;
 	}
 
 
@@ -205,7 +205,7 @@ public class UserInfo {
 	 * @return Returns the postalAddress.
 	 */
 	public AddressInfo getPostalAddress() {
-		return postalAddress;
+		return this.postalAddress;
 	}
 
 

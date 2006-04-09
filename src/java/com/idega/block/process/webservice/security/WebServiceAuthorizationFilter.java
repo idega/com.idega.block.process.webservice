@@ -1,5 +1,5 @@
 /*
- * $Id: WebServiceAuthorizationFilter.java,v 1.2 2006/04/05 10:40:39 thomas Exp $
+ * $Id: WebServiceAuthorizationFilter.java,v 1.3 2006/04/09 11:52:52 laddi Exp $
  * Created on Apr 4, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -43,10 +43,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/05 10:40:39 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/04/09 11:52:52 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class WebServiceAuthorizationFilter implements Filter {
 	
@@ -127,7 +127,7 @@ public class WebServiceAuthorizationFilter implements Filter {
 		AccessController accessController = iwMainApplication.getAccessController();
 		while (groupIterator.hasNext()) {
 			Group group = (Group) groupIterator.next();
-			if (accessController.hasRole(WEB_SERVICE_USER_ROLE, group, null)) {
+			if (accessController.hasRole(this.WEB_SERVICE_USER_ROLE, group, null)) {
 				return true;
 			}
 		}
@@ -148,7 +148,7 @@ public class WebServiceAuthorizationFilter implements Filter {
 		}
 		String namePassword = basicNamePassword.substring(6);
 		try {
-			byte[] decodedNamePasswordArray = myBase64Decoder.decodeBuffer(namePassword);
+			byte[] decodedNamePasswordArray = this.myBase64Decoder.decodeBuffer(namePassword);
 			ByteBuffer wrappedDecodedNamePasswordArray = ByteBuffer.wrap(decodedNamePasswordArray);
 			Charset charset = Charset.forName("ISO-8859-1");
 			CharBuffer buffer = charset.decode(wrappedDecodedNamePasswordArray);
@@ -160,29 +160,29 @@ public class WebServiceAuthorizationFilter implements Filter {
 	}
     	
     private LoginBusinessBean getLoginBusiness(IWApplicationContext iwac) {
-    	if (loginBusiness == null) { 
-        	loginBusiness = LoginBusinessBean.getLoginBusinessBean(iwac);
+    	if (this.loginBusiness == null) { 
+        	this.loginBusiness = LoginBusinessBean.getLoginBusinessBean(iwac);
     	}
-    	return loginBusiness;
+    	return this.loginBusiness;
 	}
 		
 	private LoginTableHome getLoginTableHome() {
-		if (loginTableHome == null) {
+		if (this.loginTableHome == null) {
 			try {
-				loginTableHome = (LoginTableHome) IDOLookup.getHome(LoginTable.class);
+				this.loginTableHome = (LoginTableHome) IDOLookup.getHome(LoginTable.class);
 			}
 			catch (IDOLookupException ile) {
 				throw new IBORuntimeException(ile);
 			}
 		}
-		return loginTableHome;
+		return this.loginTableHome;
 	}
 		
 	/* (non-Javadoc)
 	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
 	public void init(FilterConfig arg0) throws ServletException {
-		myBase64Decoder = new BASE64Decoder();
+		this.myBase64Decoder = new BASE64Decoder();
 	}
 	/* (non-Javadoc)
 	 * @see javax.servlet.Filter#destroy()

@@ -35,24 +35,24 @@ public class Case_NewCase_SoapPortLocator extends org.apache.axis.client.Service
     private java.lang.String Case_NewCase_SoapPortSoap_address = "http://213.167.155.148/Case/Case_NewCase_SoapPort.asmx";
 
     public java.lang.String getCase_NewCase_SoapPortSoapAddress() {
-        return Case_NewCase_SoapPortSoap_address;
+        return this.Case_NewCase_SoapPortSoap_address;
     }
 
     // The WSDD service name defaults to the port name.
     private java.lang.String Case_NewCase_SoapPortSoapWSDDServiceName = "Case_NewCase_SoapPortSoap";
 
     public java.lang.String getCase_NewCase_SoapPortSoapWSDDServiceName() {
-        return Case_NewCase_SoapPortSoapWSDDServiceName;
+        return this.Case_NewCase_SoapPortSoapWSDDServiceName;
     }
 
     public void setCase_NewCase_SoapPortSoapWSDDServiceName(java.lang.String name) {
-        Case_NewCase_SoapPortSoapWSDDServiceName = name;
+        this.Case_NewCase_SoapPortSoapWSDDServiceName = name;
     }
 
     public com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_PortType getCase_NewCase_SoapPortSoap() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(Case_NewCase_SoapPortSoap_address);
+            endpoint = new java.net.URL(this.Case_NewCase_SoapPortSoap_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
@@ -72,7 +72,7 @@ public class Case_NewCase_SoapPortLocator extends org.apache.axis.client.Service
     }
 
     public void setCase_NewCase_SoapPortSoapEndpointAddress(java.lang.String address) {
-        Case_NewCase_SoapPortSoap_address = address;
+        this.Case_NewCase_SoapPortSoap_address = address;
     }
 
     /**
@@ -83,7 +83,7 @@ public class Case_NewCase_SoapPortLocator extends org.apache.axis.client.Service
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_BindingStub _stub = new com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_BindingStub(new java.net.URL(Case_NewCase_SoapPortSoap_address), this);
+                com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_BindingStub _stub = new com.idega.block.process.wsclient.Case_NewCase_SoapPortSoap_BindingStub(new java.net.URL(this.Case_NewCase_SoapPortSoap_address), this);
                 _stub.setPortName(getCase_NewCase_SoapPortSoapWSDDServiceName());
                 return _stub;
             }
@@ -121,11 +121,11 @@ public class Case_NewCase_SoapPortLocator extends org.apache.axis.client.Service
     private java.util.HashSet ports = null;
 
     public java.util.Iterator getPorts() {
-        if (ports == null) {
-            ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://Case/", "Case_NewCase_SoapPortSoap"));
+        if (this.ports == null) {
+            this.ports = new java.util.HashSet();
+            this.ports.add(new javax.xml.namespace.QName("http://Case/", "Case_NewCase_SoapPortSoap"));
         }
-        return ports.iterator();
+        return this.ports.iterator();
     }
 
     /**

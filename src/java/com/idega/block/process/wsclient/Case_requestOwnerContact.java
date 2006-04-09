@@ -70,7 +70,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return name
      */
     public java.lang.String getName() {
-        return name;
+        return this.name;
     }
 
 
@@ -90,7 +90,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return social_security
      */
     public java.lang.String getSocial_security() {
-        return social_security;
+        return this.social_security;
     }
 
 
@@ -110,7 +110,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return address
      */
     public java.lang.String getAddress() {
-        return address;
+        return this.address;
     }
 
 
@@ -130,7 +130,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return city
      */
     public java.lang.String getCity() {
-        return city;
+        return this.city;
     }
 
 
@@ -150,7 +150,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return postalcode
      */
     public java.lang.String getPostalcode() {
-        return postalcode;
+        return this.postalcode;
     }
 
 
@@ -170,7 +170,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return phone
      */
     public java.lang.String getPhone() {
-        return phone;
+        return this.phone;
     }
 
 
@@ -190,7 +190,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return gsm
      */
     public java.lang.String getGsm() {
-        return gsm;
+        return this.gsm;
     }
 
 
@@ -210,7 +210,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return email
      */
     public java.lang.String getEmail() {
-        return email;
+        return this.email;
     }
 
 
@@ -230,7 +230,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return title
      */
     public java.lang.String getTitle() {
-        return title;
+        return this.title;
     }
 
 
@@ -250,7 +250,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return department
      */
     public java.lang.String getDepartment() {
-        return department;
+        return this.department;
     }
 
 
@@ -270,7 +270,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
      * @return case_role
      */
     public java.lang.String getCase_role() {
-        return case_role;
+        return this.case_role;
     }
 
 
@@ -295,55 +295,55 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
         if (this == obj) {
 					return true;
 				}
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+        if (this.__equalsCalc != null) {
+            return (this.__equalsCalc == obj);
         }
-        __equalsCalc = obj;
+        this.__equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((name==null && other.getName()==null) || 
-             (name!=null &&
-              name.equals(other.getName()))) &&
-            ((social_security==null && other.getSocial_security()==null) || 
-             (social_security!=null &&
-              social_security.equals(other.getSocial_security()))) &&
-            ((address==null && other.getAddress()==null) || 
-             (address!=null &&
-              address.equals(other.getAddress()))) &&
-            ((city==null && other.getCity()==null) || 
-             (city!=null &&
-              city.equals(other.getCity()))) &&
-            ((postalcode==null && other.getPostalcode()==null) || 
-             (postalcode!=null &&
-              postalcode.equals(other.getPostalcode()))) &&
-            ((phone==null && other.getPhone()==null) || 
-             (phone!=null &&
-              phone.equals(other.getPhone()))) &&
-            ((gsm==null && other.getGsm()==null) || 
-             (gsm!=null &&
-              gsm.equals(other.getGsm()))) &&
-            ((email==null && other.getEmail()==null) || 
-             (email!=null &&
-              email.equals(other.getEmail()))) &&
-            ((title==null && other.getTitle()==null) || 
-             (title!=null &&
-              title.equals(other.getTitle()))) &&
-            ((department==null && other.getDepartment()==null) || 
-             (department!=null &&
-              department.equals(other.getDepartment()))) &&
-            ((case_role==null && other.getCase_role()==null) || 
-             (case_role!=null &&
-              case_role.equals(other.getCase_role())));
-        __equalsCalc = null;
+            ((this.name==null && other.getName()==null) || 
+             (this.name!=null &&
+              this.name.equals(other.getName()))) &&
+            ((this.social_security==null && other.getSocial_security()==null) || 
+             (this.social_security!=null &&
+              this.social_security.equals(other.getSocial_security()))) &&
+            ((this.address==null && other.getAddress()==null) || 
+             (this.address!=null &&
+              this.address.equals(other.getAddress()))) &&
+            ((this.city==null && other.getCity()==null) || 
+             (this.city!=null &&
+              this.city.equals(other.getCity()))) &&
+            ((this.postalcode==null && other.getPostalcode()==null) || 
+             (this.postalcode!=null &&
+              this.postalcode.equals(other.getPostalcode()))) &&
+            ((this.phone==null && other.getPhone()==null) || 
+             (this.phone!=null &&
+              this.phone.equals(other.getPhone()))) &&
+            ((this.gsm==null && other.getGsm()==null) || 
+             (this.gsm!=null &&
+              this.gsm.equals(other.getGsm()))) &&
+            ((this.email==null && other.getEmail()==null) || 
+             (this.email!=null &&
+              this.email.equals(other.getEmail()))) &&
+            ((this.title==null && other.getTitle()==null) || 
+             (this.title!=null &&
+              this.title.equals(other.getTitle()))) &&
+            ((this.department==null && other.getDepartment()==null) || 
+             (this.department!=null &&
+              this.department.equals(other.getDepartment()))) &&
+            ((this.case_role==null && other.getCase_role()==null) || 
+             (this.case_role!=null &&
+              this.case_role.equals(other.getCase_role())));
+        this.__equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
-        if (__hashCodeCalc) {
+        if (this.__hashCodeCalc) {
             return 0;
         }
-        __hashCodeCalc = true;
+        this.__hashCodeCalc = true;
         int _hashCode = 1;
         if (getName() != null) {
             _hashCode += getName().hashCode();
@@ -378,7 +378,7 @@ public class Case_requestOwnerContact  implements java.io.Serializable {
         if (getCase_role() != null) {
             _hashCode += getCase_role().hashCode();
         }
-        __hashCodeCalc = false;
+        this.__hashCodeCalc = false;
         return _hashCode;
     }
 

@@ -46,7 +46,7 @@ public class AddressInfo  implements java.io.Serializable {
      * @return city
      */
     public java.lang.String getCity() {
-        return city;
+        return this.city;
     }
 
 
@@ -66,7 +66,7 @@ public class AddressInfo  implements java.io.Serializable {
      * @return country
      */
     public java.lang.String getCountry() {
-        return country;
+        return this.country;
     }
 
 
@@ -86,7 +86,7 @@ public class AddressInfo  implements java.io.Serializable {
      * @return postalcode
      */
     public java.lang.String getPostalcode() {
-        return postalcode;
+        return this.postalcode;
     }
 
 
@@ -106,7 +106,7 @@ public class AddressInfo  implements java.io.Serializable {
      * @return streetName
      */
     public java.lang.String getStreetName() {
-        return streetName;
+        return this.streetName;
     }
 
 
@@ -126,7 +126,7 @@ public class AddressInfo  implements java.io.Serializable {
      * @return streetNumber
      */
     public java.lang.String getStreetNumber() {
-        return streetNumber;
+        return this.streetNumber;
     }
 
 
@@ -151,37 +151,37 @@ public class AddressInfo  implements java.io.Serializable {
         if (this == obj) {
 					return true;
 				}
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+        if (this.__equalsCalc != null) {
+            return (this.__equalsCalc == obj);
         }
-        __equalsCalc = obj;
+        this.__equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((city==null && other.getCity()==null) || 
-             (city!=null &&
-              city.equals(other.getCity()))) &&
-            ((country==null && other.getCountry()==null) || 
-             (country!=null &&
-              country.equals(other.getCountry()))) &&
-            ((postalcode==null && other.getPostalcode()==null) || 
-             (postalcode!=null &&
-              postalcode.equals(other.getPostalcode()))) &&
-            ((streetName==null && other.getStreetName()==null) || 
-             (streetName!=null &&
-              streetName.equals(other.getStreetName()))) &&
-            ((streetNumber==null && other.getStreetNumber()==null) || 
-             (streetNumber!=null &&
-              streetNumber.equals(other.getStreetNumber())));
-        __equalsCalc = null;
+            ((this.city==null && other.getCity()==null) || 
+             (this.city!=null &&
+              this.city.equals(other.getCity()))) &&
+            ((this.country==null && other.getCountry()==null) || 
+             (this.country!=null &&
+              this.country.equals(other.getCountry()))) &&
+            ((this.postalcode==null && other.getPostalcode()==null) || 
+             (this.postalcode!=null &&
+              this.postalcode.equals(other.getPostalcode()))) &&
+            ((this.streetName==null && other.getStreetName()==null) || 
+             (this.streetName!=null &&
+              this.streetName.equals(other.getStreetName()))) &&
+            ((this.streetNumber==null && other.getStreetNumber()==null) || 
+             (this.streetNumber!=null &&
+              this.streetNumber.equals(other.getStreetNumber())));
+        this.__equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
-        if (__hashCodeCalc) {
+        if (this.__hashCodeCalc) {
             return 0;
         }
-        __hashCodeCalc = true;
+        this.__hashCodeCalc = true;
         int _hashCode = 1;
         if (getCity() != null) {
             _hashCode += getCity().hashCode();
@@ -198,7 +198,7 @@ public class AddressInfo  implements java.io.Serializable {
         if (getStreetNumber() != null) {
             _hashCode += getStreetNumber().hashCode();
         }
-        __hashCodeCalc = false;
+        this.__hashCodeCalc = false;
         return _hashCode;
     }
 

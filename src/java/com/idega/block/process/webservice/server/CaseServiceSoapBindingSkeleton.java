@@ -49,7 +49,7 @@ public class CaseServiceSoapBindingSkeleton implements com.idega.block.process.w
     }
 
     public CaseServiceSoapBindingSkeleton() {
-        impl = new com.idega.block.process.webservice.server.CaseServiceSoapBindingImpl();
+        this.impl = new com.idega.block.process.webservice.server.CaseServiceSoapBindingImpl();
     }
 
     public CaseServiceSoapBindingSkeleton(com.idega.block.process.webservice.server.CaseService impl) {
@@ -57,7 +57,7 @@ public class CaseServiceSoapBindingSkeleton implements com.idega.block.process.w
     }
     public com.idega.block.process.webservice.server.CaseResult createOrUpdateCase(com.idega.block.process.webservice.server.CaseEntry in0) throws java.rmi.RemoteException
     {
-        com.idega.block.process.webservice.server.CaseResult ret = impl.createOrUpdateCase(in0);
+        com.idega.block.process.webservice.server.CaseResult ret = this.impl.createOrUpdateCase(in0);
         return ret;
     }
 

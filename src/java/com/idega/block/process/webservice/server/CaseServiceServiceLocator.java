@@ -30,24 +30,24 @@ public class CaseServiceServiceLocator extends org.apache.axis.client.Service im
     private java.lang.String CaseService_address = "http://azskjalfandi.skjalfandi.is/services/CaseService";
 
     public java.lang.String getCaseServiceAddress() {
-        return CaseService_address;
+        return this.CaseService_address;
     }
 
     // The WSDD service name defaults to the port name.
     private java.lang.String CaseServiceWSDDServiceName = "CaseService";
 
     public java.lang.String getCaseServiceWSDDServiceName() {
-        return CaseServiceWSDDServiceName;
+        return this.CaseServiceWSDDServiceName;
     }
 
     public void setCaseServiceWSDDServiceName(java.lang.String name) {
-        CaseServiceWSDDServiceName = name;
+        this.CaseServiceWSDDServiceName = name;
     }
 
     public com.idega.block.process.webservice.server.CaseService getCaseService() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(CaseService_address);
+            endpoint = new java.net.URL(this.CaseService_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
@@ -67,7 +67,7 @@ public class CaseServiceServiceLocator extends org.apache.axis.client.Service im
     }
 
     public void setCaseServiceEndpointAddress(java.lang.String address) {
-        CaseService_address = address;
+        this.CaseService_address = address;
     }
 
     /**
@@ -78,7 +78,7 @@ public class CaseServiceServiceLocator extends org.apache.axis.client.Service im
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (com.idega.block.process.webservice.server.CaseService.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.idega.block.process.webservice.server.CaseServiceSoapBindingStub _stub = new com.idega.block.process.webservice.server.CaseServiceSoapBindingStub(new java.net.URL(CaseService_address), this);
+                com.idega.block.process.webservice.server.CaseServiceSoapBindingStub _stub = new com.idega.block.process.webservice.server.CaseServiceSoapBindingStub(new java.net.URL(this.CaseService_address), this);
                 _stub.setPortName(getCaseServiceWSDDServiceName());
                 return _stub;
             }
@@ -116,11 +116,11 @@ public class CaseServiceServiceLocator extends org.apache.axis.client.Service im
     private java.util.HashSet ports = null;
 
     public java.util.Iterator getPorts() {
-        if (ports == null) {
-            ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "CaseService"));
+        if (this.ports == null) {
+            this.ports = new java.util.HashSet();
+            this.ports.add(new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "CaseService"));
         }
-        return ports.iterator();
+        return this.ports.iterator();
     }
 
     /**

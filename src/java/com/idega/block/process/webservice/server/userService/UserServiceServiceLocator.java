@@ -30,24 +30,24 @@ public class UserServiceServiceLocator extends org.apache.axis.client.Service im
     private java.lang.String UserService_address = "http://localhost/services/UserService";
 
     public java.lang.String getUserServiceAddress() {
-        return UserService_address;
+        return this.UserService_address;
     }
 
     // The WSDD service name defaults to the port name.
     private java.lang.String UserServiceWSDDServiceName = "UserService";
 
     public java.lang.String getUserServiceWSDDServiceName() {
-        return UserServiceWSDDServiceName;
+        return this.UserServiceWSDDServiceName;
     }
 
     public void setUserServiceWSDDServiceName(java.lang.String name) {
-        UserServiceWSDDServiceName = name;
+        this.UserServiceWSDDServiceName = name;
     }
 
     public com.idega.block.process.webservice.server.userService.UserService getUserService() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(UserService_address);
+            endpoint = new java.net.URL(this.UserService_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
@@ -67,7 +67,7 @@ public class UserServiceServiceLocator extends org.apache.axis.client.Service im
     }
 
     public void setUserServiceEndpointAddress(java.lang.String address) {
-        UserService_address = address;
+        this.UserService_address = address;
     }
 
     /**
@@ -78,7 +78,7 @@ public class UserServiceServiceLocator extends org.apache.axis.client.Service im
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (com.idega.block.process.webservice.server.userService.UserService.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.idega.block.process.webservice.server.userService.UserServiceSoapBindingStub _stub = new com.idega.block.process.webservice.server.userService.UserServiceSoapBindingStub(new java.net.URL(UserService_address), this);
+                com.idega.block.process.webservice.server.userService.UserServiceSoapBindingStub _stub = new com.idega.block.process.webservice.server.userService.UserServiceSoapBindingStub(new java.net.URL(this.UserService_address), this);
                 _stub.setPortName(getUserServiceWSDDServiceName());
                 return _stub;
             }
@@ -116,11 +116,11 @@ public class UserServiceServiceLocator extends org.apache.axis.client.Service im
     private java.util.HashSet ports = null;
 
     public java.util.Iterator getPorts() {
-        if (ports == null) {
-            ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "UserService"));
+        if (this.ports == null) {
+            this.ports = new java.util.HashSet();
+            this.ports.add(new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "UserService"));
         }
-        return ports.iterator();
+        return this.ports.iterator();
     }
 
     /**

@@ -206,7 +206,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		} 
 		catch (FinderException f) {
 			System.out.println("[CaseBusiness : craeteOrUpdateCase] no owner");
-			if(autocreateOwner){
+			if(this.autocreateOwner){
 				//getUserBusiness().createUserByPersonalIDIfDoesNotExist()
 				User uOwner = getUserHome().create();
 				uOwner.setFullName(owner.getName());
@@ -322,15 +322,15 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 	
 	private UserBusiness getUserBusiness(){
-		if (userBusiness == null) {
+		if (this.userBusiness == null) {
 			try {
-				userBusiness = (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
+				this.userBusiness = (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
 			}
 			catch (IBOLookupException e) {
 				throw new RuntimeException(e);
 			}
 		}
-		return userBusiness;
+		return this.userBusiness;
 	}
 	
 	private MessageBusiness getMessageBusiness() {

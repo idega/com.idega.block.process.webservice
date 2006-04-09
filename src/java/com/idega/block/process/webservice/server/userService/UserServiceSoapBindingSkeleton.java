@@ -49,7 +49,7 @@ public class UserServiceSoapBindingSkeleton implements com.idega.block.process.w
     }
 
     public UserServiceSoapBindingSkeleton() {
-        impl = new com.idega.block.process.webservice.server.userService.UserServiceSoapBindingImpl();
+        this.impl = new com.idega.block.process.webservice.server.userService.UserServiceSoapBindingImpl();
     }
 
     public UserServiceSoapBindingSkeleton(com.idega.block.process.webservice.server.userService.UserService impl) {
@@ -57,7 +57,7 @@ public class UserServiceSoapBindingSkeleton implements com.idega.block.process.w
     }
     public com.idega.block.process.webservice.server.userService.UserInfo getUserInfo(java.lang.String in0) throws java.rmi.RemoteException
     {
-        com.idega.block.process.webservice.server.userService.UserInfo ret = impl.getUserInfo(in0);
+        com.idega.block.process.webservice.server.userService.UserInfo ret = this.impl.getUserInfo(in0);
         return ret;
     }
 

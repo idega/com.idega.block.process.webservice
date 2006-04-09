@@ -29,7 +29,7 @@ public class Recipient  implements java.io.Serializable {
      * @return organization
      */
     public com.idega.block.process.webservice.server.Organization getOrganization() {
-        return organization;
+        return this.organization;
     }
 
 
@@ -54,30 +54,30 @@ public class Recipient  implements java.io.Serializable {
         if (this == obj) {
 					return true;
 				}
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+        if (this.__equalsCalc != null) {
+            return (this.__equalsCalc == obj);
         }
-        __equalsCalc = obj;
+        this.__equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((organization==null && other.getOrganization()==null) || 
-             (organization!=null &&
-              organization.equals(other.getOrganization())));
-        __equalsCalc = null;
+            ((this.organization==null && other.getOrganization()==null) || 
+             (this.organization!=null &&
+              this.organization.equals(other.getOrganization())));
+        this.__equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
-        if (__hashCodeCalc) {
+        if (this.__hashCodeCalc) {
             return 0;
         }
-        __hashCodeCalc = true;
+        this.__hashCodeCalc = true;
         int _hashCode = 1;
         if (getOrganization() != null) {
             _hashCode += getOrganization().hashCode();
         }
-        __hashCodeCalc = false;
+        this.__hashCodeCalc = false;
         return _hashCode;
     }
 

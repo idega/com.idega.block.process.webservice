@@ -49,7 +49,7 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     }
 
     public TicketServiceSoapBindingSkeleton() {
-        impl = new com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingImpl();
+        this.impl = new com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingImpl();
     }
 
     public TicketServiceSoapBindingSkeleton(com.idega.block.process.webservice.server.ticketService.TicketService impl) {
@@ -57,7 +57,7 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     }
     public boolean validateTicket(java.lang.String in0) throws java.rmi.RemoteException
     {
-        boolean ret = impl.validateTicket(in0);
+        boolean ret = this.impl.validateTicket(in0);
         return ret;
     }
 

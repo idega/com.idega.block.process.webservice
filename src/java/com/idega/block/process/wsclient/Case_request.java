@@ -74,7 +74,7 @@ public class Case_request  implements java.io.Serializable {
      * @return case_id
      */
     public java.lang.String getCase_id() {
-        return case_id;
+        return this.case_id;
     }
 
 
@@ -94,7 +94,7 @@ public class Case_request  implements java.io.Serializable {
      * @return external_case_id
      */
     public java.lang.String getExternal_case_id() {
-        return external_case_id;
+        return this.external_case_id;
     }
 
 
@@ -114,7 +114,7 @@ public class Case_request  implements java.io.Serializable {
      * @return sf_id
      */
     public int getSf_id() {
-        return sf_id;
+        return this.sf_id;
     }
 
 
@@ -134,7 +134,7 @@ public class Case_request  implements java.io.Serializable {
      * @return created
      */
     public java.lang.String getCreated() {
-        return created;
+        return this.created;
     }
 
 
@@ -154,7 +154,7 @@ public class Case_request  implements java.io.Serializable {
      * @return code
      */
     public java.lang.String getCode() {
-        return code;
+        return this.code;
     }
 
 
@@ -174,7 +174,7 @@ public class Case_request  implements java.io.Serializable {
      * @return modified
      */
     public java.lang.String getModified() {
-        return modified;
+        return this.modified;
     }
 
 
@@ -194,7 +194,7 @@ public class Case_request  implements java.io.Serializable {
      * @return status
      */
     public java.lang.String getStatus() {
-        return status;
+        return this.status;
     }
 
 
@@ -214,7 +214,7 @@ public class Case_request  implements java.io.Serializable {
      * @return subject
      */
     public java.lang.String getSubject() {
-        return subject;
+        return this.subject;
     }
 
 
@@ -234,7 +234,7 @@ public class Case_request  implements java.io.Serializable {
      * @return body
      */
     public java.lang.String getBody() {
-        return body;
+        return this.body;
     }
 
 
@@ -254,7 +254,7 @@ public class Case_request  implements java.io.Serializable {
      * @return owner
      */
     public com.idega.block.process.wsclient.Case_requestOwner getOwner() {
-        return owner;
+        return this.owner;
     }
 
 
@@ -274,7 +274,7 @@ public class Case_request  implements java.io.Serializable {
      * @return handler
      */
     public com.idega.block.process.wsclient.Case_requestHandler getHandler() {
-        return handler;
+        return this.handler;
     }
 
 
@@ -294,7 +294,7 @@ public class Case_request  implements java.io.Serializable {
      * @return metadata
      */
     public com.idega.block.process.wsclient.Case_requestItem[] getMetadata() {
-        return metadata;
+        return this.metadata;
     }
 
 
@@ -319,56 +319,56 @@ public class Case_request  implements java.io.Serializable {
         if (this == obj) {
 					return true;
 				}
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+        if (this.__equalsCalc != null) {
+            return (this.__equalsCalc == obj);
         }
-        __equalsCalc = obj;
+        this.__equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((case_id==null && other.getCase_id()==null) || 
-             (case_id!=null &&
-              case_id.equals(other.getCase_id()))) &&
-            ((external_case_id==null && other.getExternal_case_id()==null) || 
-             (external_case_id!=null &&
-              external_case_id.equals(other.getExternal_case_id()))) &&
-            sf_id == other.getSf_id() &&
-            ((created==null && other.getCreated()==null) || 
-             (created!=null &&
-              created.equals(other.getCreated()))) &&
-            ((code==null && other.getCode()==null) || 
-             (code!=null &&
-              code.equals(other.getCode()))) &&
-            ((modified==null && other.getModified()==null) || 
-             (modified!=null &&
-              modified.equals(other.getModified()))) &&
-            ((status==null && other.getStatus()==null) || 
-             (status!=null &&
-              status.equals(other.getStatus()))) &&
-            ((subject==null && other.getSubject()==null) || 
-             (subject!=null &&
-              subject.equals(other.getSubject()))) &&
-            ((body==null && other.getBody()==null) || 
-             (body!=null &&
-              body.equals(other.getBody()))) &&
-            ((owner==null && other.getOwner()==null) || 
-             (owner!=null &&
-              owner.equals(other.getOwner()))) &&
-            ((handler==null && other.getHandler()==null) || 
-             (handler!=null &&
-              handler.equals(other.getHandler()))) &&
-            ((metadata==null && other.getMetadata()==null) || 
-             (metadata!=null &&
-              java.util.Arrays.equals(metadata, other.getMetadata())));
-        __equalsCalc = null;
+            ((this.case_id==null && other.getCase_id()==null) || 
+             (this.case_id!=null &&
+              this.case_id.equals(other.getCase_id()))) &&
+            ((this.external_case_id==null && other.getExternal_case_id()==null) || 
+             (this.external_case_id!=null &&
+              this.external_case_id.equals(other.getExternal_case_id()))) &&
+            this.sf_id == other.getSf_id() &&
+            ((this.created==null && other.getCreated()==null) || 
+             (this.created!=null &&
+              this.created.equals(other.getCreated()))) &&
+            ((this.code==null && other.getCode()==null) || 
+             (this.code!=null &&
+              this.code.equals(other.getCode()))) &&
+            ((this.modified==null && other.getModified()==null) || 
+             (this.modified!=null &&
+              this.modified.equals(other.getModified()))) &&
+            ((this.status==null && other.getStatus()==null) || 
+             (this.status!=null &&
+              this.status.equals(other.getStatus()))) &&
+            ((this.subject==null && other.getSubject()==null) || 
+             (this.subject!=null &&
+              this.subject.equals(other.getSubject()))) &&
+            ((this.body==null && other.getBody()==null) || 
+             (this.body!=null &&
+              this.body.equals(other.getBody()))) &&
+            ((this.owner==null && other.getOwner()==null) || 
+             (this.owner!=null &&
+              this.owner.equals(other.getOwner()))) &&
+            ((this.handler==null && other.getHandler()==null) || 
+             (this.handler!=null &&
+              this.handler.equals(other.getHandler()))) &&
+            ((this.metadata==null && other.getMetadata()==null) || 
+             (this.metadata!=null &&
+              java.util.Arrays.equals(this.metadata, other.getMetadata())));
+        this.__equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
-        if (__hashCodeCalc) {
+        if (this.__hashCodeCalc) {
             return 0;
         }
-        __hashCodeCalc = true;
+        this.__hashCodeCalc = true;
         int _hashCode = 1;
         if (getCase_id() != null) {
             _hashCode += getCase_id().hashCode();
@@ -412,7 +412,7 @@ public class Case_request  implements java.io.Serializable {
                 }
             }
         }
-        __hashCodeCalc = false;
+        this.__hashCodeCalc = false;
         return _hashCode;
     }
 

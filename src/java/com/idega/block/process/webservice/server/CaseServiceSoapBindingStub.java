@@ -66,69 +66,69 @@ public class CaseServiceSoapBindingStub extends org.apache.axis.client.Stub impl
             java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;*/
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "ArrayOfItem");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Item[].class;
-            cachedSerClasses.add(cls);
+            this.cachedSerClasses.add(cls);
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Item");
             qName2 = null;
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+            this.cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            this.cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "CaseEntry");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.CaseEntry.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "CaseResult");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.CaseResult.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Contact");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Contact.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Handler");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Handler.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Item");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Item.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Organization");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Organization.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Owner");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Owner.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "Recipient");
-            cachedSerQNames.add(qName);
+            this.cachedSerQNames.add(qName);
             cls = com.idega.block.process.webservice.server.Recipient.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            this.cachedSerClasses.add(cls);
+            this.cachedSerFactories.add(beansf);
+            this.cachedDeserFactories.add(beandf);
 
     }
 
@@ -168,23 +168,23 @@ public class CaseServiceSoapBindingStub extends org.apache.axis.client.Stub impl
                     // must set encoding style before registering serializers
                     _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
                     _call.setEncodingStyle(org.apache.axis.Constants.URI_SOAP11_ENC);
-                    for (int i = 0; i < cachedSerFactories.size(); ++i) {
-                        java.lang.Class cls = (java.lang.Class) cachedSerClasses.get(i);
+                    for (int i = 0; i < this.cachedSerFactories.size(); ++i) {
+                        java.lang.Class cls = (java.lang.Class) this.cachedSerClasses.get(i);
                         javax.xml.namespace.QName qName =
-                                (javax.xml.namespace.QName) cachedSerQNames.get(i);
-                        java.lang.Object x = cachedSerFactories.get(i);
+                                (javax.xml.namespace.QName) this.cachedSerQNames.get(i);
+                        java.lang.Object x = this.cachedSerFactories.get(i);
                         if (x instanceof Class) {
                             java.lang.Class sf = (java.lang.Class)
-                                 cachedSerFactories.get(i);
+                                 this.cachedSerFactories.get(i);
                             java.lang.Class df = (java.lang.Class)
-                                 cachedDeserFactories.get(i);
+                                 this.cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
                         else if (x instanceof javax.xml.rpc.encoding.SerializerFactory) {
                             org.apache.axis.encoding.SerializerFactory sf = (org.apache.axis.encoding.SerializerFactory)
-                                 cachedSerFactories.get(i);
+                                 this.cachedSerFactories.get(i);
                             org.apache.axis.encoding.DeserializerFactory df = (org.apache.axis.encoding.DeserializerFactory)
-                                 cachedDeserFactories.get(i);
+                                 this.cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
                     }

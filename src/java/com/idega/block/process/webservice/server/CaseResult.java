@@ -34,7 +34,7 @@ public class CaseResult  implements java.io.Serializable {
      * @return id
      */
     public java.lang.String getId() {
-        return id;
+        return this.id;
     }
 
 
@@ -54,7 +54,7 @@ public class CaseResult  implements java.io.Serializable {
      * @return operation
      */
     public java.lang.String getOperation() {
-        return operation;
+        return this.operation;
     }
 
 
@@ -79,28 +79,28 @@ public class CaseResult  implements java.io.Serializable {
         if (this == obj) {
 					return true;
 				}
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+        if (this.__equalsCalc != null) {
+            return (this.__equalsCalc == obj);
         }
-        __equalsCalc = obj;
+        this.__equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((id==null && other.getId()==null) || 
-             (id!=null &&
-              id.equals(other.getId()))) &&
-            ((operation==null && other.getOperation()==null) || 
-             (operation!=null &&
-              operation.equals(other.getOperation())));
-        __equalsCalc = null;
+            ((this.id==null && other.getId()==null) || 
+             (this.id!=null &&
+              this.id.equals(other.getId()))) &&
+            ((this.operation==null && other.getOperation()==null) || 
+             (this.operation!=null &&
+              this.operation.equals(other.getOperation())));
+        this.__equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
-        if (__hashCodeCalc) {
+        if (this.__hashCodeCalc) {
             return 0;
         }
-        __hashCodeCalc = true;
+        this.__hashCodeCalc = true;
         int _hashCode = 1;
         if (getId() != null) {
             _hashCode += getId().hashCode();
@@ -108,7 +108,7 @@ public class CaseResult  implements java.io.Serializable {
         if (getOperation() != null) {
             _hashCode += getOperation().hashCode();
         }
-        __hashCodeCalc = false;
+        this.__hashCodeCalc = false;
         return _hashCode;
     }
 

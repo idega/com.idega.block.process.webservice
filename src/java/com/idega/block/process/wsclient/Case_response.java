@@ -29,7 +29,7 @@ public class Case_response  implements java.io.Serializable {
      * @return external_case_id
      */
     public java.lang.String getExternal_case_id() {
-        return external_case_id;
+        return this.external_case_id;
     }
 
 
@@ -54,30 +54,30 @@ public class Case_response  implements java.io.Serializable {
         if (this == obj) {
 					return true;
 				}
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+        if (this.__equalsCalc != null) {
+            return (this.__equalsCalc == obj);
         }
-        __equalsCalc = obj;
+        this.__equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((external_case_id==null && other.getExternal_case_id()==null) || 
-             (external_case_id!=null &&
-              external_case_id.equals(other.getExternal_case_id())));
-        __equalsCalc = null;
+            ((this.external_case_id==null && other.getExternal_case_id()==null) || 
+             (this.external_case_id!=null &&
+              this.external_case_id.equals(other.getExternal_case_id())));
+        this.__equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
-        if (__hashCodeCalc) {
+        if (this.__hashCodeCalc) {
             return 0;
         }
-        __hashCodeCalc = true;
+        this.__hashCodeCalc = true;
         int _hashCode = 1;
         if (getExternal_case_id() != null) {
             _hashCode += getExternal_case_id().hashCode();
         }
-        __hashCodeCalc = false;
+        this.__hashCodeCalc = false;
         return _hashCode;
     }
 
