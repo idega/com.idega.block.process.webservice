@@ -132,13 +132,15 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 
 		theCase.setCaseCode(code);
 		
+		String wsSubject = wsCase.getSubject();
+		wsSubject = (wsSubject == null) ? "" : wsSubject;
+		theCase.setSubject(wsSubject);
+		
 		String wsBody = wsCase.getBody();
 		wsBody = (wsBody == null) ? "" : wsBody;
 		theCase.setBody(wsBody);
 		
-		String wsSubject = wsCase.getBody();
-		wsBody = (wsSubject == null) ? "" : wsSubject;
-		theCase.setSubject(wsSubject);
+
 	
 		// time to store....
 		theCase.store();
@@ -322,15 +324,15 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 	
 	private UserBusiness getUserBusiness(){
-		if (this.userBusiness == null) {
+		if (userBusiness == null) {
 			try {
-				this.userBusiness = (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
+				userBusiness = (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
 			}
 			catch (IBOLookupException e) {
 				throw new RuntimeException(e);
 			}
 		}
-		return this.userBusiness;
+		return userBusiness;
 	}
 	
 	private MessageBusiness getMessageBusiness() {
