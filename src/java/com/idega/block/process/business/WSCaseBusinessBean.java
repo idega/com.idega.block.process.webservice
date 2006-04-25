@@ -36,29 +36,37 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 	public CaseResult createOrUpdateCase(CaseEntry wsCase) throws Exception {
 		
-		// status is needed, case code is needed
-		String newStatus = wsCase.getStatus();
-		String caseCode = wsCase.getCode();
-
-		if (StringHandler.isEmpty(caseCode) || StringHandler.isEmpty(newStatus)) {
-			throw new CreateException("No case code");
-		}
-		CaseCode code = getCaseCodeAndInstallIfNotExists(caseCode);
-		
+		boolean storeCase = false;
 		// find an existing case
 		Case theCase = findExistingCase(wsCase);
 		boolean caseIsUpdated = (theCase != null);
 		
-		// try to get an owner (not required in the request)
+		// could we create a new case?
+		// status is needed, case code is needed and owner is needed
+		
+		// try to get an owner (not required when updating)
 		Owner wsOwner = wsCase.getOwner();
 		User uOwner = null;
 		if (wsOwner != null) {
 			uOwner = findOwner(wsOwner);
 		}
-
+		// not required when updating
+		String newStatus = wsCase.getStatus();
+		if (StringHandler.isEmpty(newStatus)) {
+			newStatus = null;
+		}
+		// not required when updating
+		String caseCode = wsCase.getCode();
+		CaseCode code = null;
+		if (StringHandler.isNotEmpty(caseCode)) {
+			 code = getCaseCodeAndInstallIfNotExists(caseCode);
+		}
+		boolean canCreateNewCase = (newStatus != null && uOwner != null && code != null);
+		
 		// create a new case if we haven't found an existing one and if a owner is known
 		// do not create a case without an owner
-		if ( ! caseIsUpdated && uOwner != null) {
+		if ( ! caseIsUpdated && canCreateNewCase) {
+			storeCase = true;
 			theCase = createCase();
 			// a new case was created
 			theCase.setCreated(new IWTimestamp(wsCase.getCreated()).getTimestamp());
@@ -70,6 +78,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		}
 		
 		if (uOwner != null) {
+			storeCase = true;
 			// the owner was fetched from the request, set the owner
 			theCase.setOwner(uOwner);
 		}
@@ -92,61 +101,76 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		String subject = null;
 		String body = null;
 		if (metadata != null) {
+			storeCase = true;
 			setMetadata(metadata, theCase);
 			subject = theCase.getMetaData(WSCaseConstants.MAIL_MESSAGE_SUBJECT);
 			body = theCase.getMetaData(WSCaseConstants.MAIL_MESSAGE_BODY);
 		}
 		
-		// match to four digits
-		newStatus = convertStatus(newStatus);
-		// create CaseStatus entry if necessary 
-		CaseStatus newCaseStatus = getCaseStatus(newStatus);
-		// was the case created or updated?
-		if (caseIsUpdated) {
-			subject = StringHandler.replaceIfEmpty(subject, "updated Case");
-			body = StringHandler.replaceIfEmpty(body, "caseWasUpdated");
-			changeCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
+		CaseStatus newCaseStatus = null;
+		if (newStatus != null) {
+			storeCase = true;
+			// match to four digits
+			newStatus = convertStatus(newStatus);
+			// create CaseStatus entry if necessary 
+			 newCaseStatus = getCaseStatus(newStatus);
+	
+			// was the case created or updated?
+			if (caseIsUpdated) {
+				subject = StringHandler.replaceIfEmpty(subject, "updated Case");
+				body = StringHandler.replaceIfEmpty(body, "caseWasUpdated");
+				changeCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
+			}
+			else { 
+				subject = StringHandler.replaceIfEmpty(subject, "new Case");
+				body = StringHandler.replaceIfEmpty(body, "A new case was created");
+				setCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
+			}
 		}
-		else { 
-			subject = StringHandler.replaceIfEmpty(subject, "new Case");
-			body = StringHandler.replaceIfEmpty(body, "A new case was created");
-			setCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
+		// set at least a messagel
+		else if (StringHandler.isNotEmpty(subject)) {
+			body = (body == null) ? "" : body;
+			setUserMessage(theCase, uOwner, subject, body);
 		}
 	
 		// handler not required
 		Handler handler = wsCase.getHandler();
 		if (handler != null) {
+			storeCase = true;
 			setHandler(handler, theCase);
 		}
 
 		// external case id could be null
 		String externalCaseId = wsCase.getExternalCase_id();
 		if (externalCaseId != null) {
+			storeCase = true;
 			theCase.setExternalId(externalCaseId);
 		}
 		
 		// set case code
 
-		theCase.setCaseCode(code);
+		if (caseCode != null) {
+			storeCase = true;
+			theCase.setCaseCode(code);
+		}
 		
 		String wsSubject = wsCase.getSubject();
-		wsSubject = (wsSubject == null) ? "" : wsSubject;
-		theCase.setSubject(wsSubject);
+		if (StringHandler.isNotEmpty(wsSubject)) {
+			storeCase = true;
+			theCase.setSubject(wsSubject);
+		}
 		
 		String wsBody = wsCase.getBody();
-		wsBody = (wsBody == null) ? "" : wsBody;
-		theCase.setBody(wsBody);
-		
-
+		if (StringHandler.isNotEmpty(wsBody)) {
+			storeCase = true;
+			theCase.setBody(wsBody);
+		}
 	
 		// time to store....
-		theCase.store();
+		if (storeCase) {
+			theCase.store();
+		}
 		
-		System.out.println("[CaseBusiness : craeteOrUpdateCase] Code = "+wsCase.getCode());
-		System.out.println("[CaseBusiness : craeteOrUpdateCase] extCase = "+wsCase.getExternalCase_id());
-		System.out.println("[CaseBusiness : craeteOrUpdateCase] Body = "+wsCase.getBody());
-		System.out.println("[CaseBusiness : craeteOrUpdateCase] Subject = "+wsCase.getSubject());
-
 		CaseResult caseResult = new CaseResult();
 		caseResult.setId(theCase.getUniqueId());
 		caseResult.setOperation("success");   
