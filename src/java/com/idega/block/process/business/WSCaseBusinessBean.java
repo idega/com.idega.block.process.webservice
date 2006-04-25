@@ -1,16 +1,13 @@
 package com.idega.block.process.business;
 
 import java.rmi.RemoteException;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
-
 import com.idega.block.process.data.Case;
 import com.idega.block.process.data.CaseCode;
 import com.idega.block.process.data.CaseStatus;
 import com.idega.block.process.message.business.MessageBusiness;
-import com.idega.block.process.message.business.MessageValue;
 import com.idega.block.process.webservice.server.CaseEntry;
 import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.Handler;
@@ -282,19 +279,11 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 	
 	private void setUserMessage(Case theCase, User user, String subject, String body) {
-		MessageValue messageValue = new MessageValue();
-		messageValue.setSubject(subject);
-		messageValue.setBody(body);
-		messageValue.setReceiver(user);
-		messageValue.setParentCase(theCase);
 		MessageBusiness messageBusiness = getMessageBusiness();
 		// message value needs at least receiver, subject, body
 		// we are using default message type
 		try {
-			messageBusiness.createMessage(messageValue);
-		}
-		catch (IBOLookupException e) {
-			throw new RuntimeException(e);
+			messageBusiness.createUserMessage(theCase, user, subject, body, false);
 		}
 		catch (RemoteException e) {
 			throw new RuntimeException(e);
