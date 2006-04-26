@@ -117,19 +117,14 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 			// was the case created or updated?
 			if (caseIsUpdated) {
-				subject = StringHandler.replaceIfEmpty(subject, "updated Case");
-				body = StringHandler.replaceIfEmpty(body, "caseWasUpdated");
 				changeCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
 			}
 			else { 
-				subject = StringHandler.replaceIfEmpty(subject, "new Case");
-				body = StringHandler.replaceIfEmpty(body, "A new case was created");
 				setCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
 			}
 		}
 		// set at least a messagel
-		else if (StringHandler.isNotEmpty(subject)) {
-			body = (body == null) ? "" : body;
+		else {
 			setUserMessage(theCase, uOwner, subject, body);
 		}
 	
@@ -303,6 +298,18 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	
 	
 	private void setUserMessage(Case theCase, User user, String subject, String body) {
+		// check if sending an email makes sense 
+		boolean subjectIsEmpty = StringHandler.isEmpty(subject);
+		boolean bodyIsEmpty = StringHandler.isEmpty(body);
+		if (subjectIsEmpty && bodyIsEmpty) {
+			return;
+		}
+		if (subjectIsEmpty) {
+			subject = "message";
+		}
+		if (bodyIsEmpty) {
+			body = "see subject";
+		}
 		MessageBusiness messageBusiness = getMessageBusiness();
 		// message value needs at least receiver, subject, body
 		// we are using default message type
