@@ -8,11 +8,7 @@
 package com.idega.block.process.webservice.server.ticketService;
 
 public class TicketServiceSoapBindingSkeleton implements com.idega.block.process.webservice.server.ticketService.TicketService, org.apache.axis.wsdl.Skeleton {
-    /**
-	 * Comment for <code>serialVersionUID</code>
-	 */
-	private static final long serialVersionUID = -4853733429138034363L;
-		private com.idega.block.process.webservice.server.ticketService.TicketService impl;
+    private com.idega.block.process.webservice.server.ticketService.TicketService impl;
     private static java.util.Map _myOperations = new java.util.Hashtable();
     private static java.util.Collection _myOperationsList = new java.util.ArrayList();
 
@@ -27,15 +23,16 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     * Returns Collection of OperationDescs
     */
     public static java.util.Collection getOperationDescs() {
-        return TicketServiceSoapBindingSkeleton._myOperationsList;
+        return _myOperationsList;
     }
 
     static {
         org.apache.axis.description.OperationDesc _oper;
-        //org.apache.axis.description.FaultDesc _fault;
+        org.apache.axis.description.FaultDesc _fault;
         org.apache.axis.description.ParameterDesc [] _params;
         _params = new org.apache.axis.description.ParameterDesc [] {
             new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false), 
+            new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false), 
         };
         _oper = new org.apache.axis.description.OperationDesc("validateTicket", _params, new javax.xml.namespace.QName("", "validateTicketReturn"));
         _oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
@@ -55,9 +52,9 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     public TicketServiceSoapBindingSkeleton(com.idega.block.process.webservice.server.ticketService.TicketService impl) {
         this.impl = impl;
     }
-    public boolean validateTicket(java.lang.String in0) throws java.rmi.RemoteException
+    public boolean validateTicket(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException
     {
-        boolean ret = this.impl.validateTicket(in0);
+        boolean ret = impl.validateTicket(in0, in1);
         return ret;
     }
 

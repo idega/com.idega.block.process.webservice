@@ -9,12 +9,7 @@ package com.idega.block.process.webservice.server.ticketService;
 
 public class TicketServiceServiceLocator extends org.apache.axis.client.Service implements com.idega.block.process.webservice.server.ticketService.TicketServiceService {
 
-    /**
-	 * Comment for <code>serialVersionUID</code>
-	 */
-	private static final long serialVersionUID = -5258247386913821831L;
-
-		public TicketServiceServiceLocator() {
+    public TicketServiceServiceLocator() {
     }
 
 
@@ -27,27 +22,27 @@ public class TicketServiceServiceLocator extends org.apache.axis.client.Service 
     }
 
     // Use to get a proxy class for TicketService
-    private java.lang.String TicketService_address = "http://azskjalfandi.skjalfandi.is/services/TicketService";
+    private java.lang.String TicketService_address = "http://localhost/services/TicketService";
 
     public java.lang.String getTicketServiceAddress() {
-        return this.TicketService_address;
+        return TicketService_address;
     }
 
     // The WSDD service name defaults to the port name.
     private java.lang.String TicketServiceWSDDServiceName = "TicketService";
 
     public java.lang.String getTicketServiceWSDDServiceName() {
-        return this.TicketServiceWSDDServiceName;
+        return TicketServiceWSDDServiceName;
     }
 
     public void setTicketServiceWSDDServiceName(java.lang.String name) {
-        this.TicketServiceWSDDServiceName = name;
+        TicketServiceWSDDServiceName = name;
     }
 
     public com.idega.block.process.webservice.server.ticketService.TicketService getTicketService() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(this.TicketService_address);
+            endpoint = new java.net.URL(TicketService_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
@@ -67,7 +62,7 @@ public class TicketServiceServiceLocator extends org.apache.axis.client.Service 
     }
 
     public void setTicketServiceEndpointAddress(java.lang.String address) {
-        this.TicketService_address = address;
+        TicketService_address = address;
     }
 
     /**
@@ -78,7 +73,7 @@ public class TicketServiceServiceLocator extends org.apache.axis.client.Service 
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (com.idega.block.process.webservice.server.ticketService.TicketService.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingStub _stub = new com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingStub(new java.net.URL(this.TicketService_address), this);
+                com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingStub _stub = new com.idega.block.process.webservice.server.ticketService.TicketServiceSoapBindingStub(new java.net.URL(TicketService_address), this);
                 _stub.setPortName(getTicketServiceWSDDServiceName());
                 return _stub;
             }
@@ -116,11 +111,11 @@ public class TicketServiceServiceLocator extends org.apache.axis.client.Service 
     private java.util.HashSet ports = null;
 
     public java.util.Iterator getPorts() {
-        if (this.ports == null) {
-            this.ports = new java.util.HashSet();
-            this.ports.add(new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "TicketService"));
+        if (ports == null) {
+            ports = new java.util.HashSet();
+            ports.add(new javax.xml.namespace.QName("urn:com.idega.block.process.webservice", "TicketService"));
         }
-        return this.ports.iterator();
+        return ports.iterator();
     }
 
     /**

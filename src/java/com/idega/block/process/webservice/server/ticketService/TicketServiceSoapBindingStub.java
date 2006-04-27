@@ -8,16 +8,16 @@
 package com.idega.block.process.webservice.server.ticketService;
 
 public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub implements com.idega.block.process.webservice.server.ticketService.TicketService {
-    /*private java.util.Vector cachedSerClasses = new java.util.Vector();
+    private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
-    private java.util.Vector cachedDeserFactories = new java.util.Vector();*/
+    private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        TicketServiceSoapBindingStub._operations = new org.apache.axis.description.OperationDesc[1];
-        TicketServiceSoapBindingStub._initOperationDesc1();
+        _operations = new org.apache.axis.description.OperationDesc[1];
+        _initOperationDesc1();
     }
 
     private static void _initOperationDesc1(){
@@ -27,12 +27,14 @@ public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub im
         oper.setName("validateTicket");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         oper.setReturnClass(boolean.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "validateTicketReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        TicketServiceSoapBindingStub._operations[0] = oper;
+        _operations[0] = oper;
 
     }
 
@@ -87,7 +89,7 @@ public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub im
         }
     }
 
-    public boolean validateTicket(java.lang.String in0) throws java.rmi.RemoteException {
+    public boolean validateTicket(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -100,7 +102,7 @@ public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub im
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in0});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in0, in1});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -119,3 +121,4 @@ public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub im
     }
 
 }
+
