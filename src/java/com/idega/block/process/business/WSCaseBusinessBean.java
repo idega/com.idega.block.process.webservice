@@ -71,6 +71,13 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			// a new case was created
 			theCase.setCreated(new IWTimestamp(wsCase.getCreated()).getTimestamp());
 		}
+		else if (! caseIsUpdated && uOwner == null) {
+			// owner could not be found
+			CaseResult caseResult = new CaseResult();
+			caseResult.setId("-2");
+			caseResult.setOperation("create/update failed");   
+			return caseResult;
+		}
 		
 		// still no case? Giving up....
 		if (theCase == null) {
@@ -97,14 +104,27 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		// prepare the user messages
 		// first set the metadata, it is used in setUserMessage
 		Item[] metadata = wsCase.getMetadata();
-		// metadata not required
+		// metadata not required, do a lot of null checks !!!!
 		String subject = null;
 		String body = null;
 		if (metadata != null) {
-			storeCase = true;
-			setMetadata(metadata, theCase);
-			subject = theCase.getMetaData(WSCaseConstants.MAIL_MESSAGE_SUBJECT);
-			body = theCase.getMetaData(WSCaseConstants.MAIL_MESSAGE_BODY);
+			for (int i = 0; i < metadata.length; i++) {
+				Item item = metadata[i];
+				if (item != null) {
+					String key = item.getKey();
+					String value = item.getValue();
+					if (key != null && value != null) {
+						if (WSCaseConstants.MAIL_MESSAGE_SUBJECT.equals(key)) {
+							subject = value; 
+						}
+						if (WSCaseConstants.MAIL_MESSAGE_BODY.equals(key)) {
+							body = value;
+						}
+						storeCase = true;
+						theCase.setMetaData(key, value);
+					}
+				}
+			}
 		}
 		
 		CaseStatus newCaseStatus = null;
@@ -270,17 +290,6 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		setUserMessage(theCase, performer, messageSubject, messageBody);
 	}
 	
-	private void setMetadata(Item[] metadata, Case theCase) { 
-		for (int i = 0; i < metadata.length; i++) {
-			Item item = metadata[i];
-			if (item != null) {
-				String key = item.getKey();
-				String value = item.getValue();
-				theCase.setMetaData(key, value);
-			}
-		}
-	}
-
 	private void setHandler(Handler handler, Case theCase) {
 		String handlerPersonalId = handler.getSocialsecurity();
 		if(handlerPersonalId!=null){
