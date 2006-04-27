@@ -7,6 +7,8 @@ Built on Oct 05, 2005 (05:23:37 EDT)-->
 
       <wsdl:part name="in0" type="soapenc:string"/>
 
+      <wsdl:part name="in1" type="soapenc:string"/>
+
    </wsdl:message>
 
    <wsdl:message name="validateTicketResponse">
@@ -17,7 +19,7 @@ Built on Oct 05, 2005 (05:23:37 EDT)-->
 
    <wsdl:portType name="TicketService">
 
-      <wsdl:operation name="validateTicket" parameterOrder="in0">
+      <wsdl:operation name="validateTicket" parameterOrder="in0 in1">
 
          <wsdl:input name="validateTicketRequest" message="impl:validateTicketRequest"/>
 
