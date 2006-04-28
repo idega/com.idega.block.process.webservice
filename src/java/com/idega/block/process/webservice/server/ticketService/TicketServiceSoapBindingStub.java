@@ -8,10 +8,6 @@
 package com.idega.block.process.webservice.server.ticketService;
 
 public class TicketServiceSoapBindingStub extends org.apache.axis.client.Stub implements com.idega.block.process.webservice.server.ticketService.TicketService {
-    private java.util.Vector cachedSerClasses = new java.util.Vector();
-    private java.util.Vector cachedSerQNames = new java.util.Vector();
-    private java.util.Vector cachedSerFactories = new java.util.Vector();
-    private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
     static org.apache.axis.description.OperationDesc [] _operations;
 

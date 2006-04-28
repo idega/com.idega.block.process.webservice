@@ -28,7 +28,6 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
 
     static {
         org.apache.axis.description.OperationDesc _oper;
-        org.apache.axis.description.FaultDesc _fault;
         org.apache.axis.description.ParameterDesc [] _params;
         _params = new org.apache.axis.description.ParameterDesc [] {
             new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false), 
@@ -54,7 +53,7 @@ public class TicketServiceSoapBindingSkeleton implements com.idega.block.process
     }
     public boolean validateTicket(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException
     {
-        boolean ret = impl.validateTicket(in0, in1);
+        boolean ret = this.impl.validateTicket(in0, in1);
         return ret;
     }
 
