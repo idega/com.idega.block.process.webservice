@@ -392,15 +392,15 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 	
 	private GroupBusiness getGroupBusiness(){
-		if (groupBusiness == null) {
+		if (this.groupBusiness == null) {
 			try {
-				groupBusiness = (GroupBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),GroupBusiness.class);
+				this.groupBusiness = (GroupBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),GroupBusiness.class);
 			}
 			catch (IBOLookupException e) {
 				throw new RuntimeException(e);
 			}
 		}
-		return groupBusiness;
+		return this.groupBusiness;
 	}
 	
 	private MessageBusiness getMessageBusiness() {
