@@ -1,6 +1,7 @@
 package com.idega.block.process.business;
 
 import java.rmi.RemoteException;
+import java.util.Collection;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
@@ -12,12 +13,15 @@ import com.idega.block.process.webservice.server.CaseEntry;
 import com.idega.block.process.webservice.server.CaseResult;
 import com.idega.block.process.webservice.server.Handler;
 import com.idega.block.process.webservice.server.Item;
+import com.idega.block.process.webservice.server.Organization;
 import com.idega.block.process.webservice.server.Owner;
 import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBOLookupException;
 import com.idega.business.IBORuntimeException;
+import com.idega.user.business.GroupBusiness;
 import com.idega.user.business.UserBusiness;
+import com.idega.user.data.Group;
 import com.idega.user.data.User;
 import com.idega.util.IWTimestamp;
 import com.idega.util.StringHandler;
@@ -31,6 +35,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	private static final long serialVersionUID = -7507655249872022683L;
 
 	private UserBusiness userBusiness = null;
+	private GroupBusiness groupBusiness = null;
 	
 	private boolean autocreateOwner=false;
 	
@@ -151,8 +156,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		// handler not required
 		Handler handler = wsCase.getHandler();
 		if (handler != null) {
-			storeCase = true;
-			setHandler(handler, theCase);
+			storeCase = setHandler(handler, theCase);
 		}
 
 		// external case id could be null
@@ -272,7 +276,6 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 				return null;
 			}
 		} 
-		System.out.println("[CaseBusiness : craeteOrUpdateCase] updating case with id='"+id+"'");
 		return getCaseHome().findCaseByUniqueId(id);
 	}
 	
@@ -290,19 +293,43 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		setUserMessage(theCase, performer, messageSubject, messageBody);
 	}
 	
-	private void setHandler(Handler handler, Case theCase) {
+	private boolean setHandler(Handler handler, Case theCase) {
+		boolean theCaseIsModified = false;
 		String handlerPersonalId = handler.getSocialsecurity();
-		if(handlerPersonalId!=null){
+		if(StringHandler.isNotEmpty(handlerPersonalId)){
 			try {
 				User uHandler = getUserHome().findByPersonalID(handlerPersonalId);
-				System.out.println("[CaseBusiness : craeteOrUpdateCase] handler = "+handlerPersonalId);
 				theCase.setExternalHandler(uHandler);
+				theCaseIsModified = true;
 			}
 			catch (FinderException f) {
-				System.out.println("[CaseBusiness : craeteOrUpdateCase] no handler");
+				logError("[CaseBusiness : createOrUpdateCase] no handler");
 				f.printStackTrace();
+				return false;
 			}
 		}
+		Organization organization = handler.getOrganization();
+		if (organization != null) {
+			String nameOfOrganization = organization.getName();
+			if (StringHandler.isNotEmpty(nameOfOrganization)) {
+				try {
+					Collection groups = getGroupBusiness().getGroupsByGroupName(nameOfOrganization);
+					if (groups == null || groups.isEmpty()) {
+						logError("[CaseBusiness : createOrUpdateCase] no handler");
+					}
+					else {
+						Group group = (Group) groups.iterator().next();
+						theCase.setHandler(group);
+						theCaseIsModified = true;
+					}
+				}
+				catch (RemoteException e) {
+					logError(e.getMessage());
+					throw new IBORuntimeException(e);
+				}
+			}
+		}
+		return theCaseIsModified;
 	}
 	
 	
@@ -362,6 +389,18 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}
 		}
 		return this.userBusiness;
+	}
+	
+	private GroupBusiness getGroupBusiness(){
+		if (groupBusiness == null) {
+			try {
+				groupBusiness = (GroupBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),GroupBusiness.class);
+			}
+			catch (IBOLookupException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return groupBusiness;
 	}
 	
 	private MessageBusiness getMessageBusiness() {
