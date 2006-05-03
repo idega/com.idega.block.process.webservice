@@ -202,7 +202,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		
 		//Update emails:
 		String sEmail = owner.getEmail();
-		if (sEmail != null) {
+		if (sEmail != null && sEmail.length() > 0) {
 			try {
 				getUserBusiness().updateUserMail(user, sEmail);
 			}
@@ -214,7 +214,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		//Update phone:
 		
 		String sPhone = owner.getPhone();
-		if(sPhone != null) {
+		if(sPhone != null && sPhone.length() > 0) {
 			try {
 				getUserBusiness().updateUserHomePhone(user,sPhone);
 			}
@@ -226,7 +226,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}	
 		}
 		String mobile = owner.getGsm();
-		if(mobile != null){
+		if(mobile != null && mobile.length() > 0){
 			try {
 				getUserBusiness().updateUserMobilePhone(user,mobile);
 			}
