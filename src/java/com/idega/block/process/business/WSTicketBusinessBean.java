@@ -1,5 +1,5 @@
 /*
- * $Id: WSTicketBusinessBean.java,v 1.1 2006/05/18 16:59:36 thomas Exp $
+ * $Id: WSTicketBusinessBean.java,v 1.2 2006/05/19 07:40:13 laddi Exp $
  * Created on May 10, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -25,10 +25,10 @@ import com.idega.repository.data.ImplementorRepository;
 
 /**
  * 
- *  Last modified: $Date: 2006/05/18 16:59:36 $ by $Author: thomas $
+ *  Last modified: $Date: 2006/05/19 07:40:13 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WSTicketBusinessBean  extends IBOServiceBean implements WSTicketBusiness{
 	
@@ -73,11 +73,11 @@ class WSCallbackHandler implements CallbackHandler {
 			Callback callback = callbacks[i];
 			if (callback instanceof PasswordCallback) {
 				PasswordCallback pc = (PasswordCallback)callback;
-				pc.setPassword(ticket);
+				pc.setPassword(this.ticket);
 			}
 			else if (callback instanceof NameCallback) {
 				NameCallback nc = (NameCallback) callback;
-				nc.setName(socialsecurity);
+				nc.setName(this.socialsecurity);
 			}
 		}
 	}
