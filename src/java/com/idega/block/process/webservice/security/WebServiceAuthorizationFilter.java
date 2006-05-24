@@ -1,5 +1,5 @@
 /*
- * $Id: WebServiceAuthorizationFilter.java,v 1.5 2006/05/24 11:42:35 palli Exp $
+ * $Id: WebServiceAuthorizationFilter.java,v 1.6 2006/05/24 12:53:46 palli Exp $
  * Created on Apr 4, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -43,10 +43,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/05/24 11:42:35 $ by $Author: palli $
+ *  Last modified: $Date: 2006/05/24 12:53:46 $ by $Author: palli $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class WebServiceAuthorizationFilter implements Filter {
 	
@@ -86,12 +86,7 @@ public class WebServiceAuthorizationFilter implements Filter {
     				response.sendError(HttpServletResponse.SC_FORBIDDEN);
     				return;
     			}
-    		} else {
-    			System.out.println("address = " + request.getRemoteAddr());
-    			System.out.println("host = " + request.getRemoteHost());
-    			System.out.println("port = " + request.getRemotePort());
-    			System.out.println("user = " + request.getRemoteUser());
-    			
+    		} else {    			
 			boolean isValid = false;
     			try {
     				String validIP = mainApplication.getIWApplicationContext().getApplicationSettings().getProperty(VALID_IP, "");
