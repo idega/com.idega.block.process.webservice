@@ -1,5 +1,5 @@
 /*
- * $Id: WebServiceAuthorizationFilter.java,v 1.3 2006/04/09 11:52:52 laddi Exp $
+ * $Id: WebServiceAuthorizationFilter.java,v 1.4 2006/05/24 10:35:35 palli Exp $
  * Created on Apr 4, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -43,14 +43,16 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/09 11:52:52 $ by $Author: laddi $
+ *  Last modified: $Date: 2006/05/24 10:35:35 $ by $Author: palli $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class WebServiceAuthorizationFilter implements Filter {
 	
 	private final String WEB_SERVICE_USER_ROLE = "web_service_user"; 
+	
+	private final String DO_BASIC_AUTHENTICATION = "WS_DO_BASIC_AUTHENTICATION";
 	
 	LoginBusinessBean loginBusiness = null;
 	
@@ -70,11 +72,19 @@ public class WebServiceAuthorizationFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest)myRequest;
 		HttpServletResponse response = (HttpServletResponse)myResponse;
-		if (! requestIsValid(request)) {
-			//send a 403 error
-			response.sendError(HttpServletResponse.SC_FORBIDDEN);
-			return;
-		}
+
+		ServletContext myServletContext = request.getSession().getServletContext();
+	   	// getting the application context
+    		IWMainApplication mainApplication = IWMainApplication.getIWMainApplication(myServletContext);
+    		boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(DO_BASIC_AUTHENTICATION, true);
+
+    		if (doCheck) {
+    			if (! requestIsValid(request)) {
+    				//send a 403 error
+    				response.sendError(HttpServletResponse.SC_FORBIDDEN);
+    				return;
+    			}
+    		}
 		chain.doFilter(request, response);
 	}
 		

@@ -1,5 +1,5 @@
 /*
- * $Id: WSUserBusinessBean.java,v 1.3 2006/04/09 11:52:52 laddi Exp $
+ * $Id: WSUserBusinessBean.java,v 1.4 2006/05/24 10:35:35 palli Exp $
  * Created on Apr 3, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -23,6 +23,7 @@ import com.idega.core.contact.data.PhoneType;
 import com.idega.core.location.data.Address;
 import com.idega.core.location.data.Country;
 import com.idega.core.location.data.PostalCode;
+import com.idega.idegaweb.IWMainApplication;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.User;
 import com.idega.util.StringHandler;
@@ -30,10 +31,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/04/09 11:52:52 $ by $Author: laddi $
+ *  Last modified: $Date: 2006/05/24 10:35:35 $ by $Author: palli $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusiness{
 	
@@ -41,9 +42,20 @@ public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusines
 	 * Comment for <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = 2293202816541756736L;
+	
+	private final String DO_BASIC_AUTHENTICATION = "WS_DO_BASIC_AUTHENTICATION";
+	
 	private UserBusiness userBusiness = null;
 	
 	public UserInfo getUserInfo(String personalId) {
+		IWMainApplication mainApplication = IWMainApplication.getDefaultIWMainApplication();
+		boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(DO_BASIC_AUTHENTICATION, true);
+
+		if (!doCheck) {
+			return null;
+		}
+
+		
 		UserInfo userInfo = new UserInfo();
 		User user = null;
 		try {

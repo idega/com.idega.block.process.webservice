@@ -19,6 +19,7 @@ import com.idega.block.process.wsclient.WSCaseConstants;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBOLookupException;
 import com.idega.business.IBORuntimeException;
+import com.idega.idegaweb.IWMainApplication;
 import com.idega.user.business.GroupBusiness;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.Group;
@@ -33,6 +34,8 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	 * Comment for <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = -7507655249872022683L;
+	
+	private final String DO_BASIC_AUTHENTICATION = "WS_DO_BASIC_AUTHENTICATION";
 
 	private UserBusiness userBusiness = null;
 	private GroupBusiness groupBusiness = null;
@@ -103,7 +106,12 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		// now the uOwner is not null and theCase is not null
 		// but wsOwner could be null
 		if (wsOwner != null) {
-			updateUserInformation(uOwner, wsOwner);
+    			IWMainApplication mainApplication = IWMainApplication.getDefaultIWMainApplication();
+    			boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(DO_BASIC_AUTHENTICATION, true);
+
+    			if (doCheck) {
+    				updateUserInformation(uOwner, wsOwner);
+    			}
 		}
 		
 		// prepare the user messages
