@@ -1,5 +1,5 @@
 /*
- * $Id: WebServiceAuthorizationFilter.java,v 1.4 2006/05/24 10:35:35 palli Exp $
+ * $Id: WebServiceAuthorizationFilter.java,v 1.5 2006/05/24 11:42:35 palli Exp $
  * Created on Apr 4, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -43,17 +43,19 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/05/24 10:35:35 $ by $Author: palli $
+ *  Last modified: $Date: 2006/05/24 11:42:35 $ by $Author: palli $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class WebServiceAuthorizationFilter implements Filter {
 	
 	private final String WEB_SERVICE_USER_ROLE = "web_service_user"; 
 	
 	private final String DO_BASIC_AUTHENTICATION = "WS_DO_BASIC_AUTHENTICATION";
-	
+
+	private final String VALID_IP = "WS_VALID_IP";
+
 	LoginBusinessBean loginBusiness = null;
 	
 	LoginTableHome loginTableHome = null;
@@ -84,7 +86,33 @@ public class WebServiceAuthorizationFilter implements Filter {
     				response.sendError(HttpServletResponse.SC_FORBIDDEN);
     				return;
     			}
+    		} else {
+    			System.out.println("address = " + request.getRemoteAddr());
+    			System.out.println("host = " + request.getRemoteHost());
+    			System.out.println("port = " + request.getRemotePort());
+    			System.out.println("user = " + request.getRemoteUser());
+    			
+			boolean isValid = false;
+    			try {
+    				String validIP = mainApplication.getIWApplicationContext().getApplicationSettings().getProperty(VALID_IP, "");
+    				String[] ips = validIP.split("\\;");
+    				for (int i = 0; i < ips.length; i++) {
+    					if (ips[i].equals(request.getRemoteAddr())) {
+    						isValid = true;
+    						break;
+    					}
+    				}
+    			} catch (Exception e) {
+    				isValid = false;
+    			}
+    			
+    			if (!isValid) {
+    				//send a 403 error
+    				response.sendError(HttpServletResponse.SC_FORBIDDEN);
+    				return;    				
+    			}
     		}
+    		
 		chain.doFilter(request, response);
 	}
 		
