@@ -107,7 +107,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		// but wsOwner could be null
 		if (wsOwner != null) {
     			IWMainApplication mainApplication = IWMainApplication.getDefaultIWMainApplication();
-    			boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(DO_BASIC_AUTHENTICATION, true);
+    			boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(this.DO_BASIC_AUTHENTICATION, true);
 
     			if (doCheck) {
     				updateUserInformation(uOwner, wsOwner);

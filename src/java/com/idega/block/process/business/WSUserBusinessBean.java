@@ -1,5 +1,5 @@
 /*
- * $Id: WSUserBusinessBean.java,v 1.4 2006/05/24 10:35:35 palli Exp $
+ * $Id: WSUserBusinessBean.java,v 1.5 2006/05/27 09:43:19 laddi Exp $
  * Created on Apr 3, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -31,10 +31,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/05/24 10:35:35 $ by $Author: palli $
+ *  Last modified: $Date: 2006/05/27 09:43:19 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusiness{
 	
@@ -49,7 +49,7 @@ public class WSUserBusinessBean extends IBOServiceBean  implements WSUserBusines
 	
 	public UserInfo getUserInfo(String personalId) {
 		IWMainApplication mainApplication = IWMainApplication.getDefaultIWMainApplication();
-		boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(DO_BASIC_AUTHENTICATION, true);
+		boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(this.DO_BASIC_AUTHENTICATION, true);
 
 		if (!doCheck) {
 			return null;

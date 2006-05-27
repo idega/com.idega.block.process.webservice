@@ -1,5 +1,5 @@
 /*
- * $Id: WebServiceAuthorizationFilter.java,v 1.6 2006/05/24 12:53:46 palli Exp $
+ * $Id: WebServiceAuthorizationFilter.java,v 1.7 2006/05/27 09:43:19 laddi Exp $
  * Created on Apr 4, 2006
  *
  * Copyright (C) 2006 Idega Software hf. All Rights Reserved.
@@ -43,10 +43,10 @@ import com.idega.util.StringHandler;
 
 /**
  * 
- *  Last modified: $Date: 2006/05/24 12:53:46 $ by $Author: palli $
+ *  Last modified: $Date: 2006/05/27 09:43:19 $ by $Author: laddi $
  * 
  * @author <a href="mailto:thomas@idega.com">thomas</a>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class WebServiceAuthorizationFilter implements Filter {
 	
@@ -78,7 +78,7 @@ public class WebServiceAuthorizationFilter implements Filter {
 		ServletContext myServletContext = request.getSession().getServletContext();
 	   	// getting the application context
     		IWMainApplication mainApplication = IWMainApplication.getIWMainApplication(myServletContext);
-    		boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(DO_BASIC_AUTHENTICATION, true);
+    		boolean doCheck = mainApplication.getIWApplicationContext().getApplicationSettings().getBoolean(this.DO_BASIC_AUTHENTICATION, true);
 
     		if (doCheck) {
     			if (! requestIsValid(request)) {
@@ -89,7 +89,7 @@ public class WebServiceAuthorizationFilter implements Filter {
     		} else {    			
 			boolean isValid = false;
     			try {
-    				String validIP = mainApplication.getIWApplicationContext().getApplicationSettings().getProperty(VALID_IP, "");
+    				String validIP = mainApplication.getIWApplicationContext().getApplicationSettings().getProperty(this.VALID_IP, "");
     				String[] ips = validIP.split("\\;");
     				for (int i = 0; i < ips.length; i++) {
     					if (ips[i].equals(request.getRemoteAddr())) {
