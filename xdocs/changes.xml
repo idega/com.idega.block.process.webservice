@@ -1,21 +1,30 @@
 <document>
-  <properties>
-    <title> changes</title>
-    <author email="tryggvi@idega.com">Tryggvi Larusson</author>
-  </properties>
-  <body>
-  
-    <release version="3.1.1" date="2007-01-22">
-      <action dev="tryggvil" type="update">
-        Moving security filter WebServiceAuthorizationFilter to the com.idega.core module where it's more appropriately placed.
-      </action>
-    </release>
-  
-    <release version="3.1.0" date="2006-06-26">
-      <action dev="tryggvil" type="update">
-        Declaration of version for use with ePlatform release 3.1.0
-      </action>
-    </release>
+	<properties>
+		<title>changes</title>
+		<author email="tryggvi@idega.com">Tryggvi Larusson</author>
+	</properties>
+	<body>
+		<release version="3.1.2" date="2007-03-09">
+			<action dev="palli" type="update">
+				Updating and fixing dependencies to create a new sunnan3
+				application.
+			</action>
+		</release>
 
-  </body>
+		<release version="3.1.1" date="2007-01-22">
+			<action dev="tryggvil" type="update">
+				Moving security filter WebServiceAuthorizationFilter to
+				the com.idega.core module where it's more appropriately
+				placed.
+			</action>
+		</release>
+
+		<release version="3.1.0" date="2006-06-26">
+			<action dev="tryggvil" type="update">
+				Declaration of version for use with ePlatform release
+				3.1.0
+			</action>
+		</release>
+
+	</body>
 </document>

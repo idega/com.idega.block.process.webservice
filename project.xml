@@ -5,7 +5,7 @@
 	<pomVersion>3</pomVersion>
 	<name>idegaWeb Process Webservice Block</name>
 	<artifactId>com.idega.block.process.webservice</artifactId>
-	<currentVersion>3.1.1</currentVersion>
+	<currentVersion>3.1.2</currentVersion>
 	<inceptionYear>2006</inceptionYear>
 	<shortDescription>Process Webservice</shortDescription>
 	<versions>
