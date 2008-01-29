@@ -3,12 +3,12 @@
   <parent>
     <groupId>com.idega.block.platform</groupId>
     <artifactId>com.idega.block.platform</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.2-SNAPSHOT</version>
   </parent>
   <name>Process Web Service</name>
   <groupId>com.idega.block.platform</groupId>
   <artifactId>com.idega.block.process.webservice</artifactId>
-  <version>4.0.1</version>
+  <version>4.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <inceptionYear>2005</inceptionYear>
   <description>idegaWeb Process Web Service</description>
@@ -20,7 +20,6 @@
      -->
     <connection>scm:cvs:ext:civilis@code.idega.com:/idega/cvs:com.idega.block.platform/com.idega.block.process.webservice/</connection>
     <developerConnection>scm:cvs:ext:civilis@code.idega.com:/idega/cvs:com.idega.block.platform/com.idega.block.process.webservice/</developerConnection>
-    <tag>com_idega_block_platform_super-4_0_1</tag>
   </scm>
   
   <developers>
