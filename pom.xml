@@ -58,9 +58,10 @@
       <type>jar</type>
     </dependency>
     <dependency>
-      <groupId>com.lowagie</groupId>
-      <artifactId>itext</artifactId>
-      <version>0.99</version>
+      <groupId>itextpdf</groupId>
+      <artifactId>itext-paulo</artifactId>
+      <version>${itextpdf-itext-paulo-version}</version>
+      <type>jar</type>
       <scope>test</scope>
     </dependency>
   </dependencies>
