@@ -313,9 +313,6 @@ public class CaseEntry  implements java.io.Serializable {
 					return false;
 				}
         CaseEntry other = (CaseEntry) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

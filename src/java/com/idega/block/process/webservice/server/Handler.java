@@ -337,9 +337,6 @@ public class Handler  implements java.io.Serializable {
 					return false;
 				}
         Handler other = (Handler) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

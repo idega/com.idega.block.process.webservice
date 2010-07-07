@@ -48,9 +48,6 @@ public class Case_response  implements java.io.Serializable {
 					return false;
 				}
         Case_response other = (Case_response) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

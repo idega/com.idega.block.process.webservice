@@ -48,9 +48,6 @@ public class Recipient  implements java.io.Serializable {
 					return false;
 				}
         Recipient other = (Recipient) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

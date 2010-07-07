@@ -289,9 +289,6 @@ public class Case_requestHandlerContact  implements java.io.Serializable {
 					return false;
 				}
         Case_requestHandlerContact other = (Case_requestHandlerContact) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

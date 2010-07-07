@@ -73,9 +73,6 @@ public class Case_requestItem  implements java.io.Serializable {
 					return false;
 				}
         Case_requestItem other = (Case_requestItem) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

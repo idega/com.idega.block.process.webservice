@@ -73,9 +73,6 @@ public class CaseResult  implements java.io.Serializable {
 					return false;
 				}
         CaseResult other = (CaseResult) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

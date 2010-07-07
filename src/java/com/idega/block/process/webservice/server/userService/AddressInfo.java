@@ -145,9 +145,6 @@ public class AddressInfo  implements java.io.Serializable {
 					return false;
 				}
         AddressInfo other = (AddressInfo) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

@@ -313,9 +313,6 @@ public class Case_request  implements java.io.Serializable {
 					return false;
 				}
         Case_request other = (Case_request) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

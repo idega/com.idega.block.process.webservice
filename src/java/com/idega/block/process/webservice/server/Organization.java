@@ -73,9 +73,6 @@ public class Organization  implements java.io.Serializable {
 					return false;
 				}
         Organization other = (Organization) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

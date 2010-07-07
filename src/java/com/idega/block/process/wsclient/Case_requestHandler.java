@@ -313,9 +313,6 @@ public class Case_requestHandler  implements java.io.Serializable {
 					return false;
 				}
         Case_requestHandler other = (Case_requestHandler) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

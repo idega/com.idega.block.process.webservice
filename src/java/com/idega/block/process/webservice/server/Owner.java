@@ -313,9 +313,6 @@ public class Owner  implements java.io.Serializable {
 					return false;
 				}
         Owner other = (Owner) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

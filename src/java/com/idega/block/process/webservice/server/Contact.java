@@ -289,9 +289,6 @@ public class Contact  implements java.io.Serializable {
 					return false;
 				}
         Contact other = (Contact) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

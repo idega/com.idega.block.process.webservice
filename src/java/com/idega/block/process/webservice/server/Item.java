@@ -73,9 +73,6 @@ public class Item  implements java.io.Serializable {
 					return false;
 				}
         Item other = (Item) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}

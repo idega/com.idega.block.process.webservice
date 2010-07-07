@@ -313,9 +313,6 @@ public class Case_requestOwner  implements java.io.Serializable {
 					return false;
 				}
         Case_requestOwner other = (Case_requestOwner) obj;
-        if (obj == null) {
-					return false;
-				}
         if (this == obj) {
 					return true;
 				}
