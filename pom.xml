@@ -13,18 +13,6 @@
   <inceptionYear>2005</inceptionYear>
   <description>idegaWeb Process Web Service</description>
   
-  <scm>
-    
-    <connection>scm:cvs:ext:idegaweb@code.idega.com:/idega/cvs:com.idega.block.platform/com.idega.block.process.webservice/</connection>
-    <developerConnection>scm:cvs:ext:idegaweb@code.idega.com:/idega/cvs:com.idega.block.platform/com.idega.block.process.webservice/</developerConnection> 
-     
-     <!--
-    <connection>scm:cvs:ext:idegaweb@code.idega.com:/idega/cvs:com.idega.block.platform/com.idega.block.process.webservice/</connection>
-    <developerConnection>scm:cvs:ext:idegaweb@code.idega.com:/idega/cvs:com.idega.block.platform/com.idega.block.process.webservice/</developerConnection>
-    -->
-    <tag>com_idega_block_platform-4_1_2</tag>
-  </scm>
-  
   <developers>
     <developer>
       <name>Pall Helgason</name>
@@ -61,9 +49,9 @@
       <type>jar</type>
     </dependency>
     <dependency>
-      <groupId>com.itextpdf</groupId>
-      <artifactId>itextpdf</artifactId>
-      <version>${com.itextpdf-itextpdf-version}</version>
+      <groupId>itextpdf</groupId>
+	  <artifactId>itext-paulo</artifactId>
+      <version>${itextpdf-itext-paulo-version}</version>
       <type>jar</type>
       <scope>test</scope>
     </dependency>
