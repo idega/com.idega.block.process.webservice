@@ -35,7 +35,7 @@ public class TestClientVUF {
 	private static void testVUFCreateAndUpdate() {
 		try {
 			Owner owner = new Owner();
-			owner.setAddress("Tjarnarmýri 5");
+			owner.setAddress("TjarnarmÃ½ri 5");
 			owner.setCity("Reykjavik");
 			owner.setEmail("hello@idega.is");
 			owner.setGsm("00000");
@@ -63,7 +63,7 @@ public class TestClientVUF {
 			items[2].setKey(WSCaseConstants.MAIL_MESSAGE_SUBJECT);
 			items[2].setValue("My subject");
 			items[3].setKey(WSCaseConstants.MAIL_MESSAGE_BODY);
-			items[3].setValue("Hi Thomas! Hvað segir þú?");
+			items[3].setValue("Hi Thomas! HvaÃ° segir Ã¾Ãº?");
 			wsCase.setMetadata(items);
 			CaseServiceServiceLocator service = new CaseServiceServiceLocator();
 			//TicketServiceServiceLocator ticketService = new TicketServiceServiceLocator();
@@ -92,7 +92,7 @@ public class TestClientVUF {
 	/*private static void testVUFUser() {
 		try {
 			Owner owner = new Owner();
-			owner.setAddress("Tjarnarmýri 5");
+			owner.setAddress("TjarnarmÃ½ri 5");
 			owner.setCity("Reykjavik");
 			owner.setEmail("hello@idega.is");
 			owner.setGsm("00000");
@@ -120,7 +120,7 @@ public class TestClientVUF {
 			items[2].setKey(WSCaseConstants.MAIL_MESSAGE_SUBJECT);
 			items[2].setValue("My subject");
 			items[3].setKey(WSCaseConstants.MAIL_MESSAGE_BODY);
-			items[3].setValue("Hi Thomas! Hvað segir þú?");
+			items[3].setValue("Hi Thomas! HvaÃ° segir Ã¾Ãº?");
 			wsCase.setMetadata(items);
 			//CaseServiceServiceLocator service = new CaseServiceServiceLocator();
 			UserServiceServiceLocator userService = new UserServiceServiceLocator();
@@ -151,7 +151,7 @@ public class TestClientVUF {
 	/*private static void testVUFTicket() {
 		try {
 			Owner owner = new Owner();
-			owner.setAddress("Tjarnarmýri 5");
+			owner.setAddress("TjarnarmÃ½ri 5");
 			owner.setCity("Reykjavik");
 			owner.setEmail("hello@idega.is");
 			owner.setGsm("00000");
@@ -179,7 +179,7 @@ public class TestClientVUF {
 			items[2].setKey(WSCaseConstants.MAIL_MESSAGE_SUBJECT);
 			items[2].setValue("My subject");
 			items[3].setKey(WSCaseConstants.MAIL_MESSAGE_BODY);
-			items[3].setValue("Hi Thomas! Hvað segir þú?");
+			items[3].setValue("Hi Thomas! HvaÃ° segir Ã¾Ãº?");
 			wsCase.setMetadata(items);
 			//CaseServiceServiceLocator service = new CaseServiceServiceLocator();
 			TicketServiceServiceLocator ticketService = new TicketServiceServiceLocator();
@@ -217,10 +217,10 @@ public class TestClientVUF {
 			Case_requestOwner owner = new Case_requestOwner();
 			owner.setAddress("Galtalind 13");
 			owner.setCase_role("eigandi");
-			owner.setCity("KÃ³pavogur");
+			owner.setCity("KÃƒÂ³pavogur");
 			owner.setEmail("palli@idega.is");
 			owner.setGsm("8671374");
-			owner.setName("PÃ¡ll Helgason");
+			owner.setName("PÃƒÂ¡ll Helgason");
 			owner.setPhone("5555555");
 			owner.setPostalcode("201");
 			owner.setSocialsecurity("0610703899");
