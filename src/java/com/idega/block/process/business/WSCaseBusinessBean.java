@@ -22,25 +22,17 @@ import com.idega.business.IBOLookup;
 import com.idega.business.IBOLookupException;
 import com.idega.business.IBORuntimeException;
 import com.idega.idegaweb.IWMainApplication;
-import com.idega.user.business.GroupBusiness;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.Group;
 import com.idega.user.data.User;
 import com.idega.util.IWTimestamp;
 import com.idega.util.StringHandler;
 
-public class WSCaseBusinessBean extends CaseBusinessBean implements
-		WSCaseBusiness {
+public class WSCaseBusinessBean extends CaseBusinessBean implements WSCaseBusiness {
 
-	/**
-	 * Comment for <code>serialVersionUID</code>
-	 */
 	private static final long serialVersionUID = -7507655249872022683L;
 
 	private final String DO_BASIC_AUTHENTICATION = "WS_DO_BASIC_AUTHENTICATION";
-
-	private UserBusiness userBusiness = null;
-	private GroupBusiness groupBusiness = null;
 
 	private boolean autocreateOwner=false;
 
@@ -393,23 +385,17 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 	}
 
 	private UserBusiness getUserBusiness(){
-		if (this.userBusiness == null) {
-			try {
-				this.userBusiness = IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
-			}
-			catch (IBOLookupException e) {
-				throw new RuntimeException(e);
-			}
+		try {
+			return IBOLookup.getServiceInstance(getIWApplicationContext(), UserBusiness.class);
+		} catch (IBOLookupException e) {
+			throw new IBORuntimeException(e);
 		}
-		return this.userBusiness;
 	}
 
 	private MessageBusiness getMessageBusiness() {
 		try {
-
 			return IBOLookup.getServiceInstance(getIWApplicationContext(), MessageBusiness.class);
-		}
-		catch (IBOLookupException e) {
+		} catch (IBOLookupException e) {
 			throw new IBORuntimeException(e);
 		}
 	}
