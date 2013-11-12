@@ -2,9 +2,11 @@ package com.idega.block.process.business;
 
 import java.rmi.RemoteException;
 import java.util.Collection;
+
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
+
 import com.idega.block.process.data.Case;
 import com.idega.block.process.data.CaseCode;
 import com.idega.block.process.data.CaseStatus;
@@ -20,38 +22,31 @@ import com.idega.business.IBOLookup;
 import com.idega.business.IBOLookupException;
 import com.idega.business.IBORuntimeException;
 import com.idega.idegaweb.IWMainApplication;
-import com.idega.user.business.GroupBusiness;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.Group;
 import com.idega.user.data.User;
 import com.idega.util.IWTimestamp;
 import com.idega.util.StringHandler;
 
-public class WSCaseBusinessBean extends CaseBusinessBean implements
-		WSCaseBusiness {
+public class WSCaseBusinessBean extends CaseBusinessBean implements WSCaseBusiness {
 
-	/**
-	 * Comment for <code>serialVersionUID</code>
-	 */
 	private static final long serialVersionUID = -7507655249872022683L;
-	
+
 	private final String DO_BASIC_AUTHENTICATION = "WS_DO_BASIC_AUTHENTICATION";
 
-	private UserBusiness userBusiness = null;
-	private GroupBusiness groupBusiness = null;
-	
 	private boolean autocreateOwner=false;
-	
+
+	@Override
 	public CaseResult createOrUpdateCase(CaseEntry wsCase) throws Exception {
-		
+
 		boolean storeCase = false;
 		// find an existing case
 		Case theCase = findExistingCase(wsCase);
 		boolean caseIsUpdated = (theCase != null);
-		
+
 		// could we create a new case?
 		// status is needed, case code is needed and owner is needed
-		
+
 		// try to get an owner (not required when updating)
 		Owner wsOwner = wsCase.getOwner();
 		User uOwner = null;
@@ -70,7 +65,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			 code = getCaseCodeAndInstallIfNotExists(caseCode);
 		}
 		boolean canCreateNewCase = (newStatus != null && uOwner != null && code != null);
-		
+
 		// create a new case if we haven't found an existing one and if a owner is known
 		// do not create a case without an owner
 		if ( ! caseIsUpdated && canCreateNewCase) {
@@ -83,22 +78,22 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			// owner could not be found
 			CaseResult caseResult = new CaseResult();
 			caseResult.setId("-2");
-			caseResult.setOperation("create/update failed");   
+			caseResult.setOperation("create/update failed");
 			return caseResult;
 		}
-		
+
 		// still no case? Giving up....
 		if (theCase == null) {
 			throw new CreateException();
 		}
-		
+
 		if (uOwner != null) {
 			storeCase = true;
 			// the owner was fetched from the request, set the owner
 			theCase.setOwner(uOwner);
 		}
 		else {
-			// uOwner is null, try to get the owner from the case 
+			// uOwner is null, try to get the owner from the case
 			// if the case already exists we take the owner from there
 			uOwner = theCase.getOwner();
 		}
@@ -113,7 +108,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
     				updateUserInformation(uOwner, wsOwner);
     			}
 		}
-		
+
 		// prepare the user messages
 		// first set the metadata, it is used in setUserMessage
 		Item[] metadata = wsCase.getMetadata();
@@ -128,7 +123,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 					String value = item.getValue();
 					if (key != null && value != null) {
 						if (WSCaseConstants.MAIL_MESSAGE_SUBJECT.equals(key)) {
-							subject = value; 
+							subject = value;
 						}
 						if (WSCaseConstants.MAIL_MESSAGE_BODY.equals(key)) {
 							body = value;
@@ -139,20 +134,20 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 				}
 			}
 		}
-		
+
 		CaseStatus newCaseStatus = null;
 		if (newStatus != null) {
 			storeCase = true;
 			// match to four digits
 			newStatus = convertStatus(newStatus);
-			// create CaseStatus entry if necessary 
+			// create CaseStatus entry if necessary
 			 newCaseStatus = getCaseStatus(newStatus);
-	
+
 			// was the case created or updated?
 			if (caseIsUpdated) {
 				changeCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
 			}
-			else { 
+			else {
 				setCaseStatus(theCase, newCaseStatus, uOwner, subject, body);
 			}
 		}
@@ -160,7 +155,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		else {
 			setUserMessage(theCase, uOwner, subject, body);
 		}
-	
+
 		// handler not required
 		Handler handler = wsCase.getHandler();
 		if (handler != null) {
@@ -173,41 +168,42 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			storeCase = true;
 			theCase.setExternalId(externalCaseId);
 		}
-		
+
 		// set case code
 
 		if (caseCode != null) {
 			storeCase = true;
 			theCase.setCaseCode(code);
 		}
-		
+
 		String wsSubject = wsCase.getSubject();
 		if (StringHandler.isNotEmpty(wsSubject)) {
 			storeCase = true;
 			theCase.setSubject(wsSubject);
 		}
-		
+
 		String wsBody = wsCase.getBody();
 		if (StringHandler.isNotEmpty(wsBody)) {
 			storeCase = true;
 			theCase.setBody(wsBody);
 		}
-	
+
 		// time to store....
 		if (storeCase) {
 			theCase.store();
 		}
-		
+
 		CaseResult caseResult = new CaseResult();
 		caseResult.setId(theCase.getUniqueId());
-		caseResult.setOperation("success");   
-		
+		caseResult.setOperation("success");
+
 		return caseResult;
 	}
-	
-	
+
+
+	@Override
 	public void updateUserInformation(User user, Owner owner) throws CreateException{
-		
+
 		//Update emails:
 		String sEmail = owner.getEmail();
 		if (sEmail != null && sEmail.length() > 0) {
@@ -215,12 +211,12 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 				getUserBusiness().updateUserMail(user, sEmail);
 			}
 			catch (RemoteException ex) {
-				throw new IBORuntimeException(); 
+				throw new IBORuntimeException();
 			}
 		}
 
 		//Update phone:
-		
+
 		String sPhone = owner.getPhone();
 		if(sPhone != null && sPhone.length() > 0) {
 			try {
@@ -231,7 +227,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}
 			catch (RemoteException e) {
 				e.printStackTrace();
-			}	
+			}
 		}
 		String mobile = owner.getGsm();
 		if(mobile != null && mobile.length() > 0){
@@ -243,17 +239,17 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			}
 			catch (RemoteException e) {
 				e.printStackTrace();
-			}	
+			}
 		}
 	}
-	
-	
+
+
 	private User findOwner(Owner owner) throws CreateException {
 		try {
 			User uOwner = getUserHome().findByPersonalID(owner.getSocialsecurity());
 			System.out.println("[CaseBusiness : craeteOrUpdateCase] owner = "+uOwner.getPersonalID());
 			return uOwner;
-		} 
+		}
 		catch (FinderException f) {
 			System.out.println("[CaseBusiness : craeteOrUpdateCase] no owner");
 			if(this.autocreateOwner){
@@ -269,7 +265,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		}
 	}
 
-	
+
 	private Case findExistingCase(CaseEntry wsCase) throws FinderException{
 		String id = wsCase.getId();
 		if (id == null || "-1".equals(id)) {
@@ -283,24 +279,25 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 				log("[CaseBusiness : craeteOrUpdateCase] creating");
 				return null;
 			}
-		} 
+		}
 		return getCaseHome().findCaseByUniqueId(id);
 	}
-	
+
 	private Case createCase() throws CreateException {
 		return  getCaseHome().create();
 	}
 
+	@Override
 	public void changeCaseStatus(Case theCase, CaseStatus newCaseStatus, User performer,String updateMessageSubject, String updateMessageBody) {
 		changeCaseStatusDoNotSendUpdates(theCase, newCaseStatus.getStatus(), performer);
 		setUserMessage(theCase, performer, updateMessageSubject, updateMessageBody);
 	}
-	
+
 	private void setCaseStatus(Case theCase, CaseStatus caseStatus, User performer, String messageSubject, String messageBody) {
 		theCase.setCaseStatus(caseStatus);
 		setUserMessage(theCase, performer, messageSubject, messageBody);
 	}
-	
+
 	private boolean setHandler(Handler handler, Case theCase) {
 		boolean theCaseIsModified = false;
 		String handlerPersonalId = handler.getSocialsecurity();
@@ -321,12 +318,12 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			String nameOfOrganization = organization.getName();
 			if (StringHandler.isNotEmpty(nameOfOrganization)) {
 				try {
-					Collection groups = getGroupBusiness().getGroupsByGroupName(nameOfOrganization);
+					Collection<Group> groups = getGroupBusiness().getGroupsByGroupName(nameOfOrganization);
 					if (groups == null || groups.isEmpty()) {
 						logError("[CaseBusiness : createOrUpdateCase] no handler");
 					}
 					else {
-						Group group = (Group) groups.iterator().next();
+						Group group = groups.iterator().next();
 						theCase.setHandler(group);
 						theCaseIsModified = true;
 					}
@@ -339,10 +336,10 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		}
 		return theCaseIsModified;
 	}
-	
-	
+
+
 	private void setUserMessage(Case theCase, User user, String subject, String body) {
-		// check if sending an email makes sense 
+		// check if sending an email makes sense
 		boolean subjectIsEmpty = StringHandler.isEmpty(subject);
 		boolean bodyIsEmpty = StringHandler.isEmpty(body);
 		if (subjectIsEmpty && bodyIsEmpty) {
@@ -367,7 +364,7 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	private String convertStatus(String status) {
 		if (WSCaseConstants.STATUS_ARCHIVED.equals(status)) {
 			return getCaseHome().getCaseStatusArchived();
@@ -386,37 +383,19 @@ public class WSCaseBusinessBean extends CaseBusinessBean implements
 		}
 		return status;
 	}
-	
+
 	private UserBusiness getUserBusiness(){
-		if (this.userBusiness == null) {
-			try {
-				this.userBusiness = (UserBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),UserBusiness.class);
-			}
-			catch (IBOLookupException e) {
-				throw new RuntimeException(e);
-			}
+		try {
+			return IBOLookup.getServiceInstance(getIWApplicationContext(), UserBusiness.class);
+		} catch (IBOLookupException e) {
+			throw new IBORuntimeException(e);
 		}
-		return this.userBusiness;
 	}
-	
-	private GroupBusiness getGroupBusiness(){
-		if (this.groupBusiness == null) {
-			try {
-				this.groupBusiness = (GroupBusiness)IBOLookup.getServiceInstance(getIWApplicationContext(),GroupBusiness.class);
-			}
-			catch (IBOLookupException e) {
-				throw new RuntimeException(e);
-			}
-		}
-		return this.groupBusiness;
-	}
-	
+
 	private MessageBusiness getMessageBusiness() {
 		try {
-			
-			return (MessageBusiness) IBOLookup.getServiceInstance(getIWApplicationContext(), MessageBusiness.class);
-		}
-		catch (IBOLookupException e) {
+			return IBOLookup.getServiceInstance(getIWApplicationContext(), MessageBusiness.class);
+		} catch (IBOLookupException e) {
 			throw new IBORuntimeException(e);
 		}
 	}
